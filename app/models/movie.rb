@@ -1,4 +1,6 @@
 class Movie < ApplicationRecord
+  has_many :tastes
+
   validates :title, presence: true
   validates :photo, presence: true
   validates :genre, presence: true

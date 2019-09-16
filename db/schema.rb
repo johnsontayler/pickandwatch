@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_16_192426) do
+ActiveRecord::Schema.define(version: 2019_09_16_195806) do
+
+  create_table "follows", force: :cascade do |t|
+    t.integer "followed_id"
+    t.integer "follower_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "movies", force: :cascade do |t|
     t.string "title"
@@ -25,6 +32,19 @@ ActiveRecord::Schema.define(version: 2019_09_16_192426) do
     t.float "imdb_rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tastes", force: :cascade do |t|
+    t.boolean "watched", default: false
+    t.boolean "wish", default: false
+    t.boolean "rating"
+    t.text "review"
+    t.integer "movie_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movie_id"], name: "index_tastes_on_movie_id"
+    t.index ["user_id"], name: "index_tastes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
