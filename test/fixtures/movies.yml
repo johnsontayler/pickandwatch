@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  photo: MyString
+  genre: MyString
+  description: MyText
+  year: 2019-09-16
+  duration: 1
+  director: MyString
+  actor: MyString
+  award: MyString
+  imdb_rating: 1.5
+
+two:
+  title: MyString
+  photo: MyString
+  genre: MyString
+  description: MyText
+  year: 2019-09-16
+  duration: 1
+  director: MyString
+  actor: MyString
+  award: MyString
+  imdb_rating: 1.5
