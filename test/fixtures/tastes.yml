@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  watched: false
+  wish: false
+  rating: false
+  review: MyText
+  movie: one
+  user: one
+
+two:
+  watched: false
+  wish: false
+  rating: false
+  review: MyText
+  movie: two
+  user: two
