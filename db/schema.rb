@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2019_09_16_195806) do
 
   create_table "follows", force: :cascade do |t|
+    t.integer "followed_id"
     t.integer "follower_id"
-    t.integer "following_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 2019_09_16_195806) do
   end
 
   create_table "tastes", force: :cascade do |t|
-    t.boolean "watched"
-    t.boolean "wish"
+    t.boolean "watched", default: false
+    t.boolean "wish", default: false
     t.boolean "rating"
     t.text "review"
     t.integer "movie_id"

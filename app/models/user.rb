@@ -7,10 +7,10 @@ class User < ApplicationRecord
   has_many :tastes
 
   has_many :follows, foreign_key: :follower_id
-  has_many :followings, through: :follows
+  has_many :followings, through: :follows, source: :followed
 
   has_many :followed, foreign_key: :followed_id, class_name: 'Follow'
-  has_many :followers, through: :followed
+  has_many :followers, through: :followed, source: :follower
 
   validates :first_name, presence: true
   validates :last_name, presence: true
