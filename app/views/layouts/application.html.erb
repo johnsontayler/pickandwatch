@@ -14,13 +14,16 @@
 
   <body>
     <div class="wrapper">
+      <nav>
+        <%= render 'shared/navbar' %>
+      </nav>
+      <%= render 'dashboards/search_form' %>
       <%= yield %>
       <%= javascript_include_tag 'application' %>
       <%= javascript_pack_tag 'application' %>
     </div>
 
     <footer>
-    <%= render 'shared/footer_navigation' %>
     </footer>
   </body>
 
