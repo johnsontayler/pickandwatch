@@ -1,13 +1,10 @@
-.movie-description-card {
-  padding: 10px 12px 10px 16px;
-  border: $border;
+$padding: 10px 12px 10px 16px;
+
+.section-card {
+  padding: $padding;
+  border-bottom: $border;
 }
 
 .movie-show-poster img {
   width: 92px;
-}
-
-.watched-by-card {
-  padding: 10px 12px 10px 16px;
-  width: 100%;
 }
