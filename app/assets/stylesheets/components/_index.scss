@@ -3,3 +3,13 @@
 @import "avatar";
 @import "search_form";
 @import "footer";
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.wrapper {
+  min-height: 100%;
+  margin-bottom: -40px;
+}
