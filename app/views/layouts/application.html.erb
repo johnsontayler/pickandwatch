@@ -13,8 +13,15 @@
   </head>
 
   <body>
-    <%= yield %>
-    <%= javascript_include_tag 'application' %>
-    <%= javascript_pack_tag 'application' %>
+    <div class="wrapper">
+      <%= yield %>
+      <%= javascript_include_tag 'application' %>
+      <%= javascript_pack_tag 'application' %>
+    </div>
+
+    <footer>
+    <%= render 'shared/footer_navigation' %>
+    </footer>
   </body>
+
 </html>
