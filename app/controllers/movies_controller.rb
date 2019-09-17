@@ -1,7 +1,6 @@
 class MoviesController < ApplicationController
+  skip_before_action :authenticate_user!
   def index
-    @movies = policy_scope(Movie)
-    authorize @movie
   end
 
   def show
