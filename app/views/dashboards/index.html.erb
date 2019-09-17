@@ -4,13 +4,15 @@
 <p>Find me in app/views/dashboards/index.html.erb</p>
 
 <div class="categories">
- <% @tastes.each do |movie| %>
-  <a data-genre-id="<%= genre.id %>" href="#"><%= movie.genre %></a>
+ <% @genres.each do |genre| %>
+  <a data-genre-id="<%= genre %>" href="#"><%= genre %></a>
     <% end %>
 </div>
 
 <div>
-  <% @tastes.each do |movie| %>
-    <div data-genre-id="<% movie.genre.id %>"></div>
+  <% @tastes.each do |taste| %>
+    <div data-genre-id="<% taste.movie.genre %>">
+      Card for <%= taste.movie.title %>
+    </div>
   <% end %>
 </div>

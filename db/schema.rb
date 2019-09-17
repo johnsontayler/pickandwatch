@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2019_09_16_195806) do
     t.string "photo"
     t.string "genre"
     t.text "description"
-    t.date "year"
+    t.integer "year"
     t.integer "duration"
     t.string "director"
     t.string "actor"
