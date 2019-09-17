@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :users, only: [:index, :show]
+
+  resources :movies, only: [:index, :show] do
+    resources :reviews, only: [:new, :create, :destroy]
+    resources :tastes, only: [:create, :destroy]
+  end
+
+  resources :dashboards, only: [:index]
+
+  resources :follows, only: [:create, :destroy]
+
+  resources :wishlist, only: [:index]
 end
