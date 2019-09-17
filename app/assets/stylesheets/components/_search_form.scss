@@ -4,10 +4,12 @@
 
 .search-form-control .btn {
   position: absolute;
-  top: 8px;
-  bottom: 8px;
-  right: 8px;
-  color: $orange;
+  top: 6px;
+  bottom: 6px;
+  right: 6px;
+  background-color: $orange;
+  color: white;
+  align-items: center;
 }
 
 .search-form-control .form-control {

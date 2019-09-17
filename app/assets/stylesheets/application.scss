@@ -10,10 +10,6 @@ $border: 1px solid #E7E7E7;
 @import url(https://fonts.googleapis.com/css?family=Nunito);
 @import url(https://fonts.googleapis.com/css?family=Lora);
 
-@import "config/fonts";
-@import "config/colors";
-@import "config/bootstrap_variables";
-
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
@@ -21,4 +17,3 @@ $border: 1px solid #E7E7E7;
 
 // Your CSS partials
 @import "components/index";
-@import "pages/index";
