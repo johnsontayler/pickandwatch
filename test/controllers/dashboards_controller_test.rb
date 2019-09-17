@@ -6,4 +6,7 @@ class DashboardsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  def index
+    @tastes = Tastes.all.joins(:movie).where(movie_id: @movie.id)
+  end
 end
