@@ -8,6 +8,13 @@
   display: flex;
 }
 
+.categories a {
+  font-size: $body_size;
+  font-family: $sl-font-family--body;
+  border: $border;
+  text-decoration: none;
+}
+
 .category {
   display: flex;
 }
