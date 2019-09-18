@@ -12,8 +12,7 @@ searchQuery.addEventListener("keyup", event => {
     data.forEach((result) => {
       const user = `<li class="list-inline-item">
         <img src="${result.photo}" alt="" class="avatar">
-        ${result.first_name}
-        ${result.last_name}
+        ${result.first_name} ${result.last_name}
       </li> <br>`;
       results.insertAdjacentHTML("beforeend", user);
     });
