@@ -16,7 +16,7 @@
       <i class="fab fa-imdb"></i> <%= @movie.imdb_rating %>
     </div>
     <div class="flex-item ml-auto mr-2">
-      <% if @taste.count.zero? %>
+      <% if @user_taste.count.zero? %>
         <%= link_to movie_path(@movie), style: "color: inherit;" do %>
           <i class="far fa-bookmark mr-1"></i>
         <% end %> Wishlist
@@ -39,16 +39,11 @@
   </div>
   <! ---- Watched By Section ---- >
   <div class="section-card flex-column">
-    <div>
-      <p><strong>Watched By:</strong></p>
-    </div>
+    <p><strong>Watched By:</strong></p>
     <div class="watched-avatars-card d-flex justify-content-between">
-      <%= image_tag "https://scontent-gig2-1.xx.fbcdn.net/v/t31.0-8/17991283_10154294016570723_8726333424113288695_o.jpg?_nc_cat=104&_nc_oc=AQny8vgg22cMjXBOeCLALsj5oloy0Vdy3g5tj-vgouT3yeI5UDtrU1KFLnTZMBzNEzo&_nc_ht=scontent-gig2-1.xx&oh=9092fd26e6aaafc2a6bd32006d2dca79&oe=5E03F894", class: "avatar" %>
-      <%= image_tag "https://scontent-gig2-1.xx.fbcdn.net/v/t31.0-8/17991283_10154294016570723_8726333424113288695_o.jpg?_nc_cat=104&_nc_oc=AQny8vgg22cMjXBOeCLALsj5oloy0Vdy3g5tj-vgouT3yeI5UDtrU1KFLnTZMBzNEzo&_nc_ht=scontent-gig2-1.xx&oh=9092fd26e6aaafc2a6bd32006d2dca79&oe=5E03F894", class: "avatar" %>
-      <%= image_tag "https://scontent-gig2-1.xx.fbcdn.net/v/t31.0-8/17991283_10154294016570723_8726333424113288695_o.jpg?_nc_cat=104&_nc_oc=AQny8vgg22cMjXBOeCLALsj5oloy0Vdy3g5tj-vgouT3yeI5UDtrU1KFLnTZMBzNEzo&_nc_ht=scontent-gig2-1.xx&oh=9092fd26e6aaafc2a6bd32006d2dca79&oe=5E03F894", class: "avatar" %>
-      <%= image_tag "https://scontent-gig2-1.xx.fbcdn.net/v/t31.0-8/17991283_10154294016570723_8726333424113288695_o.jpg?_nc_cat=104&_nc_oc=AQny8vgg22cMjXBOeCLALsj5oloy0Vdy3g5tj-vgouT3yeI5UDtrU1KFLnTZMBzNEzo&_nc_ht=scontent-gig2-1.xx&oh=9092fd26e6aaafc2a6bd32006d2dca79&oe=5E03F894", class: "avatar" %>
-      <%= image_tag "https://scontent-gig2-1.xx.fbcdn.net/v/t31.0-8/17991283_10154294016570723_8726333424113288695_o.jpg?_nc_cat=104&_nc_oc=AQny8vgg22cMjXBOeCLALsj5oloy0Vdy3g5tj-vgouT3yeI5UDtrU1KFLnTZMBzNEzo&_nc_ht=scontent-gig2-1.xx&oh=9092fd26e6aaafc2a6bd32006d2dca79&oe=5E03F894", class: "avatar" %>
-      <%= image_tag "https://scontent-gig2-1.xx.fbcdn.net/v/t31.0-8/17991283_10154294016570723_8726333424113288695_o.jpg?_nc_cat=104&_nc_oc=AQny8vgg22cMjXBOeCLALsj5oloy0Vdy3g5tj-vgouT3yeI5UDtrU1KFLnTZMBzNEzo&_nc_ht=scontent-gig2-1.xx&oh=9092fd26e6aaafc2a6bd32006d2dca79&oe=5E03F894", class: "avatar" %>
+      <% @watched_by.each do |taste| %>
+        <%= image_tag taste.user.photo, class: "avatar" %>
+      <% end %>
     </div>
   </div>
   <! ---- Reviews Section ---- >
