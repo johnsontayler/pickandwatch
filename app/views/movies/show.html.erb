@@ -5,42 +5,45 @@
   <%= video_tag "https://imdb-video.media-imdb.com/vi1032782617/1434659607842-pgv4ql-1564059931449.mp4?Expires=1568831420&Signature=PEZvFs78XouDOV6vC61b12MnGUsc10cqbXmVWjvG0t-0Mc7s-fcOXFbWojkomD~eJ7zUI5xSPcPuGWfnFW4ZTbkwQ6r-H3ACDE863ulYTp8yybno71EsqKWNi0g5C6BpMxRbImede5Mpn8Of4BDdHPPNAx9a1~1NHCN025RbXz5hEL-zs66HS5tYncdJaONYnCKs-fwdLmNq8gePSRc0FxNKDBxOAdxZxRLk3sOo1A2k~JlTJ4GJ~Xxkwiq7sVHSrAk9TTUJKlMUsRqbjzt3rlzdyVS-y8lPIuLPhjgkbZvj4av5Shah5LOoLkq~Pu574y1p2uqrBrJ20VTtNu0JqQ__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA", class: "video_player", :controls => true %>
   <! ---- Movie Header & Ratings ---- >
   <div class="header ml-2">
-      <h2>The Matrix (1999)</h2>
-      <p>136min |  Action, Sci-Fi</p>
+      <h2><%= @movie.title %> (<%= @movie.year %>)</h2>
+      <p><%= @movie.duration %>min |  <%= @movie.genre %></p>
   </div>
   <div class="movie-ratings d-flex justify-content-sm-start align-items-center">
     <div class="flex-item ml-2 mr-3">
       <i class="fas fa-thumbs-up"></i> 90%
     </div>
     <div class="flex-item">
-      <i class="fab fa-imdb"></i> 8.7
+      <i class="fab fa-imdb"></i> <%= @movie.imdb_rating %>
     </div>
     <div class="flex-item ml-auto mr-2">
-      <i class="fas fa-bookmark ml-1"></i> Add to Wishlist
+      <% if @user_taste.count.zero? %>
+        <%= link_to movie_path(@movie), style: "color: inherit;" do %>
+          <i class="far fa-bookmark mr-1"></i>
+        <% end %> Wishlist
+      <% else %>
+        <%= link_to movie_path(@movie), style: "color: inherit;" do %>
+          <i class="fas fa-bookmark mr-1"></i>
+        <% end %> Wishlist
+      <% end %>
     </div>
   </div>
   <! ---- Movie Description ---- >
   <div class="section-card d-flex">
     <div>
-      <%= image_tag "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX92_CR0%2C0%2C92%2C137_AL_.jpg", class: "movie-show-poster" %>
+      <%= image_tag @movie.photo, class: "movie-show-poster mt-1" %>
     </div>
     <div class="description-card ml-3 flex-grow-1">
       <p><strong>Description:</strong></p>
-      <p>A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers. </p>
+      <p><%= @movie.description %> </p>
     </div>
   </div>
   <! ---- Watched By Section ---- >
   <div class="section-card flex-column">
-    <div>
-      <p><strong>Watched By:</strong></p>
-    </div>
+    <p><strong>Watched By:</strong></p>
     <div class="watched-avatars-card d-flex justify-content-between">
-      <%= image_tag "https://scontent-gig2-1.xx.fbcdn.net/v/t31.0-8/17991283_10154294016570723_8726333424113288695_o.jpg?_nc_cat=104&_nc_oc=AQny8vgg22cMjXBOeCLALsj5oloy0Vdy3g5tj-vgouT3yeI5UDtrU1KFLnTZMBzNEzo&_nc_ht=scontent-gig2-1.xx&oh=9092fd26e6aaafc2a6bd32006d2dca79&oe=5E03F894", class: "avatar" %>
-      <%= image_tag "https://scontent-gig2-1.xx.fbcdn.net/v/t31.0-8/17991283_10154294016570723_8726333424113288695_o.jpg?_nc_cat=104&_nc_oc=AQny8vgg22cMjXBOeCLALsj5oloy0Vdy3g5tj-vgouT3yeI5UDtrU1KFLnTZMBzNEzo&_nc_ht=scontent-gig2-1.xx&oh=9092fd26e6aaafc2a6bd32006d2dca79&oe=5E03F894", class: "avatar" %>
-      <%= image_tag "https://scontent-gig2-1.xx.fbcdn.net/v/t31.0-8/17991283_10154294016570723_8726333424113288695_o.jpg?_nc_cat=104&_nc_oc=AQny8vgg22cMjXBOeCLALsj5oloy0Vdy3g5tj-vgouT3yeI5UDtrU1KFLnTZMBzNEzo&_nc_ht=scontent-gig2-1.xx&oh=9092fd26e6aaafc2a6bd32006d2dca79&oe=5E03F894", class: "avatar" %>
-      <%= image_tag "https://scontent-gig2-1.xx.fbcdn.net/v/t31.0-8/17991283_10154294016570723_8726333424113288695_o.jpg?_nc_cat=104&_nc_oc=AQny8vgg22cMjXBOeCLALsj5oloy0Vdy3g5tj-vgouT3yeI5UDtrU1KFLnTZMBzNEzo&_nc_ht=scontent-gig2-1.xx&oh=9092fd26e6aaafc2a6bd32006d2dca79&oe=5E03F894", class: "avatar" %>
-      <%= image_tag "https://scontent-gig2-1.xx.fbcdn.net/v/t31.0-8/17991283_10154294016570723_8726333424113288695_o.jpg?_nc_cat=104&_nc_oc=AQny8vgg22cMjXBOeCLALsj5oloy0Vdy3g5tj-vgouT3yeI5UDtrU1KFLnTZMBzNEzo&_nc_ht=scontent-gig2-1.xx&oh=9092fd26e6aaafc2a6bd32006d2dca79&oe=5E03F894", class: "avatar" %>
-      <%= image_tag "https://scontent-gig2-1.xx.fbcdn.net/v/t31.0-8/17991283_10154294016570723_8726333424113288695_o.jpg?_nc_cat=104&_nc_oc=AQny8vgg22cMjXBOeCLALsj5oloy0Vdy3g5tj-vgouT3yeI5UDtrU1KFLnTZMBzNEzo&_nc_ht=scontent-gig2-1.xx&oh=9092fd26e6aaafc2a6bd32006d2dca79&oe=5E03F894", class: "avatar" %>
+      <% @watched_by.each do |taste| %>
+        <%= image_tag taste.user.photo, class: "avatar" %>
+      <% end %>
     </div>
   </div>
   <! ---- Reviews Section ---- >
