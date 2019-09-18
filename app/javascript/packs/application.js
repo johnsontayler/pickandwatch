@@ -1,4 +1,5 @@
 import 'bootstrap';
+import { showTabContentOnClick } from '../components/tabs_profile';
 
 /* eslint no-console:0 */
 // This file is automatically compiled by Webpack, along with any other files
@@ -18,4 +19,5 @@ import 'bootstrap';
 // const imagePath = (name) => images(name, true)
 
 console.log('Hello World from Webpacker')
+showTabContentOnClick();
 
