@@ -1,4 +1,8 @@
+$padding: 10px 12px 10px 16px;
+
 .movie-ratings {
   height: 2.5rem;
-  border: $border;
+  padding: $padding;
+  border-bottom: $border;
+  background-color: white;
 }
