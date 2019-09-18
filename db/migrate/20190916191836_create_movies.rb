@@ -11,6 +11,7 @@ class CreateMovies < ActiveRecord::Migration[5.2]
       t.string :actor
       t.string :award
       t.float :imdb_rating
+      t.string :imdb_id
 
       t.timestamps
     end
