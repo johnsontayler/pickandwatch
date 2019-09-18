@@ -15,6 +15,8 @@ $border: 1px solid #E7E7E7;
 
 // Your CSS partials
 @import "components/index";
+@import "searchbar";
 @import "dashboards";
 @import "movies";
 @import "users";
+
