@@ -1,19 +1,22 @@
-// Graphical variables
 $orange: #f0b146;
 $sl-font-family--header: Nunito;
 $sl-font-family--body: Lora;
 $h1_size: 32px;
-$h2_size: 26px;
+$h2_size: 20px;
 $body_size: 16px;
 $border: 1px solid #E7E7E7;
 
 @import url(https://fonts.googleapis.com/css?family=Nunito);
 @import url(https://fonts.googleapis.com/css?family=Lora);
 
-// External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
 // Your CSS partials
 @import "components/index";
+@import "searchbar";
+@import "dashboards";
+@import "movies";
+@import "users";
+

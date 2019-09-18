@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :tastes, only: [:create]
   end
 
-  resources :tastes, only: [:new, :create, :destroy]
+  resources :tastes, only: [:new, :create, :update, :destroy]
 
   resources :dashboards, only: [:index]
 

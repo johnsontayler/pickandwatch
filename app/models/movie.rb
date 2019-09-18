@@ -3,6 +3,7 @@ require 'open-uri'
 
 class Movie < ApplicationRecord
   has_many :tastes
+  belongs_to :user
 
   before_validation :fetch_infos_imdb, on: :create
 

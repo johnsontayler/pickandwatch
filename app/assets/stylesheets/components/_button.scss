@@ -1,0 +1,26 @@
+.btn-follow {
+  border: 1px solid $orange;
+  border-radius: 4px;
+  padding: 0px 145px;
+  background-color: $orange;
+  color: white;
+  margin: 2px;
+
+  a {
+    color: inherit;
+  }
+}
+
+.btn-following {
+  border: 1px solid $orange;
+  border-radius: 4px;
+  padding: 0px 145px;
+  background-color: white;
+  color: $orange;
+  font-weight: bolder;
+  margin: 2px;
+
+  a {
+    color: inherit;
+  }
+}

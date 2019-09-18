@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :tastes
 
+  has_many :movies, through: :tastes
+
   has_many :follows, foreign_key: :follower_id
   has_many :followings, through: :follows, source: :followed
 
@@ -18,4 +20,28 @@ class User < ApplicationRecord
   validates_format_of :email, with:
                       /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, on: :create
   validates :photo, presence: true
+
+  def watched_movies
+    user = self
+    movies_watched = []
+    user.tastes.each do |taste|
+      if taste.watched
+        movie = Movie.find(taste.movie.id)
+        movies_watched << movie
+      end
+    end
+    movies_watched
+  end
+
+  def wishlist
+    user = self
+    wishlist = []
+    user.tastes.each do |taste|
+      if taste.wish
+        movie = Movie.find(taste.movie.id)
+        movies_watched << movie
+      end
+    end
+    wishlist
+  end
 end

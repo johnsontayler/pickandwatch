@@ -1,2 +1,58 @@
-<h1>Movies#show</h1>
-<p>Find me in app/views/movies/show.html.erb</p>
+<div class="movie-wrapper flex-column" style="margin-top: 48px;">
+  <! ---- Movie Trailer & Heading ---- >
+  <div class="trailer-header-card sticky-top" style="background-color: white; top: 48px;">
+    <! ---- Movie Trailer ---- >
+    <%= video_tag "https://imdb-video.media-imdb.com/vi1032782617/1434659607842-pgv4ql-1564059931449.mp4?Expires=1568831420&Signature=PEZvFs78XouDOV6vC61b12MnGUsc10cqbXmVWjvG0t-0Mc7s-fcOXFbWojkomD~eJ7zUI5xSPcPuGWfnFW4ZTbkwQ6r-H3ACDE863ulYTp8yybno71EsqKWNi0g5C6BpMxRbImede5Mpn8Of4BDdHPPNAx9a1~1NHCN025RbXz5hEL-zs66HS5tYncdJaONYnCKs-fwdLmNq8gePSRc0FxNKDBxOAdxZxRLk3sOo1A2k~JlTJ4GJ~Xxkwiq7sVHSrAk9TTUJKlMUsRqbjzt3rlzdyVS-y8lPIuLPhjgkbZvj4av5Shah5LOoLkq~Pu574y1p2uqrBrJ20VTtNu0JqQ__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA", class: "video_player", :controls => true %>
+    <! ---- Movie Header ---- >
+    <div class="section-card">
+        <h2><%= @movie.title %> (<%= @movie.year %>)</h2>
+        <p><%= @movie.duration %>min |  <%= @movie.genre %></p>
+    </div>
+  </div>
+  <! ---- Movie Ratings & Wishlist ---- >
+  <div class="movie-ratings d-flex justify-content-sm-start align-items-center">
+    <div class="flex-item ml-2 mr-3">
+      <i class="fas fa-thumbs-up"></i> 90%
+    </div>
+    <div class="flex-item">
+      <i class="fab fa-imdb"></i> <%= @movie.imdb_rating %>
+    </div>
+    <div class="flex-item ml-auto mr-2">
+      <% if @user_taste.count.zero? %>
+        <%= link_to movie_path(@movie), style: "color: inherit;" do %>
+          <i class="far fa-bookmark mr-1"></i>
+        <% end %> Wishlist
+      <% else %>
+        <%= link_to movie_path(@movie), style: "color: inherit;" do %>
+          <i class="fas fa-bookmark mr-1"></i>
+        <% end %> Wishlist
+      <% end %>
+    </div>
+  </div>
+  <! ---- Movie Description ---- >
+  <div class="section-card d-flex">
+    <div>
+      <%= image_tag @movie.photo, class: "movie-show-poster mt-1" %>
+    </div>
+    <div class="description-card ml-3 flex-grow-1">
+      <p><strong>Description:</strong></p>
+      <p><%= @movie.description %> </p>
+    </div>
+  </div>
+  <! ---- Watched By Section ---- >
+  <div class="section-card flex-column">
+    <p><strong>Watched By:</strong></p>
+    <div class="watched-avatars-card d-flex justify-content-between">
+      <% @watched_by.each do |taste| %>
+        <%= image_tag taste.user.photo, class: "avatar" %>
+      <% end %>
+    </div>
+  </div>
+  <! ---- Reviews Section ---- >
+  <div class="section-card flex-column">
+    <div>
+      <p><strong>Friend Reviews:</strong></p>
+    </div>
+  </div>
+</div>
+

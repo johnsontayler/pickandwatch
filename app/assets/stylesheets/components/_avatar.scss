@@ -2,10 +2,14 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  background-size: cover;
+  background-position: center;
 }
 .avatar-large {
-  width: 56px;
+  width: 88px;
+  height: 88px;
   border-radius: 50%;
+  border: gray 1px solid;
 }
 .avatar-bordered {
   width: 40px;
