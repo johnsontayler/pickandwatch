@@ -1,4 +1,4 @@
-class ReviewPolicy < ApplicationPolicy
+class TastePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -9,7 +9,7 @@ class ReviewPolicy < ApplicationPolicy
     true
   end
 
-  def movie_db?
+  def create?
     true
   end
 end

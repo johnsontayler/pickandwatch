@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2019_09_16_195806) do
     t.string "actor"
     t.string "award"
     t.float "imdb_rating"
+    t.string "imdb_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
 
   resources :movies, only: [:index, :show] do
-    resources :tastes, only: [:create, :destroy]
+    resources :tastes, only: [:create]
   end
 
-  resources :reviews, only: [:new, :create, :destroy]
+  resources :tastes, only: [:new, :create, :destroy]
 
   resources :dashboards, only: [:index]
 
