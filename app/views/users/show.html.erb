@@ -37,14 +37,20 @@
   <div class="lavalamp-object ease" style="transition-duration: 0.2s; width: 128.141px; height: 40px; transform: translate(0px, 0px);">
   </div>
   <li class="nav-item lavalamp-item" style="z-index: 5; position: relative;">
-    <a href="" class="nav-link show active" id="hiw-tab" data-toggle="tab" role="tab" aria-controls="watched" aria-selected="true" onclick="return false">Watched</a>
+    <a href="" class="nav-link show active" id="watched-tab" data-toggle="tab" role="tab" aria-controls="watched" aria-selected="true" onclick="return false">Watched</a>
   </li>
   <li class="nav-item lavalamp-item" style="z-index: 5; position: relative;">
-   <a href="" class="nav-link show" id="dependencies-tab" data-toggle="tab" role="tab" aria-controls="wishlist" aria-selected="false" onclick="return false">Wishlist</a>
+   <a href="" class="nav-link show" id="wishlist-tab" data-toggle="tab" role="tab" aria-controls="wishlist" aria-selected="false" onclick="return false">Wishlist</a>
   </li>
 </ul>
 <! ---- Watched & Wishlist Content ---- >
 <div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade active show" id="watched" role="tabpanel" aria-labelledby="watched-tab">
+    <p>Watched Movie Posters</p>
+  </div>
+  <div class="tab-pane fade" id="wishlist" role="tabpanel" aria-labelledby="wishlist-tab">
+    <p>Wishlist Movie Posters</p>
+  </div>
 </div>
 
 <h1>Users#show</h1>
