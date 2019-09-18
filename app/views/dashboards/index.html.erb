@@ -5,13 +5,15 @@
 
 <div class="categories">
  <% @genres.each do |genre| %>
-  <a class="nostyle"data-genre-id="<%= genre %>" href="#"> <%= genre %></a>
+  <button class="nostyle" data-genre="<%= genre %>" href="#"> <%= genre %>
+    </button>
     <% end %>
 </div>
 
-<div>
+<!-- DO NOT REMOVE THE CLASS CARDS OTHERWISE IT FUCK EVERYTHING -->
+<div class="cards">
   <% @tastes.each do |taste| %>
-    <div data-genre-id="<% taste.movie.genre %>">
+    <div data-genre="<%= taste.movie.genre %>">
       Card for <%= taste.movie.title %>
     </div>
   <% end %>
