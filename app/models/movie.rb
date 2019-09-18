@@ -1,5 +1,6 @@
 class Movie < ApplicationRecord
   has_many :tastes
+  belongs_to :user
 
   validates :title, presence: true
   validates :photo, presence: true

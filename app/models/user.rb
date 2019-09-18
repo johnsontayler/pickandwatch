@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :tastes
 
+  has_many :movies, through: :tastes
+
   has_many :follows, foreign_key: :follower_id
   has_many :followings, through: :follows, source: :followed
 

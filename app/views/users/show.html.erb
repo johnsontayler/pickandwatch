@@ -47,7 +47,7 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade active show" id="watched" role="tabpanel" aria-labelledby="watched-tab">
     <div class="posters d-flex flex-wrap">
-      <%= image_tag @user.photo, class: "avatar-large" %>
+      <%= render "watched_movies" %>
     </div>
   </div>
   <div class="tab-pane fade" id="wishlist" role="tabpanel" aria-labelledby="wishlist-tab">

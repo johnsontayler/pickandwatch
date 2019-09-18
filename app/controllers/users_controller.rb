@@ -10,4 +10,9 @@ class UsersController < ApplicationController
     @following = @user.followings
     @current_user_follows = current_user.follows.exists?(@user.id)
   end
+
+  def watched_movies
+    @user = User.find(params[:id])
+    @watched = Taste.where(user: @user, watched: true)
+  end
 end
