@@ -9,7 +9,7 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
-  def show
+  def show?
     true
   end
 end
