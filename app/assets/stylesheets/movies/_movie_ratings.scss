@@ -6,3 +6,9 @@ $padding: 10px 12px 10px 16px;
   border-bottom: $border;
   background-color: white;
 }
+
+.watched-avatars-card {
+  overflow-x: scroll;
+  width: 100%;
+  display: flex;
+}
