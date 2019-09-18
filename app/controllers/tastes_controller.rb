@@ -1,5 +1,4 @@
 class TastesController < ApplicationController
-
   def new
     @taste = Taste.new
     authorize @taste
@@ -32,4 +31,3 @@ class TastesController < ApplicationController
     params.require(:taste).permit(:imdb_id, :review, :rating)
   end
 end
-
