@@ -1,0 +1,19 @@
+$padding: 10px 12px 10px 16px;
+
+.name-card {
+  height: 2.5rem;
+  padding: $padding;
+  border-bottom: $border;
+  background-color: white;
+  text-align: center;
+}
+
+.watched-follows-cards {
+  padding: $padding;
+  background-color: white;
+}
+
+.watch-follow-card {
+  text-align: center;
+  margin-right: 12px;
+}
