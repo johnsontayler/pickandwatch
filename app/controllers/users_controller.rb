@@ -8,5 +8,6 @@ class UsersController < ApplicationController
     @watched = Taste.where(user: @user, watched: true)
     @followers = @user.followers
     @following = @user.followings
+    @current_user_follows = current_user.follows.exists?(@user.id)
   end
 end
