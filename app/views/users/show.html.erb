@@ -1,2 +1,87 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="profile-container" style="margin-top: 37px;">
+  <! ---- Name ---- >
+  <div class="name-card">
+    <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+  </div>
+  <! ---- Profile Content ---- >
+  <div class="profile">
+    <! ---- Profile Summary ---- >
+    <div class="section-card">
+      <div class="profile-summary d-flex">
+        <%= image_tag @user.photo, class: "avatar-large" %>
+        <div class="watched-follows-cards d-flex">
+          <div class="watch-follow-card flex-column">
+            <p><strong><%= @watched.count %></strong></p>
+            <p>Watches</p>
+          </div>
+          <div class="watch-follow-card flex-column">
+            <p><strong><%= @followers.count %></strong></p>
+            <p>Followers</p>
+          </div>
+          <div class="watch-follow-card flex-column">
+            <p><strong><%= @following.count %></strong></p>
+            <p>Following</p>
+          </div>
+        </div>
+      </div>
+      <% if @current_user_follows %>
+        <div class="d-flex justify-content-center">
+          <a href="#" class="btn-following">Following</a>
+        </div>
+      <% else %>
+        <div class="d-flex justify-content-center">
+          <a href="#" class="btn-follow">Follow</a>
+        </div>
+      <% end %>
+    </div>
+    <! ---- Watched & Wishlist Tabs ---- >
+    <ul class="nav nav-tabs lavalamp mb-2" id="myTab" role="tablist">
+      <div class="lavalamp-object ease" style="transition-duration: 0.2s; width: 128.141px; height: 40px; transform: translate(0px, 0px);">
+      </div>
+      <li class="nav-item lavalamp-item" style="z-index: 5; position: relative;">
+        <a href="" class="nav-link show active" id="watched-tab" data-toggle="tab" role="tab" aria-controls="watched" aria-selected="true" onclick="return false">Watched</a>
+      </li>
+      <li class="nav-item lavalamp-item" style="z-index: 5; position: relative;">
+       <a href="" class="nav-link show" id="wishlist-tab" data-toggle="tab" role="tab" aria-controls="wishlist" aria-selected="false" onclick="return false">Wishlist</a>
+      </li>
+    </ul>
+    <! ---- Watched & Wishlist Content ---- >
+    <div class="tab-content" id="myTabContent">
+      <! ---- Watched ---- >
+      <div class="tab-pane fade active show" id="watched" role="tabpanel" aria-labelledby="watched-tab">
+        <div class="posters d-flex flex-wrap">
+            <%= image_tag 'https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,704,1000_AL_.jpg', class: "movie-poster" %>
+            <%= image_tag 'https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,704,1000_AL_.jpg', class: "movie-poster" %>
+            <%= image_tag 'https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,704,1000_AL_.jpg', class: "movie-poster" %>
+            <%= image_tag 'https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,704,1000_AL_.jpg', class: "movie-poster" %>
+            <%= image_tag 'https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,704,1000_AL_.jpg', class: "movie-poster" %>
+            <%= image_tag 'https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,704,1000_AL_.jpg', class: "movie-poster" %>
+            <%= image_tag 'https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,704,1000_AL_.jpg', class: "movie-poster" %>
+            <%= image_tag 'https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,704,1000_AL_.jpg', class: "movie-poster" %>
+            <%= image_tag 'https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,704,1000_AL_.jpg', class: "movie-poster" %>
+            <%= image_tag 'https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,704,1000_AL_.jpg', class: "movie-poster" %>
+            <%= image_tag 'https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,704,1000_AL_.jpg', class: "movie-poster" %>
+            <%= image_tag 'https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,704,1000_AL_.jpg', class: "movie-poster" %>
+            <%= image_tag 'https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,704,1000_AL_.jpg', class: "movie-poster" %>
+        </div>
+      </div>
+      <! ---- Wishlist ---- >
+      <div class="tab-pane fade" id="wishlist" role="tabpanel" aria-labelledby="wishlist-tab">
+        <div class="posters d-flex flex-wrap">
+            <%= image_tag 'https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg', class: "movie-poster" %>
+            <%= image_tag 'https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg', class: "movie-poster" %>
+            <%= image_tag 'https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg', class: "movie-poster" %>
+            <%= image_tag 'https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg', class: "movie-poster" %>
+            <%= image_tag 'https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg', class: "movie-poster" %>
+            <%= image_tag 'https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg', class: "movie-poster" %>
+            <%= image_tag 'https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg', class: "movie-poster" %>
+            <%= image_tag 'https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg', class: "movie-poster" %>
+            <%= image_tag 'https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg', class: "movie-poster" %>
+            <%= image_tag 'https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg', class: "movie-poster" %>
+            <%= image_tag 'https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg', class: "movie-poster" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

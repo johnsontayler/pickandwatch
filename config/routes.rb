@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :movies, only: [:index, :show] do
     resources :reviews, only: [:new, :create, :destroy]
-    resources :tastes, only: [:create, :destroy]
+    resources :tastes, only: [:create, :update, :destroy]
   end
 
   resources :dashboards, only: [:index]
