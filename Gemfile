@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'pundit'
 gem 'devise'
-gem 'webpacker'
+gem 'webpacker', '~> 4.x'
 gem 'simple_form'
 gem 'redis'
 gem 'autoprefixer-rails'
