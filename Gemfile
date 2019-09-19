@@ -4,8 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.3'
 gem 'pg'
+gem 'rails', '~> 5.2.3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -21,14 +21,15 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
-gem 'pundit'
-gem 'devise'
-gem 'webpacker', '~> 4.x'
-gem 'simple_form'
-gem 'redis'
 gem 'autoprefixer-rails'
+gem 'devise'
 gem 'font-awesome-sass', '~> 5.6.1'
+gem 'jquery-rails'
+gem 'pundit'
+gem 'redis'
 gem 'sassc-rails'
+gem 'simple_form'
+gem 'webpacker', '~> 4.x'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

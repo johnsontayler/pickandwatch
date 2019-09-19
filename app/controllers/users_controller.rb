@@ -14,8 +14,5 @@ class UsersController < ApplicationController
     @watched = Taste.where(user: @user, watched: true)
     @followers = @user.followers
     @following = @user.followings
-
-    @follow = current_user.follows.new(followed: @user)
-    @follow.save
   end
 end
