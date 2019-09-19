@@ -14,6 +14,6 @@ class FollowPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.admin?
+    true
   end
 end

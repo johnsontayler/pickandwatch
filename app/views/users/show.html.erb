@@ -26,11 +26,10 @@
       </div>
       <% if @user.followed_by?(current_user) %>
         <div class="d-flex justify-content-center">
-          <a href="#" class="btn-following">Following</a>
-        </div>
+          <%= link_to "Following", follow_path(id: @user), method: :delete, class: "btn-following" %>
       <% else %>
         <div class="d-flex justify-content-center">
-          <%= link_to "Follow", follows_path(user_id: @user), method: :post, class: "btn-follow" %>
+          <%= link_to "Follow", follows_path(id: @user), method: :post, class: "btn-follow" %>
         </div>
       <% end %>
     </div>
