@@ -14,9 +14,11 @@
 
   <body>
     <div class="wrapper">
-      <nav>
-        <%= render 'shared/navbar' %>
-      </nav>
+      <% if current_user %>
+        <nav>
+          <%= render 'shared/navbar' %>
+        </nav>
+      <% end %>
       <%= yield %>
       <%= javascript_include_tag 'application' %>
       <%= javascript_pack_tag 'application' %>
