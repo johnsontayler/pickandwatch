@@ -30,7 +30,7 @@
         </div>
       <% else %>
         <div class="d-flex justify-content-center">
-          <%= link_to "Follow", user_follows(@user), method: :post, class: "btn-follow" %>
+          <%= link_to "Follow", user_follows_path(user_id: @user), method: :post, class: "btn-follow" %>
         </div>
       <% end %>
     </div>

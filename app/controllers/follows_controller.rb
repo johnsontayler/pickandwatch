@@ -1,10 +1,8 @@
 class FollowsController < ApplicationController
   def create
-    @followed = User.find(params[:id])
-    @follower = current_user
-    @follow = Follow.new(followed: @followed, follower: @follower)
+    @followed = User.find(params[:user_id])
+    @follow = current_user.follows.create!(followed: @followed)
     authorize @follow
-    @follow.save
     redirect_to user_path(@followed)
   end
 
