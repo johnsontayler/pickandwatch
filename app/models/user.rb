@@ -46,6 +46,6 @@ class User < ApplicationRecord
 
   def followed_by?(current_user)
     user = self
-    current_user.follows.exists?(user.id)
+    current_user.follows.exists?(followed: user)
   end
 end
