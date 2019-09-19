@@ -1,0 +1,21 @@
+.movie_image img {
+  height: 80%;
+  width: 100%;
+  margin-bottom: 2px;
+}
+
+.cards_info {
+  border-top: $border;
+  padding-top: 6px;
+}
+
+.tastes_info {
+  font-family: $sl-font-family--body;
+  margin-bottom: 0px;
+
+  & p {
+    margin-left: 42px;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+}

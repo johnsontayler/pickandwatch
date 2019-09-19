@@ -11,8 +11,29 @@
 <!-- DO NOT REMOVE THE CLASS CARDS OTHERWISE IT FUCK EVERYTHING -->
 <div class="cards">
   <% @tastes.each do |taste| %>
-    <div data-genre="<%= taste.movie.genre %>">
-      Card for <%= taste.movie.title %>
+    <div data-genre="<%= taste.movie.genre %>" class="cards_info d-flex justify-content-between">
+      <div class="tastes_info">
+        <%= image_tag taste.user.photo, class: "avatar" %>
+        <%= taste.user.first_name %> <%= taste.user.last_name %>
+        <p><em><%= taste.movie.title %></em></p>
+      </div>
+        <div class="review_tastes">
+          <% if taste.rating == true %>
+              <i class="fas fa-thumbs-up" style="padding-right: 8px; padding-top:9px"></i>
+            <% else %>
+              <i class="fas fa-thumbs-down" style="padding-right: 8px;padding-top:9px"></i>
+            <% end %>
+        </div>
     </div>
+      <div class="movie_image">
+        <%= image_tag taste.movie.photo %>
+      </div>
+        <div class="d-flex justify-content-between">
+          <div>
+            <i class="far fa-heart"></i>
+            <i class="far fa-comment"></i>
+          </div>
+            <i class="far fa-bookmark" style="padding-top: 2px" ></i>
+        </div>
   <% end %>
 </div>
