@@ -5,10 +5,24 @@
   background-size: cover;
   background-position: center;
 }
-.avatar-large {
-  width: 56px;
+
+.avatar-sm {
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 3px;
+  border: black 2px solid;
 }
+
+.avatar-large {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  border: gray 1px solid;
+  object-fit: cover;
+}
+
 .avatar-bordered {
   width: 40px;
   height: 40px;

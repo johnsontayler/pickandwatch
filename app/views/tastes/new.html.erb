@@ -1,0 +1,15 @@
+<h1>Add a new review</h1>
+
+<div class="container">
+
+  <input type="text" id="search">
+    <ul id="results">
+    </ul>
+
+  <%= simple_form_for [@taste] do |f| %>
+    <%= f.hidden_field :imdb_id, value:"tt0295289" %>
+    <%= f.input :rating, collection: [true, false] %>
+    <%= f.input :review %>
+    <%= f.submit "add a review", class: "btn btn-primary" %>
+  <% end %>
+</div>

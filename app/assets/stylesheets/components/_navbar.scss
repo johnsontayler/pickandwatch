@@ -1,7 +1,7 @@
 .navbar {
   background: white;
-  height: 2.5rem;
-  color: rgba(0,0,0,0.3);
+  border-bottom: $border;
+  height: 3.1rem;
 }
 
 .navbar a {
@@ -9,3 +9,8 @@
   text-decoration: none;
   font-size: 24px;
 }
+
+#height-box {
+  height: 3.1rem;
+}
+

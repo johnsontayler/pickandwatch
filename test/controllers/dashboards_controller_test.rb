@@ -5,5 +5,4 @@ class DashboardsControllerTest < ActionDispatch::IntegrationTest
     get dashboards_index_url
     assert_response :success
   end
-
 end

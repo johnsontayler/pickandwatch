@@ -1,0 +1,75 @@
+.movie-wrapper {
+  width: 100%;
+}
+
+.movie-ratings {
+  justify-content: space-between;
+  padding: 10px;
+  color: #fd3304;
+  background: black;
+  font-style: bold;
+  size: 20px;
+  font-size: 20px;
+  opacity: 1;
+  padding-top: 2px;
+}
+
+.summary-movie-picker {
+  margin: 0px;
+  color: gray;
+  font-style: bold;
+  background: black;
+  padding-left: 18px;
+}
+
+.title-movie-picker {
+  margin: 0px;
+  color: white;
+  font-style: bold;
+  background: black;
+  padding-left: 18px;
+}
+
+.parent {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.movie-image {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 450px ;
+  width: 375px;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
+  background-size: cover;
+}
+
+// .movie-filter {
+//   position: absolute;
+//   z-index: -0;
+//   opacity: 0.40;
+//   background-image: linear-gradient(white, black);
+// }
+
+#height-box {
+  font-size: 30px;
+  padding-top: 0px;
+ }
+
+.fa-bookmark:hover{
+   color:black !important;
+}
+
+.fa-thumbs-down:hover{
+   color:black !important;
+}
+
+.fa-thumbs-up:hover{
+   color:black !important;
+}
+
+.fa-user-friends:hover{
+   color:black !important;
+}
