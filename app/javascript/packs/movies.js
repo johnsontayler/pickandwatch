@@ -14,9 +14,16 @@ const insertMovies = (data) => {
       return;
     const movieLine = document.createElement('LI');
     movieLine.classList.add("result");
-    movieLine.innerHTML = `<img class ="avatar" src="${movie.Poster}" alt="" />
-    <span>${movie.Title} (${movie.Year})</span>`
+    movieLine.innerHTML =
+    `<div class = "notification" style="border: none">
+      <img class ="avatar" src="${movie.Poster}" alt="" />
+      <div class="notification-content">
+        <p><strong>${movie.Title}</strong></p>
+        <p><small>(${movie.Year})</small></p>
+      </div>
+     </div>`
     movieLine.dataset.imdbId = movie.imdbID;
+
 
     results.insertAdjacentElement('beforeend', movieLine);
 
@@ -24,7 +31,7 @@ const insertMovies = (data) => {
       const imdb = document.getElementById('taste_imdb_id');
       imdb.value = getClosest(event.target, '.result').dataset.imdbId;
 
-      document.getElementById('search').value = '';
+      document.getElementById('search').value = movie.Title;
 
       // divvide.innerHTML = movieLine.innerHTML;
       results.innerHTML = '';

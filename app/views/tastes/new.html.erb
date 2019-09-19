@@ -1,14 +1,32 @@
-<h1>Add a new review</h1>
-
+<br><br><br>
 <div class="container">
-
-  <input type="text" id="search">
-    <ul id="results">
+  <div class="search-form-control form-group">
+  <input class="form-control string required" type="text" id="search" placeholder="Pick a movie to rate">
+   <button name="button" type="submit" class="btn btn-flat btn-sm">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+    <ul id="results" class="nobullet" style="list-style-type: none">
     </ul>
 
+
   <%= simple_form_for [@taste] do |f| %>
-    <%= f.hidden_field :imdb_id, value:"tt0295289" %>
-    <%= f.input :rating, collection: [true, false] %>
+    <%= f.hidden_field :imdb_id, value:"" %>
+
+    <input type="hidden" name="taste[rating]" value="">
+    <span>
+      <label for="taste_rating_true">
+        <i class="fas fa-thumbs-up" id="like_button_taste"></i>
+        <input type="radio" value="true" name="taste[rating]" id="taste_rating_true">
+      </label>
+    </span>
+    <span>
+      <label for="taste_rating_false" >
+        <i class="fas fa-thumbs-down" id="dislike_button_taste"></i>
+        <input type="radio" value="false" name="taste[rating]" id="taste_rating_false">
+      </label>
+    </span>
+
     <%= f.input :review %>
     <%= f.submit "add a review", class: "btn btn-primary" %>
   <% end %>
