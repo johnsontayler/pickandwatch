@@ -21,12 +21,12 @@ console.log('Hello World from Webpacker')
 
 import { showTabContentOnClick } from '../components/tabs_profile';
 import { fetchMovies } from './movies';
-import { followButton } from '../components/follow_button_profile';
+// import { followButton } from '../components/follow_button_profile';
 
 const input = document.querySelector('#search');
 if (input) input.addEventListener('keyup', fetchMovies);
 
 showTabContentOnClick();
-followButton();
+// followButton();
 
 
