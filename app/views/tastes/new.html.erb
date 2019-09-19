@@ -13,7 +13,20 @@
   <%= simple_form_for [@taste] do |f| %>
     <%= f.hidden_field :imdb_id, value:"" %>
 
-    <%= f.input :rating, collection: [true, false] %>
+    <input type="hidden" name="taste[rating]" value="">
+    <span>
+      <label for="taste_rating_true">
+        <i class="fas fa-thumbs-up" id="like_button_taste"></i>
+        <input type="radio" value="true" name="taste[rating]" id="taste_rating_true">
+      </label>
+    </span>
+    <span>
+      <label for="taste_rating_false">
+        <i class="fas fa-thumbs-down" id="dislike_button_taste"></i>
+        <input type="radio" value="false" name="taste[rating]" id="taste_rating_false">
+      </label>
+    </span>
+
     <%= f.input :review %>
     <%= f.submit "add a review", class: "btn btn-primary" %>
   <% end %>

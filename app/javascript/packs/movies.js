@@ -56,4 +56,6 @@ const fetchMovies = (event) => {
     .then(data => handleData(data))
   };
 
+
+
 export { fetchMovies };

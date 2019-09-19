@@ -1,3 +1,7 @@
+// #taste_rating_true{
+// display: none !important;
+// visibility: hidden;
+// }
 
 .notification {
   display: flex;
@@ -24,4 +28,8 @@
 
 .nobullet {
   list-style-type: none;
+}
+
+input[type=“radio”]:checked{
+   visibility:hidden;
 }
