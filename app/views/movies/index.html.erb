@@ -1,29 +1,23 @@
-<div class="movie-wrapper flex-column">
-    <div class="header ml-2">
-      <br>
-      <br>
-
+<% @movies.each do |movie| %>
+  <div class="movie-wrapper flex-column">
+      <div class="header ml-2">
+        <br>
+        <br>
+      </div>
+    <div class="movie-image" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0)),  url(<%= movie.photo %>);"  >
     </div>
-
-    <div class="banner" >
-
-  <div class="movie-image" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0)),  url(https://m.media-amazon.com/images/M/MV5BMzY1ZjMwMGEtYTY1ZS00ZDllLTk0ZmUtYzA3ZTA4NmYwNGNkXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_SY1000_CR0,0,676,1000_AL_.jpg);"  >
-  </div>
-  <div class="section">
-
-  </div>
-    <h2 class="title-movie-picker">City of God</h2>
-    <p class="summary-movie-picker">135min |  Drama/Crime | 2002 </p>
-  <div class="details">
-  <div class="movie-ratings d-flex justify-content-space-between align-items-center">
-    <div class="flex-item ml-2 mr-5">
-      <i class="fas fa-thumbs-up"></i> <strong> 100% </strong>
+      <h2 class="title-movie-picker"><%= movie.title %></h2>
+      <p class="summary-movie-picker"><%= movie.duration %>min | <%= movie.genre %> | <%= movie.year %> </p>
+    <div class="details">
+      <div class="movie-ratings d-flex justify-content-space-between align-items-center">
+        <div class="flex-item ml-2 mr-5">
+          <i class="fas fa-thumbs-up"></i> <strong> 100% </strong>
+        </div>
+        <div class="flex-item ml-5">
+          <i class="fab fa-imdb"></i> <strong> <%= movie.imdb_rating %> </strong>
+        </div>
+      </div>
     </div>
-    <div class="flex-item ml-5">
-      <i class="fab fa-imdb"></i> <strong> 8.7 </strong>
-    </div>
+    <%= render 'footer_shuffle', movie: movie %>
   </div>
-
-  </div>
-</div>
-<%= render 'footer_shuffle' %>
+<% end %>

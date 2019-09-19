@@ -20,13 +20,15 @@ import 'bootstrap';
 console.log('Hello World from Webpacker')
 
 import { showTabContentOnClick } from '../components/tabs_profile';
+import { shuffleMovie } from '../components/movie_shuffle';
 import { fetchMovies } from './movies';
 // import { followButton } from '../components/follow_button_profile';
 
 const input = document.querySelector('#search');
 if (input) input.addEventListener('keyup', fetchMovies);
 
+const movieIndex = document.querySelector('#search');
+
 showTabContentOnClick();
-// followButton();
 
 
