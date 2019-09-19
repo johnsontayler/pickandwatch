@@ -3,12 +3,15 @@
   <div class="name-card">
     <h2><%= @user.first_name %> <%= @user.last_name %></h2>
   </div>
+
   <! ---- Profile Content ---- >
   <div class="profile">
-    <! ---- Profile Summary ---- >
+    <! ---- Summary ---- >
     <div class="section-card">
       <div class="profile-summary d-flex">
         <%= image_tag @user.photo, class: "avatar-large" %>
+
+        <! ---- Watched, Followers, Following ---- >
         <div class="watched-follows-cards d-flex">
           <div class="watch-follow-card flex-column">
             <p><strong><%= @watched.count %></strong></p>
@@ -24,16 +27,25 @@
           </div>
         </div>
       </div>
-      <% if @user.followed_by?(current_user) %>
+
+      <! ---- Log Out/Following/Follow Button ---- >
+      <% if @user == current_user %>
         <div class="d-flex justify-content-center">
-          <%= link_to "Following", follow_path(id: @user), method: :delete, class: "btn-following" %>
+          <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn-logout" %>
         </div>
       <% else %>
-        <div class="d-flex justify-content-center">
-          <%= link_to "Follow", follows_path(id: @user), method: :post, class: "btn-follow" %>
-        </div>
+        <% if @user.followed_by?(current_user) %>
+          <div class="d-flex justify-content-center">
+            <%= link_to "Following", follow_path(id: @user), method: :delete, class: "btn-following" %>
+          </div>
+        <% else %>
+          <div class="d-flex justify-content-center">
+            <%= link_to "Follow", follows_path(id: @user), method: :post, class: "btn-follow" %>
+          </div>
+        <% end %>
       <% end %>
     </div>
+
     <! ---- Watched & Wishlist Tabs ---- >
     <ul class="nav nav-tabs lavalamp mb-2" id="myTab" role="tablist">
       <div class="lavalamp-object ease" style="transition-duration: 0.2s; width: 128.141px; height: 40px; transform: translate(0px, 0px);">
@@ -45,6 +57,7 @@
        <a href="" class="nav-link show" id="wishlist-tab" data-toggle="tab" role="tab" aria-controls="wishlist" aria-selected="false" onclick="return false">Wishlist</a>
       </li>
     </ul>
+
     <! ---- Watched & Wishlist Content ---- >
     <div class="tab-content" id="myTabContent">
       <! ---- Watched ---- >
