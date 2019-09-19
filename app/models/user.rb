@@ -43,4 +43,9 @@ class User < ApplicationRecord
     end
     wishlist
   end
+
+  def followed_by?(current_user)
+    user = self
+    current_user.follows.exists?(followed: user)
+  end
 end

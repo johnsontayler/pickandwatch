@@ -14,7 +14,7 @@
 .btn-following {
   border: 1px solid $orange;
   border-radius: 4px;
-  padding: 0px 145px;
+  padding: 0px 132px;
   background-color: white;
   color: $orange;
   font-weight: bolder;
@@ -23,4 +23,22 @@
   a {
     color: inherit;
   }
+}
+
+.btn-logout {
+  border: 1px solid $orange;
+  border-radius: 4px;
+  padding: 0px 140px;
+  background-color: white;
+  color: $orange;
+  font-weight: bolder;
+  margin: 2px;
+
+  a {
+    color: inherit;
+  }
+}
+
+a:active {
+  color: $orange;
 }

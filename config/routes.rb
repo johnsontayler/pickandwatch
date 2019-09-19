@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show]
 
+  resources :follows, only: [:create, :destroy]
+
   resources :movies, only: [:index, :show] do
     resources :tastes, only: [:create]
   end
@@ -12,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :dashboards, only: [:index]
 
-  resources :follows, only: [:create, :destroy]
-
   resources :wishlist, only: [:index]
+
+  get 'tastes/bookmark', to: 'tastes#bookmark', as: 'bookmark_movie'
 end
