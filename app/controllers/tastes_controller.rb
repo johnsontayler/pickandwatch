@@ -10,11 +10,11 @@ class TastesController < ApplicationController
     if @movie
       @taste = current_user.tastes.where(movie_id: @movie.id).first_or_create
     else
-      @taste = current_user.tastes.create(imdb_id: taste_params[:imdb_id])
+      @taste = current_user.tastes.create(watched: true, imdb_id: taste_params[:imdb_id])
+
     end
 
     authorize @taste
-    @taste.watched = true
     if @taste.update(taste_params)
       redirect_to dashboards_path
     else

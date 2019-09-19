@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Taste.destroy_all
+User.destroy_all
+
 IMDB_IDS = ["tt0372784", "tt2975590", "tt0096895", "tt0103776", "tt0112462", "tt0118688", "tt0103359", "tt0047478",
             "tt0814314", "tt2404435", "tt0047396", "tt2113681", "tt0037469", "tt1798709", "tt0109830", "tt0120815",
             "tt4226388", "tt1167660", "tt0058203", "tt0043014", "tt1028528", "tt0066921", "tt0076734", "tt0414469",
@@ -37,8 +40,14 @@ sarra = User.create!(first_name: 'Sarra', last_name: 'Ghaib', email: 'sarra@gmai
 tabata = User.create!(first_name: 'Tabata', last_name: 'Lisboa', email: 'tabata@gmail.com', photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR0buXpNw2a8z78DasnOjXPkyCPLSm2oWt3WrHiMIMu6ppKJEeN', password: 123456)
 pedro = User.create!(first_name: 'Pedro', last_name: 'Meyer', email: 'pedro@gmail.com', photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80', password: 123456)
 
-User.all.each do |user|
-  rand(0..5).times do
-    user.tastes.create(watched: rand(2) == 1, rating: rand(2) == 1, imdb_id: IMDB_IDS.sample)
-  end
+users = [refai, tayler, joseph, constance, anderson, andre, brittany, cahue, cyrille, diana, fernando, lucas, matheus, milene, natalia, wadi, marcel, ryan, sarra, tabata, pedro]
+
+40.times do
+  Taste.create(user: users.sample, watched: true, rating: rand(2) == 1, imdb_id: IMDB_IDS.sample)
 end
+
+# User.all.each do |user|
+#   rand(0..5).times do
+#     user.tastes.create(watched: true, rating: rand(2) == 1, imdb_id: IMDB_IDS.sample)
+#   end
+# end
