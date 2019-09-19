@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root to: 'dashboards#index#home'
+
   devise_for :users
 
   resources :users, only: [:index, :show]
@@ -10,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :tastes, only: [:new, :create, :update, :destroy]
 
-  resources :dashboards, only: [:index]
+  get '/', to: 'dashboards#index', as: 'dashboards'
 
   resources :follows, only: [:create, :destroy]
 
