@@ -15,7 +15,9 @@
       <div class="tastes_info">
         <%= image_tag taste.user.photo, class: "avatar" %>
         <%= taste.user.first_name %> <%= taste.user.last_name %>
-        <p><em><%= taste.movie.title %></em></p>
+        <p>
+          <em><%= taste.movie.title %></em>
+        </p>
       </div>
         <div class="review_tastes">
           <% if taste.rating == true %>
@@ -26,14 +28,17 @@
         </div>
     </div>
       <div class="movie_image">
-        <%= image_tag taste.movie.photo %>
+        <a href="<%= movie_path(taste.movie) %>">
+          <%= image_tag taste.movie.photo%>
+        </a>
       </div>
         <div class="d-flex justify-content-between">
           <div>
-            <i class="far fa-heart"></i>
-            <i class="far fa-comment"></i>
+            <i class="far fa-heart" style="padding-left: 8px;"></i>
+            <i class="far fa-comment" style="margin-left: 6px"></i>
           </div>
-            <i class="far fa-bookmark" style="padding-top: 2px" ></i>
+            <i class="far fa-bookmark" style="padding-top: 4px; padding-right: 8px" ></i>
         </div>
+        <p style="padding-left: 6px">Review from User Review from User Review from User Review from User Review from User</p> <!-- taste.review -->
   <% end %>
 </div>

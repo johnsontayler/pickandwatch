@@ -14,8 +14,13 @@
   margin-bottom: 0px;
 
   & p {
-    margin-left: 42px;
+    margin-top: -12px;
     font-size: 12px;
     margin-bottom: 10px;
+    padding-left: 52px;
+  }
+
+  & img {
+    margin-left: 8px;
   }
 }
