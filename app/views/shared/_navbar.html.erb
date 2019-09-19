@@ -1,5 +1,9 @@
 <div class="navbar fixed-top justify-content-between">
-    <a href="#"><i class="fas fa-home"></i></a>
-    <a href="#"><i class="fas fa-random"></i></a>
-    <a href="#"><i class="fas fa-user"></i></a>
+    <a href="/dashboards"><i class="fas fa-home"></i></a>
+    <a href="/tastes/new"><i class="fas fa-plus"></i></a>
+    <a href="/movies"><i class="fas fa-random"></i></a>
+    <%= link_to user_path(current_user) do %>
+      <%= image_tag current_user.photo, class: "avatar-sm" %>
+    <% end %>
 </div>
+
