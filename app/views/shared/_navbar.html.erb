@@ -3,7 +3,7 @@
     <a href="/tastes/new"><i class="fas fa-plus"></i></a>
     <a href="/movies"><i class="fas fa-random"></i></a>
     <%= link_to user_path(current_user) do %>
-      <i class="fas fa-user"></i>
+      <%= image_tag current_user.photo, class: "avatar" %>
     <% end %>
 </div>
 
