@@ -52,8 +52,24 @@
   </div>
   <! ---- Reviews Section ---- >
   <div class="section-card flex-column">
-    <div>
       <p><strong>Friend Reviews:</strong></p>
+    <div class="review_card">
+      <div class="review_card_info">
+        <% @watched_by.each do |taste| %>
+          <%= image_tag taste.user.photo, class: "avatar" %>
+          <%= taste.user.first_name %> <%= taste.user.last_name %>
+            <% if taste.rating == true %>
+                <i class="fas fa-thumbs-up" style="padding-left: 230px"></i>
+              <% else %>
+                <i class="far fa-thumbs-down" style="padding-left: 230px"></i>
+            <% end %>
+        <% end %>
+      </div>
+        <div class="review_card_review">
+          <% @watched_by.each do |taste| %>
+            <p style="margin-left: 45px">This movie is amazing</p>
+          <% end %>
+        </div>
     </div>
   </div>
 </div>
