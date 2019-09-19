@@ -6,6 +6,7 @@ class Taste < ApplicationRecord
 
   before_validation :link_movie, on: :create
 
+  validates :movie_id, presence: true
   validates :user_id, uniqueness: { scope: :movie_id, message: "has already rated" }
 
   def link_movie
