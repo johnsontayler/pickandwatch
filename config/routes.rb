@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   resources :wishlist, only: [:index]
 
   get 'tastes/bookmark', to: 'tastes#bookmark', as: 'bookmark_movie'
+  get 'tastes/pass', to: 'tastes#pass', as: 'pass_movie'
 end

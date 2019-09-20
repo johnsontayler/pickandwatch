@@ -1,9 +1,12 @@
 <div id='height-box' class="navbar fixed-bottom justify-content-sm-start align-items-center" size: 10px >
-          <%= link_to bookmark_movie_path(id: movie), style: "color: inherit;" do %>
-          <i class="far fa-bookmark"></i>
-        <% end %>
-  <i class="far fa-thumbs-down"></i>
+  <%= link_to bookmark_movie_path(id: movie), style: "color: inherit;" do %>
+    <i class="fas fa-times"></i>
+  <% end %>
   <i class="far fa-thumbs-up"></i>
+  <i class="fas fa-play" style="color: orange;"></i>
+  <%= link_to bookmark_movie_path(id: movie), style: "color: inherit;" do %>
+    <i class="far fa-bookmark"></i>
+  <% end %>
   <i class="fas fa-user-friends"></i>
 </div>
 
