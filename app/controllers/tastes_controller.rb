@@ -22,13 +22,23 @@ class TastesController < ApplicationController
     end
   end
 
-  def destroy
+  def watch
+    @movie = Movie.find(params[:id])
+    @taste = current_user.tastes.where(movie_id: @movie.id).first_or_create(imdb_id: @movie.imdb_id)
+    @taste.update!(watched: true, wish: false)
+    authorize @taste
+    redirect_to movie_path(@movie)
   end
 
   def bookmark
-    taste = current_user.tastes.where(movie_id: params[:id]).first_or_create
-    taste.update!(wish: !taste.wish)
-    authorize taste
+    @movie = Movie.find(params[:id])
+    @taste = current_user.tastes.where(movie_id: @movie.id).first_or_create(imdb_id: @movie.imdb_id)
+    @taste.update!(wish: !@taste.wish)
+    authorize @taste
+    redirect_to movies_path
+  end
+
+  def destroy
   end
 
   private
