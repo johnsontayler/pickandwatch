@@ -2,7 +2,8 @@
   <! ---- Movie Trailer & Heading ---- >
   <div class="trailer-header-card sticky-top" style="background-color: white; top: 48px;">
     <! ---- Movie Trailer ---- >
-    <%= video_tag "https://imdb-video.media-imdb.com/vi1032782617/1434659607842-pgv4ql-1564059931449.mp4?Expires=1568831420&Signature=PEZvFs78XouDOV6vC61b12MnGUsc10cqbXmVWjvG0t-0Mc7s-fcOXFbWojkomD~eJ7zUI5xSPcPuGWfnFW4ZTbkwQ6r-H3ACDE863ulYTp8yybno71EsqKWNi0g5C6BpMxRbImede5Mpn8Of4BDdHPPNAx9a1~1NHCN025RbXz5hEL-zs66HS5tYncdJaONYnCKs-fwdLmNq8gePSRc0FxNKDBxOAdxZxRLk3sOo1A2k~JlTJ4GJ~Xxkwiq7sVHSrAk9TTUJKlMUsRqbjzt3rlzdyVS-y8lPIuLPhjgkbZvj4av5Shah5LOoLkq~Pu574y1p2uqrBrJ20VTtNu0JqQ__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA", class: "video_player", :controls => true %>
+    <%#= video_tag "https://imdb-video.media-imdb.com/vi1032782617/1434659607842-pgv4ql-1564059931449.mp4?Expires=1568831420&Signature=PEZvFs78XouDOV6vC61b12MnGUsc10cqbXmVWjvG0t-0Mc7s-fcOXFbWojkomD~eJ7zUI5xSPcPuGWfnFW4ZTbkwQ6r-H3ACDE863ulYTp8yybno71EsqKWNi0g5C6BpMxRbImede5Mpn8Of4BDdHPPNAx9a1~1NHCN025RbXz5hEL-zs66HS5tYncdJaONYnCKs-fwdLmNq8gePSRc0FxNKDBxOAdxZxRLk3sOo1A2k~JlTJ4GJ~Xxkwiq7sVHSrAk9TTUJKlMUsRqbjzt3rlzdyVS-y8lPIuLPhjgkbZvj4av5Shah5LOoLkq~Pu574y1p2uqrBrJ20VTtNu0JqQ__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA", class: "video_player", :controls => true %>
+    <%= image_tag @movie.photo, class: "movie-banner" %>
     <! ---- Movie Header ---- >
     <div class="section-card">
         <h2><%= @movie.title %> (<%= @movie.year %>)</h2>
@@ -12,7 +13,7 @@
   <! ---- Movie Ratings & Wishlist ---- >
   <div class="movie-ratings d-flex justify-content-sm-start align-items-center">
     <div class="flex-item ml-2 mr-3">
-      <i class="fas fa-thumbs-up"></i> 90%
+      <i class="fas fa-thumbs-up"></i> <%= @like_taste.count %>
     </div>
     <div class="flex-item">
       <i class="fab fa-imdb"></i> <%= @movie.imdb_rating %>
@@ -51,27 +52,26 @@
   <! ---- Reviews Section ---- >
   <div class="section-card flex-column">
       <p><strong>Friend Reviews:</strong></p>
+
     <div class="review_card">
         <% @watched_by.each do |taste| %>
-      <div class="review_info d-flex justify-content-between">
-          <div id="review-text">
-            <%= image_tag taste.user.photo, class: "avatar" %>
-            <%= taste.user.first_name %> <%= taste.user.last_name %>
-          </div>
+          <div class="review_info d-flex justify-content-between">
+            <div id="review-text">
+              <%= image_tag taste.user.photo, class: "avatar" %>
+              <%= taste.user.first_name %> <%= taste.user.last_name %>
+            </div>
             <div class="review_tastes" >
               <% if taste.rating == true %>
                 <i class="fas fa-thumbs-up" style="padding-right: 8px"></i>
               <% else %>
                 <i class="far fa-thumbs-down" style="padding-right: 8px"></i>
               <% end %>
-        <% end %>
-      </div>
-    </div>
-        <div class="review_card_review">
-          <% @watched_by.each do |taste| %>
-            <p style="margin-left: 45px">This movie is amazing</p>
-          <% end %>
-        </div>
+            </div>
+          </div>
+            <div class="review_card_review">
+                <p style="margin-left: 45px"><%= taste.review %></p>
+            </div>
+         <% end %>
     </div>
   </div>
 </div>

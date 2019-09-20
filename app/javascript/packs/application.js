@@ -16,8 +16,27 @@ import 'bootstrap';
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-
 console.log('Hello World from Webpacker')
+
+// LIKE JAVASCRIPT
+const like = document.querySelector('#like_button_taste');
+const dislike = document.querySelector('#dislike_button_taste');
+
+
+if (like) {
+  like.addEventListener('click', (event) => {
+    event.currentTarget.classList.remove("oranged");
+    dislike.classList.add("oranged");
+  });
+}
+
+if (dislike) {
+dislike.addEventListener('click', (event) => {
+  event.currentTarget.classList.remove("oranged");
+  like.classList.add("oranged");
+});
+}
+// END
 
 import { showTabContentOnClick } from '../components/tabs_profile';
 import { fetchMovies } from './movies';

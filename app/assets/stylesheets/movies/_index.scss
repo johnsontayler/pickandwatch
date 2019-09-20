@@ -62,13 +62,17 @@
    color:black !important;
 }
 
-.fa-thumbs-down:hover{
-   color:black !important;
-}
+  // It was a problem for the taste form because when clicking on it, it turns black
+  // But when you click then on the review field, it turns orange again
+  // Joseph
 
-.fa-thumbs-up:hover{
-   color:black !important;
-}
+// .fa-thumbs-down:hover{
+//    color:black !important;
+// }
+
+// .fa-thumbs-up:hover{
+//    color:black !important;
+// }
 
 .fa-user-friends:hover{
    color:black !important;

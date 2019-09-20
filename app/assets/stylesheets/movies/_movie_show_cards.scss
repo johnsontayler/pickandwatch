@@ -30,3 +30,9 @@ $padding: 10px 12px 10px 16px;
   font-size: $body_size;
   font-weight: bold;
 }
+
+.movie-banner {
+  height: 180px;
+  width: 100%;
+  object-fit: cover;
+}
