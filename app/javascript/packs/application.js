@@ -29,8 +29,8 @@ if (input) input.addEventListener('keyup', fetchMovies);
 
 const movieIndex = document.querySelector('#search');
 
-const shuffle = document.getElementById("shuffle")
-shuffleMovie(shuffle);
+// const shuffle = document.getElementById("shuffle")
+// shuffleMovie(shuffle);
 
 showTabContentOnClick();
 

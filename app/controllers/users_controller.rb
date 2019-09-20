@@ -13,6 +13,6 @@ class UsersController < ApplicationController
     authorize @user
     @watched = Taste.where(user: @user, watched: true)
     @followers = @user.followers
-    @following = @user.followings
+    @following = @user.follows
   end
 end

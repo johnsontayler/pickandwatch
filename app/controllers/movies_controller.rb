@@ -2,6 +2,7 @@ class MoviesController < ApplicationController
   skip_before_action :authenticate_user!
   def index
     @movies = policy_scope(Movie).all
+    @movie = @movies.first
   end
 
   def show
