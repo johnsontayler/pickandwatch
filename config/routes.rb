@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :wishlist, only: [:index]
 
-  get 'tastes/pass', to: 'tastes#pass', as: 'pass_movie'
+  get 'movies/pass', to: 'movies#pass', as: 'pass_movie'
   get 'tastes/watch', to: 'tastes#watch', as: 'watch_movie'
   get 'tastes/bookmark', to: 'tastes#bookmark', as: 'bookmark_movie'
 end

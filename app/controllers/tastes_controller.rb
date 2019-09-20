@@ -22,6 +22,12 @@ class TastesController < ApplicationController
     end
   end
 
+  def watch
+    @taste = current_user.tastes.where(movie_id: params[:id]).first_or_create
+    @taste.update!(wish: !@taste.wish)
+    authorize @taste
+  end
+
   def bookmark
     @taste = current_user.tastes.where(movie_id: params[:id]).first_or_create
     @taste.update!(wish: !@taste.wish)
