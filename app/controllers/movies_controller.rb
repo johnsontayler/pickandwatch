@@ -13,8 +13,11 @@ class MoviesController < ApplicationController
   end
 
   def pass
-    @taste = current_user.tastes.where(movie_id: params[:id]).first_or_create
-    @taste.update!(wish: !@taste.wish)
-    authorize @taste
+    @movies = Movie.all
+    @movie = Movie.find(params[:id])
+    authorize @movie
+    @movies << @movie
+    @movies.shift
+    redirect_to movies_path
   end
 end

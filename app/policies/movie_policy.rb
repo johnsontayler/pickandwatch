@@ -12,4 +12,8 @@ class MoviePolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def pass?
+    true
+  end
 end
