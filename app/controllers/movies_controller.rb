@@ -1,8 +1,17 @@
 class MoviesController < ApplicationController
-  skip_before_action :authenticate_user!
+
   def index
+    unless params[:movies_shuffled_ids].nil?
+      @movies_shuffled = [] if @movies_shuffled.nil?
+      params[:movies_shuffled_ids].each do |movie_shuffled_id|
+        current_movie = Movie.find(movie_shuffled_id)
+        @movies_shuffled << current_movie
+      end
+    end
     @movies = policy_scope(Movie).all
-    @movie = @movies.first
+    @movies_shuffled = [] if @movies_shuffled.count == @movies.count
+    @movies -= @movies_shuffled if @movies_shuffled.present?
+    @movie = @movies.sample
   end
 
   def show
@@ -10,14 +19,5 @@ class MoviesController < ApplicationController
     authorize @movie
     @user_taste = Taste.where(user: current_user, movie: @movie)
     @watched_by = Taste.where(movie: @movie, watched: true)
-  end
-
-  def pass
-    @movies = Movie.all
-    @movie = Movie.find(params[:id])
-    authorize @movie
-    @movies << @movie
-    @movies.shift
-    redirect_to movies_path
   end
 end

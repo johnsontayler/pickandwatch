@@ -1,7 +1,17 @@
 <div id='height-box' class="navbar fixed-bottom justify-content-sm-start align-items-center" size: 10px >
-  <%= link_to bookmark_movie_path(id: movie), style: "color: inherit;" do %>
-    <i class="fas fa-times"></i>
-  <% end %>
+
+  <%= form_tag('/movies', method: :get) do -%>
+    <% unless movies_shuffled.blank? %>
+      <% movies_shuffled.each do |movie_shuffled| %>
+        <%= hidden_field_tag 'movies_shuffled_ids[]', movie_shuffled.id %>
+      <% end %>
+    <% end %>
+    <%= hidden_field_tag 'movies_shuffled_ids[]', movie.id %>
+    <div><%= button_tag style: "border: none; background-color: transparent;" do %>
+        <i class="fas fa-times"></i>
+     <% end %>
+    </div>
+  <% end -%>
   <i class="far fa-thumbs-up"></i>
   <i class="fas fa-play" style="color: orange;"></i>
   <%= link_to bookmark_movie_path(id: movie), style: "color: inherit;" do %>
