@@ -26,8 +26,10 @@
         <input type="radio" value="false" name="taste[rating]" id="taste_rating_false">
       </label>
     </span>
-
-    <%= f.input :review %>
-    <%= f.submit "add a review", class: "btn btn-primary" %>
+    <br><br>
+    <%= image_tag current_user.photo, class: "avatar-sm" %>
+    <%= current_user.first_name %> <%= current_user.last_name %>
+    <%= f.input :review, placeholder: 'Express yourself', label: false %>
+    <%= f.submit "add a review", class: "btn btn-warning" %>
   <% end %>
 </div>
