@@ -24,7 +24,7 @@ class TastesController < ApplicationController
 
   def watch
     @taste = current_user.tastes.where(movie_id: params[:id]).first_or_create
-    @taste.update!(wish: !@taste.wish)
+    @taste.update!(watched: true, wish: false)
     authorize @taste
   end
 

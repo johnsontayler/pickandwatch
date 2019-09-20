@@ -28,6 +28,7 @@
   font-style: bold;
   background: black;
   padding-left: 18px;
+  border: 1px solid black;
 }
 
 .parent {
@@ -53,12 +54,14 @@
 //   background-image: linear-gradient(white, black);
 // }
 
-#height-box {
+#shuffle-box {
   font-size: 30px;
   padding-top: 0px;
+  border-bottom: none;
+  margin-bottom: 12px;
  }
 
-.fa-bookmark:hover{
+.fa-bookmark:active{
    color:black !important;
 }
 
