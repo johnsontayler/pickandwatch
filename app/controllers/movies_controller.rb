@@ -9,7 +9,7 @@ class MoviesController < ApplicationController
       end
     end
     @movies = policy_scope(Movie).all
-    @movies_shuffled = [] if @movies_shuffled.count == @movies.count
+    @movies_shuffled = [] if @movies_shuffled&.count == @movies.count
     @movies -= @movies_shuffled if @movies_shuffled.present?
     @movie = @movies.sample
   end
