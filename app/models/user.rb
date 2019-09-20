@@ -38,7 +38,7 @@ class User < ApplicationRecord
     user.tastes.each do |taste|
       if taste.wish
         movie = Movie.find(taste.movie.id)
-        movies_watched << movie
+        wishlist << movie
       end
     end
     wishlist
