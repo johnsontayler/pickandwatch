@@ -1,5 +1,7 @@
 <br><br><br>
 <div class="container">
+
+  <! --------- Search movie bar ------------- >
   <div class="search-form-control form-group">
   <input class="form-control string required" type="text" id="search" placeholder="Pick a movie to rate">
    <button name="button" type="submit" class="btn btn-flat btn-sm">
@@ -9,27 +11,33 @@
     <ul id="results" class="nobullet" style="list-style-type: none">
     </ul>
 
-
+  <! --------- Like or dislike buttons --------- >
   <%= simple_form_for [@taste] do |f| %>
     <%= f.hidden_field :imdb_id, value:"" %>
 
     <input type="hidden" name="taste[rating]" value="">
-    <span>
-      <label for="taste_rating_true">
-        <i class="fas fa-thumbs-up" id="like_button_taste"></i>
-        <input type="radio" value="true" name="taste[rating]" id="taste_rating_true">
-      </label>
-    </span>
-    <span>
-      <label for="taste_rating_false" >
-        <i class="fas fa-thumbs-down" id="dislike_button_taste"></i>
-        <input type="radio" value="false" name="taste[rating]" id="taste_rating_false">
-      </label>
-    </span>
-    <br><br>
+    <div style="text-align: center">
+      <span>
+        <label for="taste_rating_true">
+          <i class="fas fa-thumbs-up oranged" id="like_button_taste"></i>
+          <input type="radio" value="true" name="taste[rating]" id="taste_rating_true">
+        </label>
+      </span>
+      <span>
+        <label for="taste_rating_false" >
+          <i class="fas fa-thumbs-down oranged" id="dislike_button_taste"></i>
+          <input type="radio" value="false" name="taste[rating]" id="taste_rating_false">
+        </label>
+      </span>
+    </div>
+    <br>
+
+    <! --------------- Avatar + names --------------------- >
     <%= image_tag current_user.photo, class: "avatar-sm" %>
     <%= current_user.first_name %> <%= current_user.last_name %>
+    <br>
     <%= f.input :review, placeholder: 'Express yourself', label: false %>
-    <%= f.submit "add a review", class: "btn btn-warning" %>
+    <%= f.submit "add a review", class: "btn-submit-taste" %>
   <% end %>
 </div>
+

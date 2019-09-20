@@ -1,7 +1,27 @@
-// #taste_rating_true{
-// display: none !important;
-// visibility: hidden;
-// }
+#taste_rating_true{
+display: none !important;
+visibility: hidden;
+}
+
+#taste_rating_false{
+display: none !important;
+visibility: hidden;
+}
+
+#like_button_taste{
+  color: orange;
+  font-size: 35px;
+
+}
+
+#dislike_button_taste{
+  color: orange;
+  font-size: 35px;
+}
+
+.oranged{
+  color: black !important;
+}
 
 .notification {
   display: flex;
@@ -32,4 +52,15 @@
 
 input[type=“radio”]:checked{
    visibility:hidden;
+}
+
+.btn-submit-taste {
+  color: white;
+  background-color: orange;
+  border: 1px solid rgb(223, 117, 20);
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
 }
