@@ -17,7 +17,11 @@
     <i class="fas fa-play" style="color: orange; font-size: 48px;"></i>
   <% end %>
   <%= link_to bookmark_movie_path(id: movie), style: "color: inherit;" do %>
-    <i class="far fa-bookmark"></i>
+    <% if wished.count.zero? %>
+      <i class="far fa-bookmark"></i>
+    <% else %>
+      <i class="fas fa-bookmark"></i>
+    <% end %>
   <% end %>
   <i class="fas fa-user-friends"></i>
 </div>
