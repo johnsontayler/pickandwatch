@@ -8,10 +8,13 @@ class MoviesController < ApplicationController
         @movies_shuffled << current_movie
       end
     end
+
     @movies = policy_scope(Movie).all
     @movies_shuffled = [] if @movies_shuffled&.count == @movies.count
     @movies -= @movies_shuffled if @movies_shuffled.present?
     @movie = @movies.sample
+
+    @wished = Taste.where(user: current_user, movie: @movie, wish: true)
   end
 
   def show
@@ -21,7 +24,7 @@ class MoviesController < ApplicationController
     # like_taste is to count taste that where liked and display the number
     @like_taste = @movie.tastes.where(rating: true)
 
-    @user_taste = Taste.where(user: current_user, movie: @movie)
+    @wished = Taste.where(user: current_user, movie: @movie, wish: true)
     @watched_by = Taste.where(movie: @movie, watched: true)
   end
 end

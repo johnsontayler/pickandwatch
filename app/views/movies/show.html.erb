@@ -15,18 +15,21 @@
     <div class="flex-item ml-2 mr-3">
       <i class="fas fa-thumbs-up"></i> <%= @like_taste.count %>
     </div>
-    <div class="flex-item">
+    <div class="flex-item mr-3">
       <i class="fab fa-imdb"></i> <%= @movie.imdb_rating %>
     </div>
+    <%= link_to watch_movie_path(id: @movie), style: "color: inherit;" do %>
+      <i class="fas fa-play ml-5" style="color: orange; font-size: 40px;"></i>
+    <% end %>
     <div class="flex-item ml-auto mr-2">
-      <% if @user_taste.count.zero? %>
-        <%= link_to movie_path(@movie), style: "color: inherit;" do %>
-          <i class="far fa-bookmark mr-1"></i>
-        <% end %> Wishlist
+      <% if @wished.count.zero? %>
+        <%= link_to bookmark_movie_path(id: @movie), style: "color: inherit;" do %>
+          <i class="far fa-bookmark mr-1"></i> Wishlist
+        <% end %>
       <% else %>
-        <%= link_to movie_path(@movie), style: "color: inherit;" do %>
-          <i class="fas fa-bookmark mr-1"></i>
-        <% end %> Wishlist
+        <%= link_to bookmark_movie_path(id: @movie), style: "color: inherit;" do %>
+          <i class="fas fa-bookmark mr-1"></i> Wishlist
+        <% end %>
       <% end %>
     </div>
   </div>
@@ -43,9 +46,9 @@
   <! ---- Watched By Section ---- >
   <div class="section-card flex-column">
     <p><strong>Watched By:</strong></p>
-    <div class="watched-avatars-card d-flex justify-content-between">
+    <div class="watched-avatars-card d-flex">
       <% @watched_by.each do |taste| %>
-        <%= image_tag taste.user.photo, class: "avatar" %>
+        <%= image_tag taste.user.photo, class: "avatar mr-2" %>
       <% end %>
     </div>
   </div>
