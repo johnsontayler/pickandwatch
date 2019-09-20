@@ -9,6 +9,10 @@ class TastePolicy < ApplicationPolicy
     true
   end
 
+  def watch?
+    true
+  end
+
   def bookmark?
     true
   end

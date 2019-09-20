@@ -2,10 +2,10 @@
   width: 100%;
 }
 
-.movie-ratings {
+.shuffle-ratings {
   justify-content: space-between;
   padding: 10px;
-  color: #fd3304;
+  color: $orange;
   background: black;
   font-style: bold;
   size: 20px;
@@ -28,6 +28,7 @@
   font-style: bold;
   background: black;
   padding-left: 18px;
+  border: 1px solid black;
 }
 
 .parent {
@@ -53,12 +54,14 @@
 //   background-image: linear-gradient(white, black);
 // }
 
-#height-box {
+#shuffle-box {
   font-size: 30px;
   padding-top: 0px;
+  border-bottom: none;
+  margin-bottom: 12px;
  }
 
-.fa-bookmark:hover{
+.fa-bookmark:active{
    color:black !important;
 }
 
