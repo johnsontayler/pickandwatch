@@ -9,5 +9,6 @@ class DashboardsController < ApplicationController
 
     @genres = ["All"]
     @genres += Movie.select('DISTINCT genre').all.map(&:genre).sort
+    @wished = Taste.where(user: current_user, wish: true)
   end
 end
