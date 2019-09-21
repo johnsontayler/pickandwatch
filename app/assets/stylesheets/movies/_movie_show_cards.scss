@@ -17,13 +17,11 @@ $padding: 10px 12px 10px 16px;
   padding-top: 8px;
 }
 
-.review_card {
-  border: 1px solid gray;
-  border-radius: 5px;
-  padding-top: 7px;
-  padding-left: 7px;
-  margin-bottom: 2px;
+.review_card_review {
+  border-bottom: 1px solid #E7E7E7;
+  margin-bottom: 15px;
 }
+
 
 #review-text {
   font-family: $sl-font-family--body;
