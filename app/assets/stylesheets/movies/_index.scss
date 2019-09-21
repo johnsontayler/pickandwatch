@@ -12,6 +12,7 @@
   font-size: 20px;
   opacity: 1;
   padding-top: 2px;
+  overflow: hidden;
 }
 
 .summary-movie-picker {
@@ -36,13 +37,13 @@
   top: 0;
   left: 0;
 }
+
 .movie-image {
   position: relative;
   top: 0;
   left: 0;
   z-index: -1;
-  height: 450px ;
-  width: 375px;
+  height: 65vh;
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
   background-size: cover;
 }
@@ -56,7 +57,7 @@
 
 #shuffle-box {
   font-size: 30px;
-  padding-top: 0px;
+  padding-top: 12px;
   border-bottom: none;
   margin-bottom: 12px;
  }

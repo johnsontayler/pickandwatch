@@ -48,7 +48,14 @@
     <p><strong>Watched By:</strong></p>
     <div class="watched-avatars-card d-flex">
       <% @watched_by.each do |taste| %>
-        <%= image_tag taste.user.photo, class: "avatar mr-2" %>
+        <div class="flex-column">
+          <div>
+            <%= link_to user_path(taste.user) do %>
+            <%= image_tag taste.user.photo, class: "avatar mr-4" %>
+          <% end %>
+          </div>
+          <div><%= taste.user.first_name %></div>
+        </div>
       <% end %>
     </div>
   </div>
@@ -60,7 +67,9 @@
         <% @watched_by.each do |taste| %>
           <div class="review_info d-flex justify-content-between">
             <div id="review-text">
-              <%= image_tag taste.user.photo, class: "avatar" %>
+              <%= link_to user_path(taste.user) do %>
+                <%= image_tag taste.user.photo, class: "avatar" %>
+              <% end %>
               <%= taste.user.first_name %> <%= taste.user.last_name %>
             </div>
             <div class="review_tastes" >
