@@ -1,4 +1,4 @@
-<div id='shuffle-box' class="navbar fixed-bottom justify-content-sm-start align-items-center" size: 10px >
+<div id='shuffle-box' class="navbar justify-content-sm-start align-items-center" size: 10px >
 
   <%= form_tag('/movies', method: :get) do -%>
     <% unless movies_shuffled.blank? %>
@@ -8,7 +8,7 @@
     <% end %>
     <%= hidden_field_tag 'movies_shuffled_ids[]', movie.id %>
     <div><%= button_tag style: "border: none; background-color: transparent;" do %>
-        <i class="fas fa-times"></i>
+        <i class="fas fa-forward"></i>
      <% end %>
     </div>
   <% end -%>
@@ -16,6 +16,7 @@
   <%= link_to watch_movie_path(id: movie), style: "color: inherit;" do %>
     <i class="fas fa-play" style="color: orange; font-size: 48px;"></i>
   <% end %>
+  <i class="far fa-thumbs-down"></i>
   <%= link_to bookmark_movie_path(id: movie), style: "color: inherit;" do %>
     <% if wished.count.zero? %>
       <i class="far fa-bookmark"></i>
@@ -23,6 +24,5 @@
       <i class="fas fa-bookmark"></i>
     <% end %>
   <% end %>
-  <i class="fas fa-user-friends"></i>
 </div>
 
