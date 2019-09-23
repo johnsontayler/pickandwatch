@@ -32,7 +32,7 @@
           </div>
         </div>
       <% else %>
-        <div class="dashboard-review-container flex-column">
+        <div class="dashboard-review-container flex-column" data-genre="<%= taste.movie.genre %>">
           <div class="section-card d-flex justify-content-between">
             <div class="review-text d-flex">
               <%= link_to user_path(taste.user) do %>
