@@ -10,7 +10,7 @@
 
 <!-- DO NOT REMOVE THE CLASS CARDS OTHERWISE IT FUCK EVERYTHING -->
 <div class="cards">
-  <% @tastes.reverse.each do |taste| %>
+  <% @tastes.order('updated_at DESC').each do |taste| %>
     <div data-genre="<%= taste.movie.genre %>">
       <% if current_user.follows.exists?(followed: taste.user) || taste.user == current_user %>
         <% if taste.rating.nil? %>
