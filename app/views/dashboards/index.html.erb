@@ -86,7 +86,7 @@
         </div>
       <% end %>
     <% elsif taste.user == current_user %>
-      <% if taste.rating.nil? %> gst
+      <% if taste.rating.nil? %>
         <div class="watching-section-card d-flex">
           <div class="poster mr-2">
             <%= image_tag taste.movie.photo, class: "movie-show-poster mt-1" %>
