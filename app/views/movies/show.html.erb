@@ -51,41 +51,45 @@
     <p><strong>Watched By:</strong></p>
     <div class="watched-avatars-card d-flex">
       <% @watched_by.each do |taste| %>
-        <div class="flex-column">
-          <div style= "display: flex; flex-direction: column; align-items: center; justify-content: center; ">
-            <%= link_to user_path(taste.user) do %>
-              <%= image_tag taste.user.photo, class: "avatar mr-4" %>
-            <% end %>
-            <div style="margin-right: 1em"><%= taste.user.first_name %></div>
+        <% if current_user.follows.exists?(followed: taste.user) || taste.user == current_user %>
+          <div class="flex-column">
+            <div style= "display: flex; flex-direction: column; align-items: center; justify-content: center; ">
+              <%= link_to user_path(taste.user) do %>
+                <%= image_tag taste.user.photo, class: "avatar mr-4" %>
+              <% end %>
+              <div style="margin-right: 1em"><%= taste.user.first_name %></div>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
   </div>
   <! ---- Reviews Section ---- >
   <div class="section-card flex-column">
-      <p><strong>Friend Reviews (<%= @movie.tastes.count %>):</strong></p>
+      <p><strong>Friend Reviews<%#= @movie.tastes.count %>:</strong></p>
 
     <div class="review_card">
-        <% @watched_by.each do |taste| %>
-          <div class="review_info d-flex justify-content-between">
-            <div id="review-text">
-              <%= link_to user_path(taste.user) do %>
-                <%= image_tag taste.user.photo, class: "avatar-review" %>
-              <% end %>
-              <strong><%= taste.user.first_name %> <%= taste.user.last_name %></strong>
+        <% @reviewed_by.each do |taste| %>
+          <% if current_user.follows.exists?(followed: taste.user) || taste.user == current_user %>
+            <div class="review_info d-flex justify-content-between">
+              <div id="review-text">
+                <%= link_to user_path(taste.user) do %>
+                  <%= image_tag taste.user.photo, class: "avatar-review" %>
+                <% end %>
+                <strong><%= taste.user.first_name %> <%= taste.user.last_name %></strong>
+              </div>
+              <div class="review_tastes" >
+                <% if taste.rating == true %>
+                  <i class="fas fa-thumbs-up" style="padding-right: 0.5em; font-size: 1.5em"></i>
+                <% else %>
+                  <i class="fas fa-thumbs-down" style="padding-right: 0.5em; font-size: 1.5em"></i>
+                <% end %>
+              </div>
             </div>
-            <div class="review_tastes" >
-              <% if taste.rating == true %>
-                <i class="fas fa-thumbs-up" style="padding-right: 0.5em; font-size: 1.5em"></i>
-              <% else %>
-                <i class="fas fa-thumbs-down" style="padding-right: 0.5em; font-size: 1.5em"></i>
-              <% end %>
-            </div>
-          </div>
             <div class="review_card_review">
                 <p style="margin-left: 3.5em; margin-right:2.3em;"><%= taste.review %></p>
             </div>
+          <% end %>
          <% end %>
     </div>
   </div>
