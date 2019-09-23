@@ -1,4 +1,6 @@
 const results = document.querySelector('#results');
+const hiddenTaste = document.querySelector('.hide-movie-taste');
+const moviePoster = document.querySelector('.movie-poster-review');
 
 const getClosest = (elem, selector) => {
   for ( ; elem && elem !== document; elem = elem.parentNode ) {
@@ -9,7 +11,7 @@ const getClosest = (elem, selector) => {
 
 const insertMovies = (data) => {
   data.Search.forEach((movie) => {
-    var indexOfMovie = data.Search.indexOf(movie)
+    var indexOfMovie = data.Search.indexOf(movie);
     if (indexOfMovie > 4)
       return;
     const movieLine = document.createElement('LI');
@@ -23,6 +25,7 @@ const insertMovies = (data) => {
       </div>
      </div>`
     movieLine.dataset.imdbId = movie.imdbID;
+    moviePoster.innerHTML = `<img class ="movie-show-poster" src="${movie.Poster}" alt="" /> <br><br>`;
 
 
     results.insertAdjacentElement('beforeend', movieLine);
@@ -32,6 +35,8 @@ const insertMovies = (data) => {
       imdb.value = getClosest(event.target, '.result').dataset.imdbId;
 
       document.getElementById('search').value = movie.Title;
+      hiddenTaste.classList.remove("hide-movie-taste");
+
 
       // divvide.innerHTML = movieLine.innerHTML;
       results.innerHTML = '';
