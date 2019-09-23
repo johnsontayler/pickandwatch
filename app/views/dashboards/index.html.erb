@@ -17,7 +17,7 @@
           <%= link_to user_path(taste.user) do %>
             <%= image_tag taste.user.photo, class: "avatar" %>
           <% end %>
-          <div class="review-header flex-column ml-2" style="font-size: 0.8em;">
+          <div class="review-header flex-column ml-3" style="font-size: 0.8em;">
             <div>
               <strong><%= taste.user.first_name %> <%= taste.user.last_name %></strong> watched
             </div>
@@ -32,7 +32,7 @@
           <% end %>
         </div>
       </div>
-      <div>
+      <div class="movie-poster-review mb-3">
         <%= link_to movie_path(taste.movie) do %>
           <% if taste.movie.photo == "N/A" %>
             <div class="movie-image" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0)),  url('https://cdn.moviemovie.com.hk/teaser/og-image.jpg');"  >
