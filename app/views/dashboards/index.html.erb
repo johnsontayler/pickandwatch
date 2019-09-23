@@ -11,154 +11,156 @@
 <!-- DO NOT REMOVE THE CLASS CARDS OTHERWISE IT FUCK EVERYTHING -->
 <div class="cards">
   <% @tastes.reverse.each do |taste| %>
-    <% if current_user.follows.exists?(followed: taste.user) %>
-      <% if taste.rating.nil? %>
-        <div class="watching-section-card d-flex">
-          <div class="poster mr-2">
-            <%= image_tag taste.movie.photo, class: "movie-show-poster mt-1" %>
-          </div>
-          <div class="review-text d-flex mt-2">
-            <%= link_to user_path(taste.user) do %>
-              <%= image_tag taste.user.photo, class: "avatar" %>
-            <% end %>
-            <div class="review-header flex-column ml-2 mr-1" style="font-size: 0.8em;">
-              <div>
-                <strong><%= taste.user.first_name %> <%= taste.user.last_name %></strong> is currently watching
-              </div>
-              <div><%= taste.movie.title %></div>
-              <br>
-              <div><%= taste.movie.description %></div>
+    <div data-genre="<%= taste.movie.genre %>">
+      <% if current_user.follows.exists?(followed: taste.user) %>
+        <% if taste.rating.nil? %>
+          <div class="watching-section-card d-flex">
+            <div class="poster mr-2">
+              <%= image_tag taste.movie.photo, class: "movie-show-poster mt-1" %>
             </div>
-          </div>
-        </div>
-      <% else %>
-        <div class="dashboard-review-container flex-column" data-genre="<%= taste.movie.genre %>">
-          <div class="section-card d-flex justify-content-between">
-            <div class="review-text d-flex">
+            <div class="review-text d-flex mt-2">
               <%= link_to user_path(taste.user) do %>
                 <%= image_tag taste.user.photo, class: "avatar" %>
               <% end %>
-              <div class="review-header flex-column ml-2" style="font-size: 0.8em;">
+              <div class="review-header flex-column ml-2 mr-1" style="font-size: 0.8em;">
                 <div>
-                  <strong><%= taste.user.first_name %> <%= taste.user.last_name %></strong> watched
+                  <strong><%= taste.user.first_name %> <%= taste.user.last_name %></strong> is currently watching
                 </div>
                 <div><%= taste.movie.title %></div>
+                <br>
+                <div><%= taste.movie.description %></div>
               </div>
             </div>
-            <div class="review_tastes mt-2" >
-              <% if taste.rating == true %>
-                <i class="fas fa-thumbs-up" style="padding-right: 8px"></i>
-              <% elsif taste.rating == false %>
-                <i class="far fa-thumbs-down" style="padding-right: 8px"></i>
-              <% end %>
-            </div>
           </div>
-          <div>
-            <%= link_to movie_path(taste.movie) do %>
-              <% if taste.movie.photo == "N/A" %>
-                <div class="movie-image" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0)),  url('https://cdn.moviemovie.com.hk/teaser/og-image.jpg');"  >
+        <% else %>
+          <div class="dashboard-review-container flex-column">
+            <div class="section-card d-flex justify-content-between">
+              <div class="review-text d-flex">
+                <%= link_to user_path(taste.user) do %>
+                  <%= image_tag taste.user.photo, class: "avatar" %>
+                <% end %>
+                <div class="review-header flex-column ml-2" style="font-size: 0.8em;">
+                  <div>
+                    <strong><%= taste.user.first_name %> <%= taste.user.last_name %></strong> watched
+                  </div>
+                  <div><%= taste.movie.title %></div>
                 </div>
-              <% else %>
-                <div class="movie-image" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0)),  url(<%= taste.movie.photo %>);"  >
-                </div>
+              </div>
+              <div class="review_tastes mt-2" >
+                <% if taste.rating == true %>
+                  <i class="fas fa-thumbs-up" style="padding-right: 8px"></i>
+                <% elsif taste.rating == false %>
+                  <i class="fas fa-thumbs-down" style="padding-right: 8px"></i>
+                <% end %>
+              </div>
+            </div>
+            <div>
+              <%= link_to movie_path(taste.movie) do %>
+                <% if taste.movie.photo == "N/A" %>
+                  <div class="movie-image" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0)),  url('https://cdn.moviemovie.com.hk/teaser/og-image.jpg');"  >
+                  </div>
+                <% else %>
+                  <div class="movie-image" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0)),  url(<%= taste.movie.photo %>);"  >
+                  </div>
+                <% end %>
               <% end %>
-            <% end %>
-            <h2 class="title-movie-picker"><i><%= taste.review %></i></h2>
-            <div class="details">
-              <div class="shuffle-ratings d-flex justify-content-space-between align-items-center">
-                <div class="flex-item ml-2 mr-5 mt-2">
-                  <%= link_to watch_movie_path(id: taste.movie), style: "color: inherit;" do %>
-                    <i class="fas fa-play" style="color: orange; font-size: 26px;"></i>
-                  <% end %>
-                </div>
-                <div class="flex-item ml-5">
-                  <%= link_to bookmark_movie_path(id: taste.movie), style: "color: inherit; font-size: 26px;" do %>
-                    <% if @wished.where(movie: taste.movie).count.zero? %>
-                      <i class="far fa-bookmark"></i>
-                    <% else %>
-                      <i class="fas fa-bookmark"></i>
+              <h2 class="title-movie-picker"><i><%= taste.review %></i></h2>
+              <div class="details">
+                <div class="shuffle-ratings d-flex justify-content-space-between align-items-center">
+                  <div class="flex-item ml-2 mr-5 mt-2">
+                    <%= link_to watch_movie_path(id: taste.movie), style: "color: inherit;" do %>
+                      <i class="fas fa-play" style="color: orange; font-size: 26px;"></i>
                     <% end %>
-                  <% end %>
+                  </div>
+                  <div class="flex-item ml-5">
+                    <%= link_to bookmark_movie_path(id: taste.movie), style: "color: inherit; font-size: 26px;" do %>
+                      <% if @wished.where(movie: taste.movie).count.zero? %>
+                        <i class="far fa-bookmark"></i>
+                      <% else %>
+                        <i class="fas fa-bookmark"></i>
+                      <% end %>
+                    <% end %>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      <% end %>
-    <% elsif taste.user == current_user %>
-      <% if taste.rating.nil? %>
-        <div class="watching-section-card d-flex">
-          <div class="poster mr-2">
-            <%= image_tag taste.movie.photo, class: "movie-show-poster mt-1" %>
-          </div>
-          <div class="review-text d-flex mt-2">
-            <%= link_to user_path(taste.user) do %>
-              <%= image_tag taste.user.photo, class: "avatar" %>
-            <% end %>
-            <div class="review-header flex-column ml-2 mr-1" style="font-size: 0.8em;">
-              <div>
-                <strong><%= taste.user.first_name %> <%= taste.user.last_name %></strong> is currently watching
-              </div>
-              <div><%= taste.movie.title %></div>
-              <br>
-              <div><%= taste.movie.description %></div>
+        <% end %>
+      <% elsif taste.user == current_user %>
+        <% if taste.rating.nil? %>
+          <div class="watching-section-card d-flex">
+            <div class="poster mr-2">
+              <%= image_tag taste.movie.photo, class: "movie-show-poster mt-1" %>
             </div>
-          </div>
-        </div>
-      <% else %>
-        <div class="dashboard-review-container flex-column">
-          <div class="section-card d-flex justify-content-between">
-            <div class="review-text d-flex">
+            <div class="review-text d-flex mt-2">
               <%= link_to user_path(taste.user) do %>
                 <%= image_tag taste.user.photo, class: "avatar" %>
               <% end %>
-              <div class="review-header flex-column ml-2" style="font-size: 0.8em;">
+              <div class="review-header flex-column ml-2 mr-1" style="font-size: 0.8em;">
                 <div>
-                  <strong><%= taste.user.first_name %> <%= taste.user.last_name %></strong> watched
+                  <strong><%= taste.user.first_name %> <%= taste.user.last_name %></strong> is currently watching
                 </div>
                 <div><%= taste.movie.title %></div>
+                <br>
+                <div><%= taste.movie.description %></div>
               </div>
             </div>
-            <div class="review_tastes mt-2" >
-              <% if taste.rating == true %>
-                <i class="fas fa-thumbs-up" style="padding-right: 8px"></i>
-              <% elsif taste.rating == false %>
-                <i class="far fa-thumbs-down" style="padding-right: 8px"></i>
-              <% end %>
-            </div>
           </div>
-          <div>
-            <%= link_to movie_path(taste.movie) do %>
-              <% if taste.movie.photo == "N/A" %>
-                <div class="movie-image" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0)),  url('https://cdn.moviemovie.com.hk/teaser/og-image.jpg');"  >
+        <% else %>
+          <div class="dashboard-review-container flex-column">
+            <div class="section-card d-flex justify-content-between">
+              <div class="review-text d-flex">
+                <%= link_to user_path(taste.user) do %>
+                  <%= image_tag taste.user.photo, class: "avatar" %>
+                <% end %>
+                <div class="review-header flex-column ml-2" style="font-size: 0.8em;">
+                  <div>
+                    <strong><%= taste.user.first_name %> <%= taste.user.last_name %></strong> watched
+                  </div>
+                  <div><%= taste.movie.title %></div>
                 </div>
-              <% else %>
-                <div class="movie-image" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0)),  url(<%= taste.movie.photo %>);"  >
-                </div>
+              </div>
+              <div class="review_tastes mt-2" >
+                <% if taste.rating == true %>
+                  <i class="fas fa-thumbs-up" style="padding-right: 8px"></i>
+                <% elsif taste.rating == false %>
+                  <i class="fas fa-thumbs-down" style="padding-right: 8px"></i>
+                <% end %>
+              </div>
+            </div>
+            <div>
+              <%= link_to movie_path(taste.movie) do %>
+                <% if taste.movie.photo == "N/A" %>
+                  <div class="movie-image" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0)),  url('https://cdn.moviemovie.com.hk/teaser/og-image.jpg');"  >
+                  </div>
+                <% else %>
+                  <div class="movie-image" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0)),  url(<%= taste.movie.photo %>);"  >
+                  </div>
+                <% end %>
               <% end %>
-            <% end %>
-            <h2 class="title-movie-picker"><i><%= taste.review %></i></h2>
-            <div class="details">
-              <div class="shuffle-ratings d-flex justify-content-space-between align-items-center">
-                <div class="flex-item ml-2 mr-5 mt-2">
-                  <%= link_to watch_movie_path(id: taste.movie), style: "color: inherit;" do %>
-                    <i class="fas fa-play" style="color: orange; font-size: 26px;"></i>
-                  <% end %>
-                </div>
-                <div class="flex-item ml-5">
-                  <%= link_to bookmark_movie_path(id: taste.movie), style: "color: inherit; font-size: 26px;" do %>
-                    <% if @wished.where(movie: taste.movie).count.zero? %>
-                      <i class="far fa-bookmark"></i>
-                    <% else %>
-                      <i class="fas fa-bookmark"></i>
+              <h2 class="title-movie-picker"><i><%= taste.review %></i></h2>
+              <div class="details">
+                <div class="shuffle-ratings d-flex justify-content-space-between align-items-center">
+                  <div class="flex-item ml-2 mr-5 mt-2">
+                    <%= link_to watch_movie_path(id: taste.movie), style: "color: inherit;" do %>
+                      <i class="fas fa-play" style="color: orange; font-size: 26px;"></i>
                     <% end %>
-                  <% end %>
+                  </div>
+                  <div class="flex-item ml-5">
+                    <%= link_to bookmark_movie_path(id: taste.movie), style: "color: inherit; font-size: 26px;" do %>
+                      <% if @wished.where(movie: taste.movie).count.zero? %>
+                        <i class="far fa-bookmark"></i>
+                      <% else %>
+                        <i class="fas fa-bookmark"></i>
+                      <% end %>
+                    <% end %>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   <% end %>
 </div>
