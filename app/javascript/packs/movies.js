@@ -25,7 +25,6 @@ const insertMovies = (data) => {
       </div>
      </div>`
     movieLine.dataset.imdbId = movie.imdbID;
-    moviePoster.innerHTML = `<img class ="movie-show-poster" src="${movie.Poster}" alt="" /> <br><br>`;
 
 
     results.insertAdjacentElement('beforeend', movieLine);
@@ -33,6 +32,7 @@ const insertMovies = (data) => {
     movieLine.addEventListener('click', (event) =>{
       const imdb = document.getElementById('taste_imdb_id');
       imdb.value = getClosest(event.target, '.result').dataset.imdbId;
+      moviePoster.innerHTML = `<img class ="movie-show-poster" src="${movie.Poster}" alt="" /> <br><br>`;
 
       document.getElementById('search').value = movie.Title;
       hiddenTaste.classList.remove("hide-movie-taste");
