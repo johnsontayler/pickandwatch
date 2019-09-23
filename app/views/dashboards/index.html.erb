@@ -14,7 +14,7 @@
     <div data-genre="<%= taste.movie.genre %>">
       <% if current_user.follows.exists?(followed: taste.user) || taste.user == current_user %>
         <% if taste.rating.nil? %>
-          <div class="watching-section-card d-flex justify-content-between">
+          <div class="watching-section-card d-flex justify-content-between mb-2">
             <div class="flex-column mt-2">
               <div class="review-text d-flex">
                 <%= link_to user_path(taste.user) do %>
@@ -38,7 +38,7 @@
             <% end %>
           </div>
         <% else %>
-          <div class="dashboard-review-container flex-column">
+          <div class="dashboard-review-container flex-column mt-2">
             <div class="section-card d-flex justify-content-between">
               <div class="review-text d-flex">
                 <%= link_to user_path(taste.user) do %>
