@@ -6,6 +6,7 @@
   overflow-x: scroll;
   width: 100%;
   display: flex;
+  margin-bottom: 2px;
 }
 
 .categories button {
@@ -46,6 +47,11 @@ a.nostyle:visited {
 }
 
 .watching-section-card {
-  border-bottom: 2px solid $orange;
-  background-color: white;
+  border-left: 6px solid #f0b146;
+  padding-left: 10px;
+}
+
+.movie-watching-poster {
+  width: 3rem;
+  height: 4rem;
 }
