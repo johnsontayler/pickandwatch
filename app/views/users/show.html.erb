@@ -36,11 +36,11 @@
       <% else %>
         <% if @user.followed_by?(current_user) %>
           <div class="d-flex justify-content-center">
-            <%= link_to "Following", follow_path(id: @user), method: :delete, class: "btn-following" %>
+            <%= link_to "Following", follow_path(id: @user), method: :delete, class: "btn-following nostyle", style: "color: #f0b146;" %>
           </div>
         <% else %>
           <div class="d-flex justify-content-center">
-            <%= link_to "Follow", follows_path(id: @user), method: :post, class: "btn-follow" %>
+            <%= link_to "Follow", follows_path(id: @user), method: :post, class: "btn-follow nostyle", style: "color: white;" %>
           </div>
         <% end %>
       <% end %>

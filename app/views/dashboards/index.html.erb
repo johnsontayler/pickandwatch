@@ -73,7 +73,7 @@
                 <% if taste.review.nil? %>
                   <div class="movie-footer d-flex justify-content-end align-items-center">
                     <div class="flex-item ml-5 mr-1">
-                      <%= link_to bookmark_movie_path(id: taste.movie), style: "color: inherit; font-size: 36px;" do %>
+                      <%= link_to bookmark_taste_path(taste.movie), style: "color: inherit; font-size: 36px;", remote: true, method: :patch, class: "bookmark" do %>
                         <% if @wished.where(movie: taste.movie).count.zero? %>
                           <i class="far fa-bookmark"></i>
                         <% else %>
@@ -86,7 +86,7 @@
                   <div class="movie-footer d-flex justify-content-space-between align-items-center">
                     <h2 class="movie-review ml-2">"<%= taste.review[0..65] %>..."</h2>
                     <div class="flex-item ml-5 mr-1">
-                      <%= link_to bookmark_movie_path(id: taste.movie), style: "color: inherit; font-size: 36px;" do %>
+                      <%= link_to bookmark_taste_path(taste.movie), style: "color: inherit; font-size: 36px;", remote: true, method: :patch, class: "bookmark" do %>
                         <% if @wished.where(movie: taste.movie).count.zero? %>
                           <i class="far fa-bookmark"></i>
                         <% else %>
