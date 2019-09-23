@@ -12,16 +12,16 @@
      <% end %>
     </div>
   <% end -%>
-  <%= link_to like_movie_path(id: movie), style: "color: inherit;" do %>
+  <%= link_to like_taste_path(movie), style: "color: inherit;", method: :patch do %>
     <i class="far fa-thumbs-up"></i>
   <% end %>
-  <%= link_to watch_movie_path(id: movie), style: "color: inherit;" do %>
+  <%= link_to watch_taste_path(movie), style: "color: inherit;", method: :patch do %>
     <i class="fas fa-play" style="color: orange; font-size: 48px;"></i>
   <% end %>
-  <%= link_to dislike_movie_path(id: movie), style: "color: inherit;" do %>
+  <%= link_to dislike_taste_path(movie), style: "color: inherit;", method: :patch do %>
     <i class="far fa-thumbs-down"></i>
   <% end %>
-  <%= link_to bookmark_movie_path(id: movie), style: "color: inherit;" do %>
+  <%= link_to bookmark_taste_path(movie), style: "color: inherit;", remote: true, method: :patch, class: "bookmark" do %>
     <% if wished.count.zero? %>
       <i class="far fa-bookmark"></i>
     <% else %>
