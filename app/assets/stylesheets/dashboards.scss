@@ -24,12 +24,12 @@
 }
 
 .cards .hide {
-  //display: none;
-    -webkit-transition: opacity 0.5s ease-in-out;
-    -moz-transition: opacity 0.5s ease-in-out;
-    -ms-transition: opacity 0.5s ease-in-out;
-    -o-transition: opacity 0.5s ease-in-out;
-     opacity: 0;
+  display: none;
+    // -webkit-transition: opacity 0.5s ease-in-out;
+    // -moz-transition: opacity 0.5s ease-in-out;
+    // -ms-transition: opacity 0.5s ease-in-out;
+    // -o-transition: opacity 0.5s ease-in-out;
+    //  opacity: 0;
 }
 
 .category {
@@ -43,4 +43,9 @@ a.nostyle:link {
 a.nostyle:visited {
     text-decoration: inherit;
     color: inherit;
+}
+
+.watching-section-card {
+  border-bottom: 2px solid $orange;
+  background-color: white;
 }
