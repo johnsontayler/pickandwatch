@@ -15,6 +15,12 @@ IMDB_IDS = ["tt0372784", "tt2975590", "tt0096895", "tt0103776", "tt0112462", "tt
             "tt0796366", "tt3748528", "tt1392214", "tt1645170", "tt0032553", "tt0293508", "tt0026778", "tt0016220",
             "tt0496661", "tt1670675", "tt0319418", "tt2106476", "tt0116996", "tt0084787"]
 
+COMMENTS = [
+          "The scenery is spectacular, but the humans are plain annoying.",
+          "Violence breaks out, mind games are played, and it's all so adorably eccentric that you don't ever want it to stop.",
+          "Chappelle is fascinating, sophisticated, and what sets him apart, fearless.",
+          "While the movie may serve as a dark reminder of this not-so-distant past, it's also a testament to the idea that life does not stop because of politics."
+        ]
 refai = User.create!(first_name: 'Refai', last_name: 'x', email: 'refai@gmail.com', photo: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80', password: 123456)
 tayler = User.create!(first_name: 'Tayler', last_name: 'Johnson', email: 'tayler@gmail.com', photo: 'https://images.unsplash.com/photo-1546538994-4f15d0aa966f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80', password: 123456)
 joseph = User.create!(first_name: 'Joseph', last_name: 'Schemama', email: 'joseph@gmail.com', photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSDdQudSzUKlIuQvMZJuEZePygVJ-oiwaWF0XqEMFm_4P3h9ZFH', password: 123456)
