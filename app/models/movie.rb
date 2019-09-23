@@ -2,7 +2,7 @@ require 'json'
 require 'open-uri'
 
 class Movie < ApplicationRecord
-  has_many :tastes
+  has_many :tastes, dependent: :destroy
   has_many :users, through: :tastes
 
   before_validation :fetch_infos_imdb, on: :create
@@ -25,7 +25,7 @@ class Movie < ApplicationRecord
     self.photo = @movie["Poster"]
     # Genre in the API is a string with many genres.
     # We will just capture de first genre to help for the filters in the feed
-    self.genre = @movie["Genre"].tr(',', '').split.first
+    self.genre = @movie["Genre"].split(",").first
     self.description = @movie["Plot"]
     self.year = @movie["Year"]
     self.duration = @movie["Runtime"]

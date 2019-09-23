@@ -6,7 +6,6 @@ class TastesController < ApplicationController
 
   def create
     @movie = Movie.find_by(imdb_id: taste_params[:imdb_id])
-
     if @movie
       @taste = current_user.tastes.where(movie_id: @movie.id).first_or_create
     else
