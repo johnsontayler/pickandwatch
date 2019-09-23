@@ -36,7 +36,7 @@ class TastesController < ApplicationController
     @taste.update!(wish: !@taste.wish)
     authorize @taste
 
-    redirect_to movies_path
+    redirect_to request.referrer
   end
 
   def like

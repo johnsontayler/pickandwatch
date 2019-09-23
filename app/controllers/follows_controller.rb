@@ -3,7 +3,7 @@ class FollowsController < ApplicationController
     @followed = User.find(params[:id])
     @follow = current_user.follows.create!(followed: @followed)
     authorize @follow
-    redirect_to user_path(@followed)
+    redirect_to request.referrer
   end
 
   def destroy
@@ -11,7 +11,7 @@ class FollowsController < ApplicationController
     @follow = Follow.where(followed: @followed, follower: current_user)
     authorize @follow
     @follow.destroy_all
-    redirect_to user_path(@followed)
+    redirect_to request.referrer
   end
 
   private

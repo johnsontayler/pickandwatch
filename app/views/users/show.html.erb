@@ -65,7 +65,11 @@
         <div class="posters d-flex flex-wrap">
           <% @user.watched_movies.reverse.each do |movie| %>
             <%= link_to movie_path(movie) do %>
-              <%= image_tag movie.photo, class: "movie-poster" %>
+              <% if movie.photo == "N/A" %>
+                <%= image_tag 'https://cdn.moviemovie.com.hk/teaser/og-image.jpg', class: "movie-poster" %>
+              <% else %>
+                <%= image_tag movie.photo, class: "movie-poster" %>
+              <% end %>
             <% end %>
           <% end %>
         </div>
