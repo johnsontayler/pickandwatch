@@ -3,7 +3,7 @@
 
   <! --------- Search movie bar ------------- >
   <div class="search-form-control form-group">
-  <input class="form-control string required" type="text" id="search" placeholder="Pick a movie to rate">
+  <input class="form-control string required" type="text" id="search" placeholder="Pick a movie to rate" autocomplete="off">
    <button name="button" type="submit" class="btn btn-flat btn-sm">
       <i class="fas fa-search"></i>
     </button>
@@ -11,13 +11,17 @@
     <ul id="results" class="nobullet" style="list-style-type: none">
     </ul>
 
-  <div class="hide">
+  <div class="hide-movie-taste">
+
+
     <! --------- Like or dislike buttons --------- >
     <%= simple_form_for [@taste] do |f| %>
       <%= f.hidden_field :imdb_id, value:"" %>
 
       <input type="hidden" name="taste[rating]" value="">
       <div style="text-align: center">
+    <! --------- Movie Poster ------------- >
+    <div class="movie-poster-review"></div>
         <span>
           <label for="taste_rating_true">
             <i class="fas fa-thumbs-up oranged" id="like_button_taste"></i>
