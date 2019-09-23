@@ -13,6 +13,10 @@ class MoviesController < ApplicationController
     @movies_shuffled = [] if @movies_shuffled&.count == @movies.count
     @movies -= @movies_shuffled if @movies_shuffled.present?
     @movie = @movies.sample
+    if @movie.tastes
+      @like_taste = @movie.tastes.where(rating: true).count
+      @pourcentage_of_likes = (@like_taste.fdiv(@movie.tastes.count) * 100).round(0)
+    end
 
     @wished = Taste.where(user: current_user, movie: @movie, wish: true)
   end
@@ -30,5 +34,6 @@ class MoviesController < ApplicationController
 
     @wished = Taste.where(user: current_user, movie: @movie, wish: true)
     @watched_by = Taste.where(movie: @movie, watched: true)
+    @reviewed_by = Taste.where(movie: @movie, rating: true || false)
   end
 end
