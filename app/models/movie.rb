@@ -27,7 +27,7 @@ class Movie < ApplicationRecord
     # We will just capture de first genre to help for the filters in the feed
     self.genre = @movie["Genre"].tr(',', '').split.first
     self.description = @movie["Plot"]
-    self.year = @movie["Released"]
+    self.year = @movie["Year"]
     self.duration = @movie["Runtime"]
     self.director = @movie["Director"]
     self.award = @movie["Awards"]
