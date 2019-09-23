@@ -9,18 +9,17 @@ const searchBar = () => {
   if (searchQuery) {
     // user
     searchQuery.addEventListener("keyup", event => {
-      results.classList.remove("hide");
-
       if(event.currentTarget.value == ""){
         results_users.innerHTML = "";
         usersTitle.classList.add("hide");
-
+        results.classList.add("hide");
       } else {
       usersTitle.classList.remove("hide");
       fetch(`/users.json?utf8=✓&query=${event.currentTarget.value}&button=`)
       .then(response => response.json())
       .then((data) => {
         // Faire apparaitre #results
+        results.classList.remove("hide");
         results_users.innerHTML = ""
         data.forEach((result) => {
           const user = `<li class="list-inline-item">
@@ -41,12 +40,13 @@ const searchBar = () => {
        if(event.currentTarget.value == ""){
           results_movies.innerHTML = ""
           moviesTitle.classList.add("hide");
+          results.classList.add("hide");
        } else {
         moviesTitle.classList.remove("hide");
        fetch(`/movies.json?utf8=✓&query=${event.currentTarget.value}&button=`)
        .then(response => response.json())
        .then((data) => {
-         // Faire apparaitre #results
+          results.classList.remove("hide");
          results_movies.innerHTML = ""
          data.forEach((result) => {
            const movie = `<li class="list-inline-item">
