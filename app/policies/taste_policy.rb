@@ -17,6 +17,14 @@ class TastePolicy < ApplicationPolicy
     true
   end
 
+  def like?
+    true
+  end
+
+  def dislike?
+    true
+  end
+
   def create?
     true
   end

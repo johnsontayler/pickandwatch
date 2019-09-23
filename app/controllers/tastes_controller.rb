@@ -39,6 +39,24 @@ class TastesController < ApplicationController
     redirect_to movies_path
   end
 
+  def like
+    @movie = Movie.find(params[:id])
+    @taste = current_user.tastes.where(movie_id: @movie.id).first_or_create(imdb_id: @movie.imdb_id)
+    @taste.update!(rating: true, watched: true)
+    authorize @taste
+
+    redirect_to movies_path
+  end
+
+  def dislike
+    @movie = Movie.find(params[:id])
+    @taste = current_user.tastes.where(movie_id: @movie.id).first_or_create(imdb_id: @movie.imdb_id)
+    @taste.update!(rating: false, watched: true)
+    authorize @taste
+
+    redirect_to movies_path
+  end
+
   def destroy
   end
 

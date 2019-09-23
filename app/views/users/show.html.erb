@@ -63,7 +63,7 @@
       <! ---- Watched ---- >
       <div class="tab-pane fade active show" id="watched" role="tabpanel" aria-labelledby="watched-tab">
         <div class="posters d-flex flex-wrap">
-          <% @user.watched_movies.each do |movie| %>
+          <% @user.watched_movies.reverse.each do |movie| %>
             <%= link_to movie_path(movie) do %>
               <%= image_tag movie.photo, class: "movie-poster" %>
             <% end %>
@@ -73,7 +73,7 @@
       <! ---- Wishlist ---- >
       <div class="tab-pane fade" id="wishlist" role="tabpanel" aria-labelledby="wishlist-tab">
         <div class="posters d-flex flex-wrap">
-          <% @user.wishlist.each do |movie| %>
+          <% @user.wishlist.reverse.each do |movie| %>
             <%= link_to movie_path(movie) do %>
               <%= image_tag movie.photo, class: "movie-poster" %>
             <% end %>
