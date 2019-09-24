@@ -62,7 +62,10 @@ input[type=“radio”]:checked{
   border: 1px solid rgb(223, 117, 20);
   padding: 8px 24px;
   border-radius: 50px;
-  font-weight: lighter;
-  opacity: 0.6;
+  margin-left: 8em;
   transition: opacity 0.3s ease;
+}
+
+.hide-movie-taste{
+  display: none;
 }

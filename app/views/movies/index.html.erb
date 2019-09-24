@@ -3,16 +3,30 @@
     <br>
     <br>
   </div>
+  <% if @movie.nil? %>
+    <div class="flex-column text-center align-items-center" style="border: 16px solid orange; height: 93.5vh;">
+      <br><br><br><br>
+      <h2>No more movies to shuffle right now </h2>
+      <br>
+      <h2>Try following more friends!</h2>
+      <br>
+      <img src="https://thumbs.gfycat.com/AntiqueLightheartedIbizanhound-max-1mb.gif" alt="">
+      <br><br><br><br>
+    </div>
+  <% else %>
   <%= link_to movie_path(@movie), style: "color: inherit;" do %>
     <div class="movie-image" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0)),  url(<%= @movie.photo %>);"  >
     </div>
   <% end %>
-  <h2 class="title-movie-picker"><%= @movie.title %></h2>
-  <p class="summary-movie-picker"><%= @movie.duration %>min | <%= @movie.genre %> | <%= @movie.year %> </p>
+  <div class="title-movie-picker">
+    <h2 style="color: white;"><%= @movie.title %></h2>
+  </div>
   <div class="details">
+  <p class="summary-movie-picker"><%= @movie.duration %>min | <%= @movie.genre %> | <%= @movie.year %> </p>
+
     <div class="shuffle-ratings d-flex justify-content-space-between align-items-center">
       <div class="flex-item ml-2 mr-5">
-        <i class="fas fa-thumbs-up"></i> <strong> 100% </strong>
+        <i class="fas fa-thumbs-up"></i> <strong> <%= @pourcentage_of_likes %> % </strong>
       </div>
       <div class="flex-item ml-5">
         <i class="fab fa-imdb"></i> <strong> <%= @movie.imdb_rating %> </strong>
@@ -20,4 +34,5 @@
     </div>
   </div>
   <%= render 'footer_shuffle', movie: @movie, movies_shuffled: @movies_shuffled, wished: @wished %>
+  <% end %>
 </div>

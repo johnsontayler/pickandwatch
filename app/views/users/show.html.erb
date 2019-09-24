@@ -36,11 +36,11 @@
       <% else %>
         <% if @user.followed_by?(current_user) %>
           <div class="d-flex justify-content-center">
-            <%= link_to "Following", follow_path(id: @user), method: :delete, class: "btn-following" %>
+            <%= link_to "Following", follow_path(id: @user), method: :delete, class: "btn-following nostyle", style: "color: #f0b146;" %>
           </div>
         <% else %>
           <div class="d-flex justify-content-center">
-            <%= link_to "Follow", follows_path(id: @user), method: :post, class: "btn-follow" %>
+            <%= link_to "Follow", follows_path(id: @user), method: :post, class: "btn-follow nostyle", style: "color: white;" %>
           </div>
         <% end %>
       <% end %>
@@ -79,7 +79,11 @@
         <div class="posters d-flex flex-wrap">
           <% @user.wishlist.reverse.each do |movie| %>
             <%= link_to movie_path(movie) do %>
-              <%= image_tag movie.photo, class: "movie-poster" %>
+              <% if movie.photo == "N/A" %>
+                <%= image_tag 'https://cdn.moviemovie.com.hk/teaser/og-image.jpg', class: "movie-poster" %>
+              <% else %>
+                <%= image_tag movie.photo, class: "movie-poster" %>
+              <% end %>
             <% end %>
           <% end %>
         </div>

@@ -6,7 +6,6 @@ class TastesController < ApplicationController
 
   def create
     @movie = Movie.find_by(imdb_id: taste_params[:imdb_id])
-
     if @movie
       @taste = current_user.tastes.where(movie_id: @movie.id).first_or_create
     else
@@ -27,7 +26,7 @@ class TastesController < ApplicationController
     @taste = current_user.tastes.where(movie_id: @movie.id).first_or_create(imdb_id: @movie.imdb_id)
     @taste.update!(watched: true, wish: false)
     authorize @taste
-    redirect_to user_path(current_user)
+    redirect_to dashboards_path
   end
 
   def bookmark
@@ -35,8 +34,6 @@ class TastesController < ApplicationController
     @taste = current_user.tastes.where(movie_id: @movie.id).first_or_create(imdb_id: @movie.imdb_id)
     @taste.update!(wish: !@taste.wish)
     authorize @taste
-
-    redirect_to request.referrer
   end
 
   def like

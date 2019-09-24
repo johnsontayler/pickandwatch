@@ -1,4 +1,6 @@
 const results = document.querySelector('#results');
+const hiddenTaste = document.querySelector('.hide-movie-taste');
+const moviePoster = document.querySelector('.movie-poster-review');
 
 const getClosest = (elem, selector) => {
   for ( ; elem && elem !== document; elem = elem.parentNode ) {
@@ -9,7 +11,7 @@ const getClosest = (elem, selector) => {
 
 const insertMovies = (data) => {
   data.Search.forEach((movie) => {
-    var indexOfMovie = data.Search.indexOf(movie)
+    var indexOfMovie = data.Search.indexOf(movie);
     if (indexOfMovie > 4)
       return;
     const movieLine = document.createElement('LI');
@@ -30,8 +32,10 @@ const insertMovies = (data) => {
     movieLine.addEventListener('click', (event) =>{
       const imdb = document.getElementById('taste_imdb_id');
       imdb.value = getClosest(event.target, '.result').dataset.imdbId;
+      moviePoster.innerHTML = `<img class ="movie-show-poster" src="${movie.Poster}" alt="" /> <br><br>`;
 
       document.getElementById('search').value = movie.Title;
+      hiddenTaste.classList.remove("hide-movie-taste");
 
       // divvide.innerHTML = movieLine.innerHTML;
       results.innerHTML = '';
@@ -56,4 +60,19 @@ const fetchMovies = (event) => {
     .then(data => handleData(data))
   };
 
+// const thumbUp = querySelector('#taste_rating_true');
+// const thumbDown = querySelector('#taste_rating_false');
+
+// const requireRating = () => {
+//   if (thumbUp) {
+//     thumbUp.addEventListener('click', (event) => {
+//     thumbDown.required = false;
+//     })
+//   }
+//   if (thumbDown) {
+//     thumbDown.addEventListener('click', (event) => {
+//     thumbUp.required = false;
+//     })
+//   }
+// };
 export { fetchMovies };
