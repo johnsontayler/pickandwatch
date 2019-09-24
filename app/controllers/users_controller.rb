@@ -8,11 +8,30 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = current_user
+    @user.update(shuffle_friend: nil)
+    authorize @user
+  end
+
+  def update
+    @user = current_user
+    @user.update(shuffle_friend: user_params[:shuffle_friend])
+    authorize @user
+    redirect_to movies_path
+  end
+
   def show
     @user = User.find(params[:id])
     authorize @user
     @watched = Taste.where(user: @user, watched: true)
     @followers = @user.followers
     @following = @user.follows
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:shuffle_friend)
   end
 end
