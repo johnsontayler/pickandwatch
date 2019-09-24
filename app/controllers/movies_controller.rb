@@ -10,20 +10,33 @@ class MoviesController < ApplicationController
     end
 
     @movies = policy_scope(Movie).all
+    @current_user_follows = current_user.followings
+    @follows_movies = []
 
-    @follows = current_user.followings
-    @friend_movies = []
-    @movies.each do |movie|
-      @follows.each do |user|
-        unless movie.tastes.exists?(user: current_user, watched: true)
-          @friend_movies << movie if movie.users.exists?(user.id)
+    if current_user.shuffle_friend.nil?
+      @movies.each do |movie|
+        @current_user_follows.each do |user|
+          unless movie.tastes.exists?(user: current_user, watched: true)
+            @follows_movies << movie if movie.users.exists?(user.id)
+          end
+        end
+      end
+    else
+      @friend = User.find(current_user.shuffle_friend)
+      @friend_follows = @friend.followings
+      @combined_follows = @current_user_follows | @friend_follows
+      @movies.each do |movie|
+        @combined_follows.each do |user|
+          unless movie.tastes.exists?(user: current_user, watched: true)
+            @follows_movies << movie if movie.users.exists?(user.id)
+          end
         end
       end
     end
 
-    @movies_shuffled = [] if @movies_shuffled&.count == @friend_movies.count
-    @friend_movies -= @movies_shuffled if @movies_shuffled.present?
-    @movie = @friend_movies.sample
+    @movies_shuffled = [] if @movies_shuffled&.count == @follows_movies.count
+    @follows_movies -= @movies_shuffled if @movies_shuffled.present?
+    @movie = @follows_movies.sample
 
     unless @movie.nil?
       if @movie.tastes
@@ -55,25 +68,4 @@ class MoviesController < ApplicationController
     @watched_by = Taste.where(movie: @movie, watched: true)
     @reviewed_by = Taste.where(movie: @movie, rating: true || false)
   end
-end
-
-#  def add_friend(friend_id)
-#    @movies = policy_scope(Movie).all
-#    @friend = User.find(friend_id)
-#   @current_user_follows = current_user.followings
-=begin    @add_friend_follows = @friend.followings
-
-    @combined_follows = @current_user_follows | @add_friend_follows
-
-    @friend_movies = []
-
-    @movies.each do |movie|
-      @combined_follows.each do |user|
-        unless movie.tastes.exists?(user: current_user, watched: true)
-          @friend_movies << movie if movie.users.exists?(user.id)
-        end
-      end
-    end
-    @friend_movies
-  end=end
 end

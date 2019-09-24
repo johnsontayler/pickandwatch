@@ -10,13 +10,15 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
+    @user.update(shuffle_friend: nil)
     authorize @user
   end
 
   def update
     @user = current_user
     @user.update(shuffle_friend: user_params[:shuffle_friend])
-    raise
+    authorize @user
+    redirect_to movies_path
   end
 
   def show
