@@ -58,7 +58,6 @@ good_comments = [ "The scenery is spectacular, and the actors make it even bette
                   "I remember as a kid my Mom watched this movie when it came out (I was 10) and we could hear herlaughing from my room upstairs",
                   "This film is one of my favorite movies of all time because of how unique it is from other movies."]
 
-
 bad_comments = [ "Wow, a lot of people have been fooled into believing that this was a great film.",
                   "This is the most overrated film of all time. I'm even feeling strange to call it a film.",
                   "I really find it difficult to believe this movie is rated highly by people...",
@@ -89,8 +88,7 @@ bad_comments = [ "Wow, a lot of people have been fooled into believing that this
                   "One of My least Favorite Movies Ever.",
                   "This is considered one of the director's downfalls; both as a writer and director.",
                   "Like a nightmare that never ends.",
-                  "Boring. Rubbish Film as per most of the director's stuff. "
-]
+                  "Boring. Rubbish Film as per most of the director's stuff. "]
 
 refai = User.create!(first_name: 'Refai', last_name: 'x', email: 'refai@gmail.com', photo: 'https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters_opt/p-City-of-God-Phellipe-Haagensen.jpg', password: 123456)
 tayler = User.create!(first_name: 'Tayler', last_name: 'Johnson', email: 'tayler@gmail.com', photo: 'https://cdn-ep19.pressidium.com/wp-content/uploads/2019/04/female-face-girl-posing-outdoors-in-natural-light.jpg', password: 123456)
