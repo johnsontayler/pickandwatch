@@ -46,6 +46,7 @@ import { fetchMovies } from './movies';
 import { filterCategories } from '../components/filter_categories';
 import { searchBar } from '../components/search_bar';
 import { initBookmarks } from '../components/bookmark';
+import { requireRating } from './movies';
 // import { followButton } from '../components/follow_button_profile';
 
 const input = document.querySelector('#search');
@@ -60,3 +61,4 @@ showTabContentOnClick();
 filterCategories();
 searchBar();
 initBookmarks();
+

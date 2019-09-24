@@ -37,7 +37,6 @@ const insertMovies = (data) => {
       document.getElementById('search').value = movie.Title;
       hiddenTaste.classList.remove("hide-movie-taste");
 
-
       // divvide.innerHTML = movieLine.innerHTML;
       results.innerHTML = '';
     })
@@ -61,4 +60,19 @@ const fetchMovies = (event) => {
     .then(data => handleData(data))
   };
 
+// const thumbUp = querySelector('#taste_rating_true');
+// const thumbDown = querySelector('#taste_rating_false');
+
+// const requireRating = () => {
+//   if (thumbUp) {
+//     thumbUp.addEventListener('click', (event) => {
+//     thumbDown.required = false;
+//     })
+//   }
+//   if (thumbDown) {
+//     thumbDown.addEventListener('click', (event) => {
+//     thumbUp.required = false;
+//     })
+//   }
+// };
 export { fetchMovies };
