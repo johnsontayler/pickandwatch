@@ -24,18 +24,12 @@
 }
 
 .title-movie-picker {
-  margin: 0px;
-  color: white;
-  font-style: bold;
   background: black;
   padding-left: 18px;
   border: 1px solid black;
-}
-
-.parent {
   position: relative;
-  top: 0;
-  left: 0;
+  top: -7px;
+  height: 7vh;
 }
 
 .movie-image {
@@ -48,16 +42,14 @@
   background-size: cover;
 }
 
-// .movie-filter {
-//   position: absolute;
-//   z-index: -0;
-//   opacity: 0.40;
-//   background-image: linear-gradient(white, black);
-// }
+.details {
+  position: relative;
+  top: -10px;
+}
 
 #shuffle-box {
   font-size: 30px;
-  padding-top: 12px;
+  padding-top: 0px;
   border-bottom: none;
   margin-bottom: 12px;
  }
