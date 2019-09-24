@@ -1,17 +1,13 @@
 <div id='shuffle-box' class="navbar justify-content-space-between align-items-center" size: 10px >
 
-  <%= form_tag('/movies', method: :get) do -%>
-    <% unless movies_shuffled.blank? %>
-      <% movies_shuffled.each do |movie_shuffled| %>
-        <%= hidden_field_tag 'movies_shuffled_ids[]', movie_shuffled.id %>
-      <% end %>
+  <%= link_to bookmark_movie_path(id: movie), style: "color: inherit;" do %>
+    <% if wished.count.zero? %>
+      <i class="far fa-bookmark"></i>
+    <% else %>
+      <i class="fas fa-bookmark"></i>
     <% end %>
-    <%= hidden_field_tag 'movies_shuffled_ids[]', movie.id %>
-    <div><%= button_tag style: "border: none; background-color: transparent;" do %>
-        <i class="fas fa-forward"></i>
-     <% end %>
-    </div>
-  <% end -%>
+  <% end %>
+
   <%= link_to like_movie_path(id: movie), style: "color: inherit;" do %>
     <i class="far fa-thumbs-up"></i>
   <% end %>
@@ -21,12 +17,19 @@
   <%= link_to dislike_movie_path(id: movie), style: "color: inherit;" do %>
     <i class="far fa-thumbs-down"></i>
   <% end %>
-  <%= link_to bookmark_movie_path(id: movie), style: "color: inherit;" do %>
-    <% if wished.count.zero? %>
-      <i class="far fa-bookmark"></i>
-    <% else %>
-      <i class="fas fa-bookmark"></i>
+
+  <%= form_tag('/movies', method: :get) do -%>
+    <% unless movies_shuffled.blank? %>
+      <% movies_shuffled.each do |movie_shuffled| %>
+        <%= hidden_field_tag 'movies_shuffled_ids[]', movie_shuffled.id %>
+      <% end %>
     <% end %>
+
+    <%= hidden_field_tag 'movies_shuffled_ids[]', movie.id %>
+    <div><%= button_tag style: "border: none; background-color: transparent;" do %>
+        <i class="fas fa-forward"></i>
+     <% end %>
+    </div>
   <% end %>
 </div>
 
