@@ -64,7 +64,7 @@
                   </div>
                 <% end %>
               <% end %>
-              <h2 class="title-movie-picker"><i><%= taste.review %></i></h2>
+              <h2 class="title-movie-picker"> <span class="first_name_review"><%= taste.user.first_name %>:</span>  <i>"<%= taste.review %>"</i></h2>
               <div class="details">
                 <div class="shuffle-ratings d-flex justify-content-space-between align-items-center">
                   <div class="flex-item ml-2 mr-5 mt-2">
@@ -138,7 +138,7 @@
                   </div>
                 <% end %>
               <% end %>
-              <h2 class="title-movie-picker"><i><%= taste.review %></i></h2>
+              <h2 class="title-movie-picker"> <strong><%= taste.user.first_name %></strong><%= taste.review %></h2>
               <div class="details">
                 <div class="shuffle-ratings d-flex justify-content-space-between align-items-center">
                   <div class="flex-item ml-2 mr-5 mt-2">
