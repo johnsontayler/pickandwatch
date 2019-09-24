@@ -10,12 +10,25 @@ class MoviesController < ApplicationController
     end
 
     @movies = policy_scope(Movie).all
-    @movies_shuffled = [] if @movies_shuffled&.count == @movies.count
-    @movies -= @movies_shuffled if @movies_shuffled.present?
-    @movie = @movies.sample
-    if @movie.tastes
-      @like_taste = @movie.tastes.where(rating: true).count
-      @pourcentage_of_likes = (@like_taste.fdiv(@movie.tastes.count) * 100).round(0)
+    @follows = current_user.followings
+    @friend_movies = []
+    @movies.each do |movie|
+      @follows.each do |user|
+        unless movie.tastes.exists?(user: current_user, watched: true)
+          @friend_movies << movie if movie.users.exists?(user.id)
+        end
+      end
+    end
+
+    @movies_shuffled = [] if @movies_shuffled&.count == @friend_movies.count
+    @friend_movies -= @movies_shuffled if @movies_shuffled.present?
+    @movie = @friend_movies.sample
+
+    unless @movie.nil?
+      if @movie.tastes
+        @like_taste = @movie.tastes.where(rating: true).count
+        @pourcentage_of_likes = (@like_taste.fdiv(@movie.tastes.count) * 100).round(0)
+      end
     end
 
     @wished = Taste.where(user: current_user, movie: @movie, wish: true)
