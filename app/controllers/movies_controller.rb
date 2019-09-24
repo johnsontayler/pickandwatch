@@ -10,6 +10,7 @@ class MoviesController < ApplicationController
     end
 
     @movies = policy_scope(Movie).all
+
     @follows = current_user.followings
     @friend_movies = []
     @movies.each do |movie|
@@ -54,4 +55,25 @@ class MoviesController < ApplicationController
     @watched_by = Taste.where(movie: @movie, watched: true)
     @reviewed_by = Taste.where(movie: @movie, rating: true || false)
   end
+end
+
+#  def add_friend(friend_id)
+#    @movies = policy_scope(Movie).all
+#    @friend = User.find(friend_id)
+#   @current_user_follows = current_user.followings
+=begin    @add_friend_follows = @friend.followings
+
+    @combined_follows = @current_user_follows | @add_friend_follows
+
+    @friend_movies = []
+
+    @movies.each do |movie|
+      @combined_follows.each do |user|
+        unless movie.tastes.exists?(user: current_user, watched: true)
+          @friend_movies << movie if movie.users.exists?(user.id)
+        end
+      end
+    end
+    @friend_movies
+  end=end
 end

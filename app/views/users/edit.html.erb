@@ -1,0 +1,20 @@
+<br><br>
+<%= simple_form_for :search, method: :get do |f| %>
+  <div class="search-form-control form-group">
+    <input class="form-control string required" type="text" name="query" id="friend_search_query" placeholder="Find a friend" autocomplete="off"/>
+    <button name="button" type="submit" class="btn btn-flat btn-sm">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+<% end %>
+<ul id="friend-results" class="nobullet" style="list-style-type: none">
+</ul>
+
+<%= simple_form_for [@user] do |f| %>
+<%= f.hidden_field :shuffle_friend, value:"" %>
+
+<! --------- User Image ------------- >
+<div class="friend-selected"></div>
+
+<%= f.submit "Add", class: "btn-submit-taste"%>
+<% end %>
