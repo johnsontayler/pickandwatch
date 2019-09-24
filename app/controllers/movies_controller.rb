@@ -40,9 +40,14 @@ class MoviesController < ApplicationController
 
     # like_taste is to count taste that where liked and display the number
     @like_taste = @movie.tastes.where(rating: true).count
+    @dislike_taste = @movie.tastes.where(rating: false).count
+    @total = @like_taste + @dislike_taste
 
-    if @movie.tastes
-      @pourcentage_of_likes = (@like_taste.fdiv(@movie.tastes.count) * 100).round(0)
+    if @total = 0
+      @pourcentage_of_likes = "NA"
+    else
+      @pourcentage_of_likes = (@like_taste.fdiv(@total) * 100).round(0)
+      @pourcentage_of_likes = @pourcentage_of_likes.to_s + "%"
     end
 
     @wished = Taste.where(user: current_user, movie: @movie, wish: true)
