@@ -34,7 +34,6 @@ class MoviesController < ApplicationController
       end
     end
 
-    @movies_shuffled = [] if @movies_shuffled&.count == @follows_movies.count
     @follows_movies -= @movies_shuffled if @movies_shuffled.present?
     @movie = @follows_movies.sample
 
