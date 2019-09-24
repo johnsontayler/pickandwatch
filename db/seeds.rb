@@ -116,7 +116,7 @@ pedro = User.create!(first_name: 'Pedro', last_name: 'Meyer', email: 'pedro@gmai
 
 User.all.each do |user|
   rand(0..50).times do
-    user.tastes.create(watched: true, rating: true, imdb_id: IMDB_IDS.sample, review: good_comments.sample)
+    user.tastes.create(watched: true, rating: true, imdb_id: IMDB_IDS.sample, review: good_comments.sample, wish:IMDB_IDS.sample)
   end
 end
 
