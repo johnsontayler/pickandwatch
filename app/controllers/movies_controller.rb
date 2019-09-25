@@ -62,7 +62,6 @@ class MoviesController < ApplicationController
       end
 
     @user = current_user
-    @user.update(shuffle_friend: nil)
   end
 
   def show

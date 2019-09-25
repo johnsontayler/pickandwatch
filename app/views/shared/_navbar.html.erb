@@ -1,7 +1,7 @@
 <div class="navbar fixed-top justify-content-between">
     <a href="/dashboards"><i class="fas fa-home"></i></a>
     <a href="/tastes/new"><i class="fas fa-plus"></i></a>
-    <%= link_to edit_user_path(current_user) do %>
+    <%= link_to movies_path(newshuffle: true) do %>
       <i class="fas fa-random"></i>
     <% end %>
     <%= link_to user_path(current_user) do %>
