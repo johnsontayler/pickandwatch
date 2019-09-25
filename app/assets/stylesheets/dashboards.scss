@@ -56,6 +56,16 @@ a.nostyle:visited {
   height: 4rem;
 }
 
+.movie-image-feed {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 50vh;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
+  background-size: cover;
+}
+
 .movie-footer {
   padding-right: 10px;
   color: $orange;
