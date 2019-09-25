@@ -19,7 +19,7 @@
       <i class="fab fa-imdb"></i> <%= @movie.imdb_rating %>
     </div>
     <%= link_to watch_taste_path(@movie), style: "color: inherit;", method: :patch do %>
-      <i class="fas fa-play ml-5" style="color: orange; font-size: 40px;"></i>
+      <i class="fas fa-play ml-5" style="color: #f0b146; font-size: 40px;"></i>
     <% end %>
     <div class="flex-item ml-auto mr-2">
       <% if @wished.count.zero? %>
