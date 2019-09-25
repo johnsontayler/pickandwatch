@@ -20,7 +20,7 @@ const insertMovies = (data) => {
     `<div class = "notification" style="border: none">
       <img class ="avatar" src="${movie.Poster}" alt="" />
       <div class="notification-content">
-        <p><strong>${movie.Title}</strong></p>
+        <p>${movie.Title}</p>
         <p><small>(${movie.Year})</small></p>
       </div>
      </div>`

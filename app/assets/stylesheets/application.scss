@@ -1,13 +1,52 @@
 $orange: #f0b146;
-$sl-font-family--header: Nunito;
-$sl-font-family--body: Lora;
-$h1_size: 32px;
-$h2_size: 20px;
-$body_size: 16px;
+$sl-font-family--header: 'Montserrat', sans-serif;
+$sl-font-family--body: 'Lora', serif;
+$h1_size: 26px;
+$h2_size: 22px;
+$h3_size: 20px;
+$h4_size: 16px;
+$body_size: 14px;
 $border: 1px solid #E7E7E7;
 
-@import url(https://fonts.googleapis.com/css?family=Nunito);
-@import url(https://fonts.googleapis.com/css?family=Lora);
+html, body {
+  height: 100%;
+  margin: 0;
+
+
+  h1 {
+    font-size: $h1_size;
+    font-family: $sl-font-family--header;
+  }
+
+  h2 {
+    font-size: $h2_size;
+    font-family: $sl-font-family--header;
+  }
+
+  h3{
+    font-size: $h3_size;
+    font-family: $sl-font-family--header;
+  }
+
+  h4{
+    font-size: $h4_size;
+    font-family: $sl-font-family--header;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: $body_size;
+    font-family: $sl-font-family--body;
+  }
+
+  input{
+    font-size: $body_size;
+    font-family: $sl-font-family--body;
+  }
+}
+
+//@import url(https://fonts.googleapis.com/css?family=Nunito);
+//@import url(https://fonts.googleapis.com/css?family=Lora);
 
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";

@@ -7,7 +7,7 @@
     <! ---- Movie Header ---- >
     <div class="section-card">
         <h2><%= @movie.title %> (<%= @movie.year %>) </h2>
-        <p><%= @movie.duration %>min |  <%= @movie.genre %></p>
+        <h4><%= @movie.duration %>min |  <%= @movie.genre %></h4>
     </div>
   </div>
   <! ---- Movie Ratings & Wishlist ---- >
@@ -19,7 +19,7 @@
       <i class="fab fa-imdb"></i> <%= @movie.imdb_rating %>
     </div>
     <%= link_to watch_taste_path(@movie), style: "color: inherit;", method: :patch do %>
-      <i class="fas fa-play ml-5" style="color: orange; font-size: 40px;"></i>
+      <i class="fas fa-play ml-5" style="color: #f0b146; font-size: 40px;"></i>
     <% end %>
     <div class="flex-item ml-auto mr-2">
       <% if @wished.count.zero? %>
@@ -28,7 +28,7 @@
         <% end %>
       <% else %>
         <%= link_to bookmark_taste_path(@movie), remote: true, method: :patch, class: "bookmark nostyle" do %>
-          <i class="fas fa-bookmark mr-1"></i> Wishlist
+          <i class="fas fa-bookmark mr-1"></i> <p>Wishlist</p>
         <% end %>
       <% end %>
     </div>
@@ -39,16 +39,16 @@
       <%= image_tag @movie.photo, class: "movie-show-poster mt-1" %>
     </div>
     <div class="description-card ml-3 flex-grow-1">
-      <strong>Description:</strong>
-      <p style="font-size:14px"><%= @movie.description %> </p>
-      <strong>Director: </strong> <p style="font-size:14px"><%= @movie.director %></p>
-      <strong>Actors: </strong> <p style="font-size:14px"><%= @movie.actor %></p>
-      <strong>Awards: </strong> <p style="font-size:14px"> <%= @movie.award %></p>
+      <h4 style="margin:0em;">Description:</h4>
+      <p><%= @movie.description %> </p>
+      <h4 style="margin:0em;">Director: </h4> <p><%= @movie.director %></p>
+      <h4 style="margin:0em;">Actors: </h4> <p><%= @movie.actor %></p>
+      <h4 style="margin:0em;">Awards: </h4> <p> <%= @movie.award %></p>
     </div>
   </div>
   <! ---- Watched By Section ---- >
   <div class="section-card flex-column">
-    <p><strong>Watched By:</strong></p>
+    <h4>Watched By:</h4>
     <div class="watched-avatars-card d-flex">
       <% @watched_by.each do |taste| %>
         <% if current_user.follows.exists?(followed: taste.user) || taste.user == current_user %>
@@ -57,7 +57,7 @@
               <%= link_to user_path(taste.user) do %>
                 <%= image_tag taste.user.photo, class: "avatar mr-4" %>
               <% end %>
-              <div style="margin-right: 1em"><%= taste.user.first_name %></div>
+              <div style="margin-right: 1em"><p><%= taste.user.first_name %></p> </div>
             </div>
           </div>
         <% end %>
@@ -66,7 +66,7 @@
   </div>
   <! ---- Reviews Section ---- >
   <div class="section-card flex-column">
-      <p><strong>Friend Reviews<%#= @movie.tastes.count %>:</strong></p>
+      <h4>Friend Reviews<%#= @movie.tastes.count %>:</h4>
 
     <div class="review_card">
         <% @reviewed_by.each do |taste| %>
