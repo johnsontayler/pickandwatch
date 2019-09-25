@@ -1,0 +1,34 @@
+<!-- link to trigger followers modal -->
+<a href="" class="nostyle"data-toggle="modal" data-target="#followersModal">
+  <div class="watch-follow-card flex-column">
+    <p><strong><%= followers.count %></strong></p>
+    <p>Followers</p>
+  </div>
+</a>
+
+<!-- Modal -->
+<div class="modal fade" id="followersModal" tabindex="-1" role="dialog" aria-labelledby="followersModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="followersModalLabel">Followers</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul style="list-style-type:none">
+          <% followers.each do |user|  %>
+            <br>
+            <li>
+              <%= link_to user_path(user), class: "nostyle" do  %>
+                <img src="<%= user.photo %>" alt="" class="avatar">
+                <%= user.first_name %> <%= user.last_name %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

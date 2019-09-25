@@ -13,7 +13,7 @@
   <% @tastes.order('updated_at DESC').each do |taste| %>
     <div data-genre="<%= taste.movie.genre %>">
       <% if current_user.follows.exists?(followed: taste.user) || taste.user == current_user %>
-        <% if taste.rating.nil? %>
+        <% if taste.rating.nil? && taste.review.nil? %>
           <div class="watching-section-card d-flex justify-content-between mb-2">
             <div class="flex-column mt-3">
               <div class="review-text d-flex">
