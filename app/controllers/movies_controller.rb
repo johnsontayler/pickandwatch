@@ -62,7 +62,8 @@ class MoviesController < ApplicationController
       end
 
     @user = current_user
-    @shuffle_friend = User.find(@user.shuffle_friend)
+    @shuffle_friend = User.find(@user.shuffle_friend) if @user.shuffle_friend.present?
+
   end
 
   def show
