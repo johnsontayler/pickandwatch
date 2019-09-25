@@ -1,7 +1,16 @@
 <div class="profile-container" style="margin-top: 37px;">
   <! ---- Name ---- >
   <div class="name-card">
-    <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+    <% if @user == current_user  %>
+      <h2 class="d-flex justify-content-center">
+        <%= @user.first_name %> <%= @user.last_name %>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <i class="fas fa-sign-out-alt ml-3" style="color: black;"></i>
+        <% end %>
+      </h2>
+    <% else %>
+      <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+    <% end %>
   </div>
 
   <! ---- Profile Content ---- >
@@ -30,9 +39,6 @@
 
       <! ---- Log Out/Following/Follow Button ---- >
       <% if @user == current_user %>
-        <div class="d-flex justify-content-center">
-          <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn-logout" %>
-        </div>
       <% else %>
         <% if @user.followed_by?(current_user) %>
           <div class="d-flex justify-content-center">

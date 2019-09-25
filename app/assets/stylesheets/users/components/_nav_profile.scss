@@ -7,7 +7,9 @@
 
 .nav-tabs {
   border-bottom: $border;
-  position: relative;
+  position: sticky;
+  top: 82px;
+  background-color: white;
 }
 
 .nav-tabs .nav-item {
