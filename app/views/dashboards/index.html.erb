@@ -86,12 +86,12 @@
                   <div class="movie-footer d-flex justify-content-space-between align-items-center">
 
                     <%if taste.review.size > 65  %>
-                      <h2 class="movie-review ml-2">"<%= taste.review[0..65] %>..."</h2>
+                      <h3 class="movie-review ml-2">"<%= taste.review[0..65] %>..."</h3>
                     <%else%>
-                      <h2 class="movie-review ml-2">"<%= taste.review[0..65] %>"</h2>
+                      <h3 class="movie-review ml-2">"<%= taste.review[0..65] %>"</h3>
                     <%end%>
 
-                    <div class="flex-item ml-5 mr-1">
+                    <div class="flex-item ml-4 mr-1">
                       <%= link_to bookmark_taste_path(taste.movie), style: "color: inherit; font-size: 36px;", remote: true, method: :patch, class: "bookmark" do %>
                         <% if @wished.where(movie: taste.movie).count.zero? %>
                           <i class="far fa-bookmark"></i>

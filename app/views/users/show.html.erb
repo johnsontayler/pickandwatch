@@ -23,8 +23,8 @@
         <! ---- Watched, Followers, Following ---- >
         <div class="watched-follows-cards d-flex">
           <div class="watch-follow-card flex-column">
-            <p><strong><%= @watched.count %></strong></p>
-            <p>Watches</p>
+            <h4><strong><%= @watched.count %></strong></h4>
+            <h4>Watches</h4>
           </div>
           <!-- followers count / modal -->
           <%= render 'followers', followers: @followers %>
