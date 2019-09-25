@@ -40,3 +40,31 @@
   background-size: cover;
   background-position: center;
 }
+
+.avatar-shuffle {
+  position: relative;
+  top: 32px;
+  right: -10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px white solid;
+
+  .friend {
+    right: 7px;
+    top: 33px;
+  }
+}
+
+.avatar-shuffle-friend {
+  position: relative;
+  top: 33px;
+  right: 7px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px white solid;
+}
+
