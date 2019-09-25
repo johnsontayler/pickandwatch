@@ -38,7 +38,9 @@ dislike.addEventListener('click', (event) => {
 }
 // END
 
-
+$(window).on('load',function(){
+    $('#exampleModal').modal('show');
+});
 
 import { showTabContentOnClick } from '../components/tabs_profile';
 import { shuffleMovie } from '../components/movie_shuffle';
@@ -63,4 +65,5 @@ filterCategories();
 searchBar();
 initBookmarks();
 searchBarShuffle();
+
 

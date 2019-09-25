@@ -14,10 +14,10 @@
 <%= f.hidden_field :shuffle_friend, value:"" %>
 
 <! --------- User Image ------------- >
-<div class="friend-selected"></div>
+<div class="friend-selected"></div><br>
 
-<%= f.submit "Add", class: "btn-submit-taste"%>
+<%= f.submit "Add a Friend", class: "btn-submit-taste", style: "    margin-left: 0; padding: 6px 16px;"%>
 <% end %>
 <br><br>
 
-<%= link_to "Solo", movies_path, class: "btn-logout" %>
+<%= button_tag "Shuffle Solo", class: "btn-submit-solo", data: { dismiss: "modal" } %>
