@@ -66,6 +66,6 @@ filterCategories();
 searchBar();
 initBookmarks();
 searchBarShuffle();
-shuffleFormButtons();
+
 
 
