@@ -7,12 +7,14 @@
 
 .nav-tabs {
   border-bottom: $border;
-  position: relative;
+  position: sticky;
+  top: 82px;
+  background-color: white;
 }
 
 .nav-tabs .nav-item {
   margin-bottom: -1px;
-  margin-right: 48px;
+  margin-right: 23px;
   margin-left: 8px;
 }
 
@@ -30,6 +32,6 @@
   top: 0;
   left: 0;
   background: transparent;
-  border-bottom: 2px solid $orange;
+  border-bottom: 3px solid $orange;
   border-radius: 0;
 }

@@ -38,11 +38,16 @@ dislike.addEventListener('click', (event) => {
 }
 // END
 
+
+
 import { showTabContentOnClick } from '../components/tabs_profile';
 import { shuffleMovie } from '../components/movie_shuffle';
 import { fetchMovies } from './movies';
 import { filterCategories } from '../components/filter_categories';
 import { searchBar } from '../components/search_bar';
+import { initBookmarks } from '../components/bookmark';
+import { requireRating } from './movies';
+import { searchBarShuffle } from './shuffle_with_friend';
 // import { followButton } from '../components/follow_button_profile';
 
 const input = document.querySelector('#search');
@@ -56,3 +61,6 @@ const movieIndex = document.querySelector('#search');
 showTabContentOnClick();
 filterCategories();
 searchBar();
+initBookmarks();
+searchBarShuffle();
+

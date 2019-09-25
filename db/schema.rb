@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2019_09_16_195806) do
     t.string "photo"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.integer "shuffle_friend"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

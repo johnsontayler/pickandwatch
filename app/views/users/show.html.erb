@@ -1,7 +1,16 @@
 <div class="profile-container" style="margin-top: 37px;">
   <! ---- Name ---- >
   <div class="name-card">
-    <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+    <% if @user == current_user  %>
+      <h2 class="d-flex justify-content-center">
+        <%= @user.first_name %> <%= @user.last_name %>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <i class="fas fa-sign-out-alt ml-3" style="color: black;"></i>
+        <% end %>
+      </h2>
+    <% else %>
+      <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+    <% end %>
   </div>
 
   <! ---- Profile Content ---- >
@@ -17,30 +26,23 @@
             <p><strong><%= @watched.count %></strong></p>
             <p>Watches</p>
           </div>
-          <div class="watch-follow-card flex-column">
-            <p><strong><%= @followers.count %></strong></p>
-            <p>Followers</p>
-          </div>
-          <div class="watch-follow-card flex-column">
-            <p><strong><%= @following.count %></strong></p>
-            <p>Following</p>
-          </div>
+          <!-- followers count / modal -->
+          <%= render 'followers', followers: @followers %>
+          <!-- following count / modal -->
+          <%= render 'following', following: @following %>
         </div>
       </div>
 
       <! ---- Log Out/Following/Follow Button ---- >
       <% if @user == current_user %>
-        <div class="d-flex justify-content-center">
-          <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn-logout" %>
-        </div>
       <% else %>
         <% if @user.followed_by?(current_user) %>
           <div class="d-flex justify-content-center">
-            <%= link_to "Following", follow_path(id: @user), method: :delete, class: "btn-following" %>
+            <%= link_to "Following", follow_path(id: @user), method: :delete, class: "btn-following nostyle", style: "color: #f0b146;" %>
           </div>
         <% else %>
           <div class="d-flex justify-content-center">
-            <%= link_to "Follow", follows_path(id: @user), method: :post, class: "btn-follow" %>
+            <%= link_to "Follow", follows_path(id: @user), method: :post, class: "btn-follow nostyle", style: "color: white;" %>
           </div>
         <% end %>
       <% end %>
@@ -51,10 +53,10 @@
       <div class="lavalamp-object ease" style="transition-duration: 0.2s; width: 128.141px; height: 40px; transform: translate(0px, 0px);">
       </div>
       <li class="nav-item lavalamp-item" style="z-index: 5; position: relative;">
-        <a href="" class="nav-link show active" id="watched-tab" data-toggle="tab" role="tab" aria-controls="watched" aria-selected="true" onclick="return false">Watched</a>
+        <a href="" class="nav-link show active" id="watched-tab" data-toggle="tab" role="tab" aria-controls="watched" aria-selected="true" onclick="return false"><div class="d-flex justify-content-center align-items-center"><i class="fas fa-play mr-2"></i>Watched</div></a>
       </li>
       <li class="nav-item lavalamp-item" style="z-index: 5; position: relative;">
-       <a href="" class="nav-link show" id="wishlist-tab" data-toggle="tab" role="tab" aria-controls="wishlist" aria-selected="false" onclick="return false">Wishlist</a>
+       <a href="" class="nav-link show" id="wishlist-tab" data-toggle="tab" role="tab" aria-controls="wishlist" aria-selected="false" onclick="return false"><div class="d-flex justify-content-center align-items-center"><i class="fas fa-bookmark mr-2"> </i>Wishlist</div></a>
       </li>
     </ul>
 
@@ -63,12 +65,12 @@
       <! ---- Watched ---- >
       <div class="tab-pane fade active show" id="watched" role="tabpanel" aria-labelledby="watched-tab">
         <div class="posters d-flex flex-wrap">
-          <% @user.watched_movies.reverse.each do |movie| %>
-            <%= link_to movie_path(movie) do %>
-              <% if movie.photo == "N/A" %>
+          <% @watched.reverse.each do |taste| %>
+            <%= link_to movie_path(taste.movie) do %>
+              <% if taste.movie.photo == "N/A" %>
                 <%= image_tag 'https://cdn.moviemovie.com.hk/teaser/og-image.jpg', class: "movie-poster" %>
               <% else %>
-                <%= image_tag movie.photo, class: "movie-poster" %>
+                <%= image_tag taste.movie.photo, class: "movie-poster" %>
               <% end %>
             <% end %>
           <% end %>
@@ -77,9 +79,13 @@
       <! ---- Wishlist ---- >
       <div class="tab-pane fade" id="wishlist" role="tabpanel" aria-labelledby="wishlist-tab">
         <div class="posters d-flex flex-wrap">
-          <% @user.wishlist.reverse.each do |movie| %>
-            <%= link_to movie_path(movie) do %>
-              <%= image_tag movie.photo, class: "movie-poster" %>
+          <% @wishlist.reverse.each do |taste| %>
+            <%= link_to movie_path(taste.movie) do %>
+              <% if taste.movie.photo == "N/A" %>
+                <%= image_tag 'https://cdn.moviemovie.com.hk/teaser/og-image.jpg', class: "movie-poster" %>
+              <% else %>
+                <%= image_tag taste.movie.photo, class: "movie-poster" %>
+              <% end %>
             <% end %>
           <% end %>
         </div>
