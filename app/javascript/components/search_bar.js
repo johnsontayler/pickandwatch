@@ -51,8 +51,8 @@ const searchBar = () => {
          data.forEach((result) => {
            const movie = `<li class="list-inline-item">
              <a class="nostyle" href="/movies/${result.id}">
-               <img src="${result.photo}" alt="" class="poster">
-               ${result.title}
+               <img src="${result.photo}" alt="" class="poster-result">
+               ${result.title} ${result.year}
              </a>
            </li> <br>`;
            results_movies.insertAdjacentHTML("beforeend", movie);
