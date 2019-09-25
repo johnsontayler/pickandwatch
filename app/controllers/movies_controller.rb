@@ -80,6 +80,9 @@ class MoviesController < ApplicationController
 
     @wished = Taste.where(user: current_user, movie: @movie, wish: true)
     @watched_by = Taste.where(movie: @movie, watched: true)
-    @reviewed_by = Taste.where(movie: @movie, rating: true || false)
+
+    @movie_tastes = Taste.where(movie: @movie)
+    @rated_tastes = Taste.where.not(rating: nil)
+    @reviewed_by = @movie_tastes & @rated_tastes
   end
 end
