@@ -24,7 +24,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     authorize @user
-    @watched = Taste.where(user: @user, watched: true)
+    @tastes_w_ratings = Taste.where.not(rating: nil)
+    @tastes_w_reviews = Taste.where.not(review: nil)
+    @tastes_ratings_reviews = @tastes_w_ratings | @tastes_w_reviews
+    @user_tastes = Taste.where(user: @user, watched: true)
+    @watched = @user_tastes & @tastes_ratings_reviews
     @followers = @user.followers
     @following = @user.followings
   end

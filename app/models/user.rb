@@ -24,7 +24,7 @@ class User < ApplicationRecord
     user = self
     movies_watched = []
     user.tastes.each do |taste|
-      if taste.watched
+      unless taste.rating.nil? || taste.review.nil?
         movie = Movie.find(taste.movie.id)
         movies_watched << movie
       end

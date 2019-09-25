@@ -19,13 +19,13 @@
       <div class="modal-body">
         <ul style="list-style-type:none">
           <% following.each do |user|  %>
-            <br>
             <li>
               <%= link_to user_path(user), class: "nostyle" do  %>
                 <img src="<%= user.photo %>" alt="" class="avatar">
                 <%= user.first_name %> <%= user.last_name %>
               <% end %>
             </li>
+            <br>
           <% end %>
         </ul>
       </div>
