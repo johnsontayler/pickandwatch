@@ -4,6 +4,8 @@
   position: absolute;
   background-color: white;
   width: 100%;
+  z-index: 9;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
 
   & .avatar {
     margin-left: -30px;
@@ -33,7 +35,6 @@ a.nostyle:visited {
   color: white;
 }
 
-.poster-result {
-  width: 50%;
-  margin: 15px;
+.result-info {
+  margin-left: 24px;
 }
