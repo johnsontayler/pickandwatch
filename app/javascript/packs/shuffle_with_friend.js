@@ -1,7 +1,3 @@
-const results = document.querySelector('#friend-results');
-const friendSelected = document.querySelector('.friend-selected');
-const searchQuery = document.getElementById("friend_search_query");
-
 const getClosest = (elem, selector) => {
   for ( ; elem && elem !== document; elem = elem.parentNode ) {
     if ( elem.matches( selector ) ) return elem;
@@ -10,6 +6,10 @@ const getClosest = (elem, selector) => {
 };
 
 const searchBarShuffle = () => {
+  const results = document.querySelector('#friend-results');
+  const friendSelected = document.querySelector('.friend-selected');
+  const searchQuery = document.getElementById("friend_search_query");
+
   if (searchQuery) {
     searchQuery.addEventListener("keyup", event => {
       if(event.currentTarget.value == ""){
@@ -50,7 +50,3 @@ const searchBarShuffle = () => {
 };
 
 export { searchBarShuffle };
-
-
-
-

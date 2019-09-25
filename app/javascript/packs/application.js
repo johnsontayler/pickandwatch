@@ -50,7 +50,7 @@ import { searchBar } from '../components/search_bar';
 import { initBookmarks } from '../components/bookmark';
 import { requireRating } from './movies';
 import { searchBarShuffle } from './shuffle_with_friend';
-import { shuffleFormButtons } from './shuffle_with_friend';
+// import { shuffleFormButtons } from './shuffle_with_friend';
 // import { followButton } from '../components/follow_button_profile';
 
 const input = document.querySelector('#search');
@@ -66,6 +66,5 @@ filterCategories();
 searchBar();
 initBookmarks();
 searchBarShuffle();
-shuffleFormButtons();
 
 
