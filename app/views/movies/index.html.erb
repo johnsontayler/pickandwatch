@@ -3,10 +3,16 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="shuffleModalLabel">Movie Shuffle</h5>
+          <h2 class="modal-title" id="shuffleModalLabel">Movie Shuffle</h2>
         </div>
         <div class="modal-body">
-          Would you like to shuffle solo or with a friend?
+          <! --------- User+Friend Image ------------- >
+          <div class="friend-selected d-flex justify-content-between mb-4">
+            <div class="user-shuffle">
+                <img src="<%= @user.photo %>" alt="" class="avatar"> <%= @user.first_name %>
+            </div>
+          </div>
+          <h6 style="font-weight: 400;">Would you like to:</h6>
           <%= render 'users/edit' %>
         </div>
       </div>
