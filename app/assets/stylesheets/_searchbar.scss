@@ -10,6 +10,14 @@
     margin-right: 10px;
     margin-bottom: 10px;
   }
+
+  & li {
+    list-style-type: none;
+  }
+}
+
+.hide {
+  display: none;
 }
 
 a.nostyle:link {
@@ -21,3 +29,11 @@ a.nostyle:visited {
     color: inherit;
 }
 
+.fa-search {
+  color: white;
+}
+
+.poster-result {
+  width: 50%;
+  margin: 15px;
+}

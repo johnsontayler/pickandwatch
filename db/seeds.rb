@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Taste.destroy_all
+User.destroy_all
 
 IMDB_IDS = ["tt0111161", "tt0056058", "tt0110413", "tt0120689", "tt0245429", "tt0120815", "tt0038650", "tt0076759",
             "tt0102926", "tt0118799", "tt0317248", "tt0114369", "tt0047478", "tt0099685", "tt0073486", "tt0133093",

@@ -1,7 +1,18 @@
 class MoviesController < ApplicationController
 
   def index
-    unless params[:movies_shuffled_ids].nil?
+    respond_to do |format|
+        format.json do
+          if params[:query].present?
+            @movies = policy_scope(Movie)
+                .where("title ILIKE ? ", "#{params[:query]}%")
+                .limit(10)
+          else
+            @movies = []
+          end
+        end
+        format.html do
+          unless params[:movies_shuffled_ids].nil?
       @movies_shuffled = [] if @movies_shuffled.nil?
       params[:movies_shuffled_ids].each do |movie_shuffled_id|
         current_movie = Movie.find(movie_shuffled_id)
@@ -45,6 +56,8 @@ class MoviesController < ApplicationController
     end
 
     @wished = Taste.where(user: current_user, movie: @movie, wish: true)
+        end
+      end
   end
 
   def show
