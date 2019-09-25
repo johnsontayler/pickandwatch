@@ -13,9 +13,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
-    @user.update(shuffle_friend: nil)
-    authorize @user
   end
 
   def update

@@ -1,3 +1,19 @@
+<!-- Movie Shuffle Modal -->
+  <div class="modal fade" id="shuffleModal" tabindex="-1" role="dialog" aria-labelledby="shuffleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="shuffleModalLabel">Movie Shuffle</h5>
+        </div>
+        <div class="modal-body">
+          Would you like to shuffle solo or with a friend?
+          <%= render 'users/edit' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Movie Shuffle -->
 <div class="movie-wrapper flex-column" id="movie">
   <div class="header ml-2">
     <br>

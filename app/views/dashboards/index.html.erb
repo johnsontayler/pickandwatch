@@ -62,10 +62,10 @@
             <div>
               <%= link_to movie_path(taste.movie) do %>
                 <% if taste.movie.photo == "N/A" %>
-                  <div class="movie-image" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0, 0.84)),  url('https://cdn.moviemovie.com.hk/teaser/og-image.jpg');"  >
+                  <div class="movie-image-feed" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0, 0.84)),  url('https://cdn.moviemovie.com.hk/teaser/og-image.jpg');"  >
                   </div>
                 <% else %>
-                  <div class="movie-image" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0, 0.25)),  url(<%= taste.movie.photo %>);"  >
+                  <div class="movie-image-feed" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0, 0.25)),  url(<%= taste.movie.photo %>);"  >
                   </div>
                 <% end %>
               <% end %>

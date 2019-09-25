@@ -60,6 +60,8 @@ class MoviesController < ApplicationController
     @wished = Taste.where(user: current_user, movie: @movie, wish: true)
         end
       end
+
+    @user = current_user
   end
 
   def show

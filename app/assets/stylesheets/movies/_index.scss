@@ -1,3 +1,22 @@
+.btn-submit-solo {
+  color: white;
+  background-color: orange;
+  border: 1px solid #df7514;
+  padding: 6px 16px;
+  border-radius: 50px;
+  margin-left: 10em;
+  top: -39px;
+  position: relative;
+  transition: opacity 0.3s ease;
+  text-decoration: inherit;
+  color: white;
+
+  &:hover {
+    text-decoration: inherit;
+    color: white;
+  }
+}
+
 .movie-wrapper {
   height: 100vh;
 }

@@ -47,9 +47,10 @@ const searchBarShuffle = () => {
       }
     });
   }
-}
+};
 
 export { searchBarShuffle };
+
 
 
 
