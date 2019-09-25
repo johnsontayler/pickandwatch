@@ -25,7 +25,7 @@ const searchBar = () => {
           const user = `<li class="list-inline-item">
             <a class="nostyle" href="/users/${result.id}">
               <img src="${result.photo}" alt="" class="avatar">
-              ${result.first_name} ${result.last_name}
+              <strong>${result.first_name} ${result.last_name}</strong>
             </a>
           </li> <br>`;
           // L'insérer dans le sous-container de #results
@@ -49,12 +49,19 @@ const searchBar = () => {
           results.classList.remove("hide");
          results_movies.innerHTML = ""
          data.forEach((result) => {
-           const movie = `<li class="list-inline-item">
-             <a class="nostyle" href="/movies/${result.id}">
-               <img src="${result.photo}" alt="" class="poster-result">
-               ${result.title} ${result.year}
-             </a>
-           </li> <br>`;
+           const movie = `
+              <li class="list-inline-item" >
+               <a class="nostyle" href="/movies/${result.id}">
+                 <div class="result-infos d-flex mb-1">
+                 <img src="${result.photo}" alt="" class="avatar">
+                  <div>
+                    <strong>${result.title}</strong>
+                    <br>
+                    <small style="color: #999; font-weight: bold">(${result.year})</small>
+                  </div>
+                 </div>
+               </a>
+              </li> <br>`;
            results_movies.insertAdjacentHTML("beforeend", movie);
          });
        });
