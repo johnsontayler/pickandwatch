@@ -10,11 +10,17 @@
 .watched-follows-cards {
   padding: 10px 12px 10px 16px;
   background-color: white;
+  margin-top: 13px;
 }
 
 .watch-follow-card {
   text-align: center;
   margin-right: 12px;
+}
+
+.profile-modal-li {
+  border-bottom: $border;
+  padding-bottom: 8px;
 }
 
 .modal {

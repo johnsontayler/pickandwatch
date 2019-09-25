@@ -1,5 +1,21 @@
 <div id='shuffle-box' class="navbar justify-content-space-between align-items-center" size: 10px >
 
+  <%= link_to bookmark_taste_path(movie), style: "color: inherit;", remote: true, method: :patch, class: "bookmark" do %>
+    <% if wished.count.zero? %>
+      <i class="far fa-bookmark"></i>
+    <% else %>
+      <i class="fas fa-bookmark"></i>
+    <% end %>
+  <% end %>
+  <%= link_to like_taste_path(movie), style: "color: inherit;", method: :patch do %>
+    <i class="far fa-thumbs-up"></i>
+  <% end %>
+  <%= link_to watch_taste_path(movie), class: "nostyle;", method: :patch do %>
+    <i class="fas fa-play"></i>
+  <% end %>
+  <%= link_to dislike_taste_path(movie), style: "color: inherit;", method: :patch do %>
+    <i class="far fa-thumbs-down"></i>
+  <% end %>
   <%= form_tag('/movies', method: :get) do -%>
     <% unless movies_shuffled.blank? %>
       <% movies_shuffled.each do |movie_shuffled| %>
@@ -12,21 +28,5 @@
      <% end %>
     </div>
   <% end -%>
-  <%= link_to like_taste_path(movie), style: "color: inherit;", method: :patch do %>
-    <i class="far fa-thumbs-up"></i>
-  <% end %>
-  <%= link_to watch_taste_path(movie), style: "color: inherit;", method: :patch do %>
-    <i class="fas fa-play" style="color: $orange; font-size: 48px;"></i>
-  <% end %>
-  <%= link_to dislike_taste_path(movie), style: "color: inherit;", method: :patch do %>
-    <i class="far fa-thumbs-down"></i>
-  <% end %>
-  <%= link_to bookmark_taste_path(movie), style: "color: inherit;", remote: true, method: :patch, class: "bookmark" do %>
-    <% if wished.count.zero? %>
-      <i class="far fa-bookmark"></i>
-    <% else %>
-      <i class="fas fa-bookmark"></i>
-    <% end %>
-  <% end %>
 </div>
 
