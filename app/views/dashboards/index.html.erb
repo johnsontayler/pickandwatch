@@ -50,26 +50,26 @@
                   <div><%= taste.movie.title %></div>
                 </div>
               </div>
-              <div class="review_tastes mt-2" >
+              <div class="review_tastes" >
                 <% if taste.rating == true %>
-                  <i class="fas fa-thumbs-up" style="font-size: 1.6em;"></i>
+                  <i class="fas fa-thumbs-up" style="font-size: 2.2em;"></i>
                 <% elsif taste.rating == false %>
-                  <i class="fas fa-thumbs-down" style="font-size: 1.6em;"></i>
+                  <i class="fas fa-thumbs-down" style="font-size: 2.2em;"></i>
                 <% end %>
               </div>
             </div>
             <div>
               <%= link_to movie_path(taste.movie) do %>
                 <% if taste.movie.photo == "N/A" %>
-                  <div class="movie-image-feed" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0, 0.84)),  url('https://cdn.moviemovie.com.hk/teaser/og-image.jpg');"  >
+                  <div class="movie-image-feed" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0, 1)),  url('https://cdn.moviemovie.com.hk/teaser/og-image.jpg');"  >
                   </div>
                 <% else %>
-                  <div class="movie-image-feed" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0, 0.25)),  url(<%= taste.movie.photo %>);"  >
+                  <div class="movie-image-feed" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0, 1)),  url(<%= taste.movie.photo %>);"  >
                   </div>
                 <% end %>
               <% end %>
               <div class="details">
-                <% if taste.review.nil? %>
+                <% if taste.review.nil? || taste.review == "" %>
                   <div class="movie-footer d-flex justify-content-end align-items-center">
                     <div class="flex-item ml-5 mr-1">
                       <%= link_to bookmark_taste_path(taste.movie), style: "color: inherit; font-size: 36px;", remote: true, method: :patch, class: "bookmark" do %>
@@ -82,14 +82,12 @@
                     </div>
                   </div>
                 <% else %>
-                  <div class="movie-footer d-flex justify-content-space-between align-items-center">
-
+                  <div class="movie-footer d-flex justify-content-between align-items-center">
                     <%if taste.review.size > 65  %>
-                      <h3 class="movie-review ml-2">"<%= taste.review[0..65] %>..."</h3>
+                      <h5 class="movie-review ml-2">"<%= taste.review[0..65] %>..."  <span class=“first_name_review” style="color: #f0b146;"> -<%= taste.user.first_name %></span></h5>
                     <%else%>
-                      <h3 class="movie-review ml-2">"<%= taste.review[0..65] %>"</h3>
+                      <h5 class="movie-review ml-2">"<%= taste.review[0..65] %>"  <span class=“first_name_review” style="color: #f0b146;"> -<%= taste.user.first_name %></span></h5>
                     <%end%>
-
                     <div class="flex-item ml-4 mr-1">
                       <%= link_to bookmark_taste_path(taste.movie), style: "color: inherit; font-size: 36px;", remote: true, method: :patch, class: "bookmark" do %>
                         <% if @wished.where(movie: taste.movie).count.zero? %>

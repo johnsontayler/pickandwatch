@@ -32,7 +32,8 @@ const insertMovies = (data) => {
     movieLine.addEventListener('click', (event) =>{
       const imdb = document.getElementById('taste_imdb_id');
       imdb.value = getClosest(event.target, '.result').dataset.imdbId;
-      moviePoster.innerHTML = `<img class ="movie-show-poster" src="${movie.Poster}" alt="" /> <br><br>`;
+      moviePoster.innerHTML = `<div class="movie-rate-poster" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(${movie.Poster});">
+      </div>`;
 
       document.getElementById('search').value = movie.Title;
       hiddenTaste.classList.remove("hide-movie-taste");

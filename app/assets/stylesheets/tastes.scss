@@ -1,3 +1,17 @@
 // Place all the styles related to the tastes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.movie-rate-poster {
+  position: absolute;
+  z-index: -1;
+  top: 50px;
+  height: 53vh;
+  width: 104vw;
+  left: -2px;
+  background-size: cover;
+  background-position: center;
+}
+
+.new_taste {
+  margin-top: 21em;
+}

@@ -17,7 +17,7 @@ import 'bootstrap';
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-// LIKE JAVASCRIPT
+// NEW TASTE, LIKE/DISLIKE JAVASCRIPT
 const like = document.querySelector('#like_button_taste');
 const dislike = document.querySelector('#dislike_button_taste');
 
@@ -37,10 +37,12 @@ dislike.addEventListener('click', (event) => {
 }
 // END
 
+// SHUFFLE FRIEND MODAL ON PAGE LOAD
 $(window).on('load',function(){
   if(window.location.search.includes('newshuffle'))
     $('#shuffleModal').modal('show');
 });
+// END
 
 import { showTabContentOnClick } from '../components/tabs_profile';
 import { shuffleMovie } from '../components/movie_shuffle';
@@ -50,6 +52,7 @@ import { searchBar } from '../components/search_bar';
 import { initBookmarks } from '../components/bookmark';
 import { animations } from '../components/animations';
 import { requireRating } from './movies';
+import { changeDeviseBackground } from './devise_sessions';
 import { searchBarShuffle } from './shuffle_with_friend';
 import { shuffleFormButtons } from './shuffle_with_friend';
 // import { followButton } from '../components/follow_button_profile';
@@ -68,6 +71,7 @@ searchBar();
 initBookmarks();
 searchBarShuffle();
 animations();
+changeDeviseBackground();
 
 
 

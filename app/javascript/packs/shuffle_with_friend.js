@@ -32,10 +32,13 @@ const searchBarShuffle = () => {
             const friendId = document.getElementById('user_shuffle_friend');
             friendId.value = getClosest(event.target, '.result').dataset.id;
 
-            friendSelected.innerHTML = `<li class="list-inline-item">
-              <img src="${friend.photo}" alt="" class="avatar">
-              ${friend.first_name} ${friend.last_name}
-              </li>`;
+            const plusFriend = `
+            <div class="plus" style="font-size: 23px;">+</div>
+            <div class="friend-shuffle">
+              <img src="${friend.photo}" alt="" class="avatar"> ${friend.first_name}
+            </div>`;
+
+            friendSelected.insertAdjacentHTML('beforeend', plusFriend );
 
             document.getElementById('friend_search_query').value = friend.first_name + " " + friend.last_name;
 
