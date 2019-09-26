@@ -2,10 +2,9 @@
   color: white;
   background-color: $orange;
   border: 1px solid #df7514;
-  padding: 6px 16px;
-  border-radius: 50px;
-  margin-left: 10em;
-  top: -36px;
+  padding: 4px 101px;
+  border-radius: 6px;
+  margin-left: 0;
   position: relative;
   transition: opacity 0.3s ease;
   text-decoration: inherit;
@@ -21,8 +20,8 @@
   color: white;
   background-color: $orange;
   border: 1px solid #df7514;
-  padding: 6px 16px;
-  border-radius: 50px;
+  padding: 4px 70px;
+  border-radius: 6px;
   margin-left: 0;
   position: relative;
   transition: opacity 0.3s ease;
@@ -74,7 +73,7 @@
   top: 0;
   left: 0;
   z-index: -1;
-  height: 60vh;
+  height: 55vh;
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
   background-size: cover;
 }
