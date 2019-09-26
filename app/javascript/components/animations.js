@@ -8,7 +8,7 @@ const animations = () => {
       sliderBar.dataset.item = event.target.closest('label').attributes['for'].value[11];
       setTimeout(() => {
         window.location = event.target.closest('a').href;
-      }, 500)
+      }, 200)
     })
   });
 };
