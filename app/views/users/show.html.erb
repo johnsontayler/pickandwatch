@@ -53,7 +53,7 @@
       <div class="lavalamp-object ease" style="transition-duration: 0.2s; width: 128.141px; height: 40px; transform: translate(0px, 0px);">
       </div>
       <li class="nav-item lavalamp-item" style="z-index: 5; position: relative;">
-        <a href="" class="nav-link show active" id="watched-tab" data-toggle="tab" role="tab" aria-controls="watched" aria-selected="true" onclick="return false"><div class="d-flex justify-content-center align-items-center"><i class="fas fa-play mr-2"></i>Reviewed</div></a>
+        <a href="" class="nav-link show active" id="watched-tab" data-toggle="tab" role="tab" aria-controls="watched" aria-selected="true" onclick="return false"><div class="d-flex justify-content-center align-items-center"><i class="fas fa-thumbs-up mr-2"></i>Reviewed</div></a>
       </li>
       <li class="nav-item lavalamp-item" style="z-index: 5; position: relative;">
        <a href="" class="nav-link show" id="wishlist-tab" data-toggle="tab" role="tab" aria-controls="wishlist" aria-selected="false" onclick="return false"><div class="d-flex justify-content-center align-items-center"><i class="fas fa-bookmark mr-2"> </i>Wishlist</div></a>
@@ -65,7 +65,7 @@
       <! ---- Watched ---- >
       <div class="tab-pane fade active show" id="watched" role="tabpanel" aria-labelledby="watched-tab">
         <div class="posters d-flex flex-wrap">
-          <% @watched.reverse.each do |taste| %>
+          <% @liked.reverse.each do |taste| %>
             <%= link_to movie_path(taste.movie) do %>
               <% if taste.movie.photo == "N/A" %>
                 <%= image_tag 'https://cdn.moviemovie.com.hk/teaser/og-image.jpg', class: "movie-poster" %>

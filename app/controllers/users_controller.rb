@@ -30,6 +30,7 @@ class UsersController < ApplicationController
     @tastes_ratings_reviews = @tastes_w_ratings | @tastes_w_reviews
     @user_tastes = Taste.where(user: @user, watched: true)
     @watched = @user_tastes & @tastes_ratings_reviews
+    @liked = Taste.where(user: @user, rating: true)
     @wishlist = Taste.where(user: @user, wish: true)
     @followers = @user.followers
     @following = @user.followings

@@ -50,6 +50,7 @@ import { fetchMovies } from './movies';
 import { filterCategories } from '../components/filter_categories';
 import { searchBar } from '../components/search_bar';
 import { initBookmarks } from '../components/bookmark';
+import { likedDislikedStamp } from '../components/liked_disliked_stamp';
 import { requireRating } from './movies';
 import { changeDeviseBackground } from './devise_sessions';
 import { searchBarShuffle } from './shuffle_with_friend';
@@ -70,6 +71,7 @@ searchBar();
 initBookmarks();
 searchBarShuffle();
 changeDeviseBackground();
+likedDislikedStamp();
 
 
 
