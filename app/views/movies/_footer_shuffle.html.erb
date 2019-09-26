@@ -1,10 +1,10 @@
 <div id='shuffle-box' class="navbar justify-content-between align-items-center" size: 10px >
 
   <%= link_to bookmark_taste_path(movie), style: "color: inherit;", remote: true, method: :patch, class: "bookmark" do %>
-    <% if wished.count.zero? %>
-      <i class="far fa-bookmark"></i>
-    <% else %>
+    <% if wished %>
       <i class="fas fa-bookmark"></i>
+    <% else %>
+      <i class="far fa-bookmark"></i>
     <% end %>
   <% end %>
   <%= link_to like_taste_path(movie), style: "color: inherit;", method: :patch, id: "shuffleLiked" do %>
@@ -29,17 +29,10 @@
   <%= link_to dislike_taste_path(movie), style: "color: inherit;", method: :patch, id: "shuffleDisliked" do %>
     <i class="far fa-thumbs-down"></i>
   <% end %>
-  <%= form_tag('/movies', method: :get) do -%>
-    <% unless movies_shuffled.blank? %>
-      <% movies_shuffled.each do |movie_shuffled| %>
-        <%= hidden_field_tag 'movies_shuffled_ids[]', movie_shuffled.id %>
-      <% end %>
-    <% end %>
-    <%= hidden_field_tag 'movies_shuffled_ids[]', movie.id %>
-    <div><%= button_tag style: "border: none; background-color: transparent;" do %>
+    <div>
+      <%= link_to movies_path(shuffled_id: movie.id), style: "border: none; background-color: transparent;" do %>
         <i class="fas fa-forward"></i>
      <% end %>
     </div>
-  <% end -%>
 </div>
 

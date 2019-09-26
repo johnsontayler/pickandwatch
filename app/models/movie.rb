@@ -17,7 +17,6 @@ class Movie < ApplicationRecord
   validates :imdb_rating, presence: true
   validates :imdb_id, presence: true
 
-
   def fetch_infos_imdb
     url = "http://www.omdbapi.com/?i=#{imdb_id}&apikey=a1a4bf37"
     @movie = JSON.parse(open(url).read)
