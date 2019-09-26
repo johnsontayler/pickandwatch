@@ -1,11 +1,28 @@
 .btn-submit-solo {
   color: white;
-  background-color: orange;
+  background-color: $orange;
   border: 1px solid #df7514;
-  padding: 6px 16px;
-  border-radius: 50px;
-  margin-left: 10em;
-  top: -39px;
+  padding: 4px 101px;
+  border-radius: 6px;
+  margin-left: 0;
+  position: relative;
+  transition: opacity 0.3s ease;
+  text-decoration: inherit;
+  color: white;
+
+  &:hover {
+    text-decoration: inherit;
+    color: white;
+  }
+}
+
+.btn-submit-friend {
+  color: white;
+  background-color: $orange;
+  border: 1px solid #df7514;
+  padding: 4px 70px;
+  border-radius: 6px;
+  margin-left: 0;
   position: relative;
   transition: opacity 0.3s ease;
   text-decoration: inherit;
@@ -56,7 +73,7 @@
   top: 0;
   left: 0;
   z-index: -1;
-  height: 65vh;
+  height: 55vh;
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
   background-size: cover;
 }
@@ -71,24 +88,34 @@
   padding-top: 0px;
   border-bottom: none;
   margin-bottom: 12px;
+
+  .fa-play {
+    color: $orange;
+    font-size: 48px;
+  }
  }
 
 .fa-bookmark:active{
    color:black !important;
 }
 
-  // It was a problem for the taste form because when clicking on it, it turns black
-  // But when you click then on the review field, it turns orange again
-  // Joseph
+.liked-disliked-stamp {
+  position: relative;
+  border: 10px double $orange;
+  border-radius: 8px;
+  width: 14rem;
+  transform: rotate(20deg);
+  left: 100px;
+  top: 177px;
+}
 
-// .fa-thumbs-down:hover{
-//    color:black !important;
-// }
-
-// .fa-thumbs-up:hover{
-//    color:black !important;
-// }
-
-.fa-user-friends:hover{
-   color:black !important;
+.stamp-text {
+  color: $orange;
+  text-align: center;
+  padding-top: 0rem;
+  font-size: 30px;
+  margin-bottom: 0px;
+  font-size: 40px;
+  font-weight: bolder;
+  padding: 5px;
 }

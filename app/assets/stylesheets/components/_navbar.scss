@@ -15,4 +15,87 @@
 }
 
 
+// START ANIMATION PART
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.clear{
+  clear: left;
+}
+
+
+.slide-toggle{
+  display: none;
+}
+
+.slidemenu{
+  overflow: hidden;
+  background: white;
+  padding-top: 5px;
+}
+
+.slidemenu label{
+  width: 25%;
+  text-align: center;
+  display: block;
+  float: left;
+  color: #333;
+  opacity: 0.3;
+
+}
+
+.slidemenu label:hover{
+  cursor: pointer;
+  color: #666;
+}
+
+.slidemenu label .icon{
+  font-size: 25px;
+  border: solid 2px black;
+  text-align: center;
+  height: 50px;
+  width: 50px;
+  display: block;
+  margin: 0 auto;
+  line-height: 50px;
+  border-radius: 50%;
+}
+
+/*Bar Style*/
+
+.slider{
+  width: 100%;
+  height: 5px;
+  display: block;
+  background: #FFD8B3;
+  border-radius: 5px;
+}
+
+.slider .bar{
+  width: 25%;
+  height: 5px;
+  background: $orange;
+  border-radius: 5px;
+}
+
+/*Animations*/
+.slidemenu label, .slider .bar {
+  transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+}
+
+/*Toggle*/
+
+.slidemenu label.active,
+.slidemenu label:hover {
+  opacity: 1;
+}
+
+.slider .bar[data-item='1']{ margin-left: 0; }
+.slider .bar[data-item='2']{ margin-left: 25%; }
+.slider .bar[data-item='3']{ margin-left: 50%; }
+.slider .bar[data-item='4']{ margin-left: 75%; }
 

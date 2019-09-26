@@ -3,10 +3,16 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="shuffleModalLabel">Movie Shuffle</h5>
+          <h2 class="modal-title" id="shuffleModalLabel">Movie Shuffle</h2>
         </div>
         <div class="modal-body">
-          Would you like to shuffle solo or with a friend?
+          <! --------- User+Friend Image ------------- >
+          <div class="friend-selected d-flex justify-content-between mb-4">
+            <div class="user-shuffle">
+                <img src="<%= @user.photo %>" alt="" class="avatar"> <%= @user.first_name %>
+            </div>
+          </div>
+          <h6 style="font-weight: 400;">Would you like to:</h6>
           <%= render 'users/edit' %>
         </div>
       </div>
@@ -16,8 +22,6 @@
   <!-- Movie Shuffle -->
 <div class="movie-wrapper flex-column" id="movie">
   <div class="header ml-2">
-    <br>
-    <br>
   </div>
   <% if @movie.nil? %>
     <div class="flex-column text-center align-items-center" style="border: 16px solid #f0b146; height: 93.5vh;">
@@ -32,6 +36,11 @@
   <% else %>
   <%= link_to movie_path(@movie), style: "color: inherit;" do %>
     <div class="movie-image" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0)),  url(<%= @movie.photo %>);"  >
+      <% if @user.shuffle_friend.present? %>
+        <%= image_tag @user.photo, class: "avatar-shuffle" %>
+        <%= image_tag @shuffle_friend.photo, class: "avatar-shuffle-friend" %>
+      <% end %>
+      <div class="stamp-container"></div>
     </div>
   <% end %>
   <div class="title-movie-picker">
