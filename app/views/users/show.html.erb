@@ -1,8 +1,9 @@
-<div class="profile-container" style="margin-top: 37px;">
+<div class="profile-container">
   <! ---- Name ---- >
   <div class="name-card">
     <% if @user == current_user  %>
-      <h2 class="d-flex justify-content-center">
+      <h2 class="d-flex justify-content-center" style="
+    padding-top: 0.5em;">
         <%= @user.first_name %> <%= @user.last_name %>
         <%= link_to destroy_user_session_path, method: :delete do %>
           <i class="fas fa-sign-out-alt ml-3" style="color: black;"></i>

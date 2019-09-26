@@ -51,6 +51,7 @@ import { filterCategories } from '../components/filter_categories';
 import { searchBar } from '../components/search_bar';
 import { initBookmarks } from '../components/bookmark';
 import { likedDislikedStamp } from '../components/liked_disliked_stamp';
+import { animations } from '../components/animations';
 import { requireRating } from './movies';
 import { changeDeviseBackground } from './devise_sessions';
 import { searchBarShuffle } from './shuffle_with_friend';
@@ -70,6 +71,7 @@ filterCategories();
 searchBar();
 initBookmarks();
 searchBarShuffle();
+animations();
 changeDeviseBackground();
 likedDislikedStamp();
 

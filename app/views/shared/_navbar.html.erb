@@ -1,11 +1,51 @@
-<div class="navbar fixed-top justify-content-between">
-    <a href="/dashboards"><i class="fas fa-home"></i></a>
-    <a href="/tastes/new"><i class="fas fa-plus"></i></a>
-    <%= link_to movies_path(newshuffle: true) do %>
-      <i class="fas fa-random"></i>
-    <% end %>
-    <%= link_to user_path(current_user) do %>
+<nav class="slidemenu fixed-top ">
+
+  <!-- Item 1 -->
+  <input type="radio" name="slideItem" id="slide-item-1" class="slide-toggle" checked />
+  <%= slider_label(1) do %>
+    <p class="icon">
+      <a href="/dashboards">
+        <i class="fas fa-home" style="color:black"></i>
+      </a>
+    </p>
+  <% end %>
+
+  <!-- Item 2 -->
+  <input type="radio" name="slideItem" id="slide-item-2" class="slide-toggle"/>
+  <%= slider_label(2) do %>
+    <p class="icon">
+      <a href="/tastes/new">
+        <i class="fas fa-plus" style="color:black"></i>
+      </a>
+    </p>
+  <% end %>
+
+  <!-- Item 3 -->
+  <input type="radio" name="slideItem" id="slide-item-3" class="slide-toggle"/>
+  <%= slider_label(3) do %>
+      <p class="icon">
+        <%= link_to movies_path(newshuffle: true) do %>
+          <i class="fas fa-random" style="color:black" ></i>
+        <% end  %>
+      </p>
+  <% end %>
+
+  <!-- Item 4 -->
+  <input type="radio" name="slideItem" id="slide-item-4" class="slide-toggle"/>
+  <%= slider_label(4) do %>
+    <p class="icon">
+      <%= link_to user_path(current_user) do %>
       <%= image_tag current_user.photo, class: "avatar-sm" %>
     <% end %>
-</div>
+    </p>
+  <% end %>
+
+  <div class="clear"></div>
+
+  <!-- Bar -->
+  <div class="slider">
+    <div class="bar" data-item="<%= bar_item_index %>"></div>
+  </div>
+
+</nav>
 

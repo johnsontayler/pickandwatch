@@ -3,18 +3,20 @@
   font-family: $sl-font-family--body;
   position: absolute;
   background-color: white;
-  width: 100%;
+  width: 92%;
   z-index: 9;
   box-shadow: 0 10px 30px rgba(0,0,0,.1);
 
   & .avatar {
-    margin-left: -30px;
-    margin-right: 10px;
-    margin-bottom: 10px;
+    margin: 10px 10px 10px 15px;
   }
 
   & li {
     list-style-type: none;
+  }
+
+  & li:first-child {
+    padding-top: 14px;
   }
 }
 
