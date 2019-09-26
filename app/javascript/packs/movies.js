@@ -56,7 +56,7 @@ const fetchMovies = (event) => {
   if (event.target.value.length < 4)
     return ;
 
-  fetch(`http://www.omdbapi.com/?s=${event.target.value}&apikey=adf1f2d7`)
+  fetch(`//www.omdbapi.com/?s=${event.target.value}&apikey=adf1f2d7`)
     .then(response => response.json())
     .then(data => handleData(data))
   };
