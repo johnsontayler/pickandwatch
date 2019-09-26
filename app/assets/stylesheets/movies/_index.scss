@@ -2,7 +2,7 @@
   color: white;
   background-color: $orange;
   border: 1px solid #df7514;
-  padding: 4px 101px;
+  padding: 0.25rem 5.330rem;
   border-radius: 6px;
   margin-left: 0;
   position: relative;
@@ -20,7 +20,7 @@
   color: white;
   background-color: $orange;
   border: 1px solid #df7514;
-  padding: 4px 70px;
+  padding: 0.25rem 3.375rem;
   border-radius: 6px;
   margin-left: 0;
   position: relative;
@@ -64,8 +64,8 @@
   padding-left: 18px;
   border: 1px solid black;
   position: relative;
-  top: -7px;
-  height: 7vh;
+  top: -5px;
+  height: 8vh;
 }
 
 .movie-image {
@@ -73,7 +73,7 @@
   top: 0;
   left: 0;
   z-index: -1;
-  height: 55vh;
+  height: 50vh;
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
   background-size: cover;
 }
