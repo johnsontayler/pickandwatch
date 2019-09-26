@@ -9,7 +9,7 @@
           <! --------- User+Friend Image ------------- >
           <div class="friend-selected d-flex justify-content-between mb-2">
             <div class="user-shuffle">
-                <img src="<%= @user.photo %>" alt="" class="avatar"> <%= @user.first_name %>
+                <img src="<%= current_user.photo %>" alt="" class="avatar"> <%= current_user.first_name %>
             </div>
           </div>
           <h6 style="font-weight: 400;">Would you like to:</h6>
@@ -36,9 +36,9 @@
   <% else %>
   <%= link_to movie_path(@movie), style: "color: inherit;" do %>
     <div class="movie-image" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0)),  url(<%= @movie.photo %>);"  >
-      <% if @user.shuffle_friend.present? %>
-        <%= image_tag @user.photo, class: "avatar-shuffle" %>
-        <%= image_tag @shuffle_friend.photo, class: "avatar-shuffle-friend" %>
+      <% if current_user.friend %>
+        <%= image_tag current_user.photo, class: "avatar-shuffle" %>
+        <%= image_tag current_user.friend.photo, class: "avatar-shuffle-friend" %>
       <% end %>
       <div class="stamp-container"></div>
     </div>

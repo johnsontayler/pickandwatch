@@ -1,69 +1,34 @@
+# frozen_string_literal: true
+
 class MoviesController < ApplicationController
+  skip_after_action :verify_policy_scoped, only: :index
 
   def index
     respond_to do |format|
-        format.json do
-          if params[:query].present?
-            @movies = policy_scope(Movie)
-                .where("title ILIKE ? ", "#{params[:query]}%")
-                .limit(10)
-          else
-            @movies = []
-          end
+      format.json do
+        if params[:query].present?
+          @movies = policy_scope(Movie)
+            .where("title ILIKE ? ", "#{params[:query]}%")
+            .limit(10)
+        else
+          @movies = []
         end
-        format.html do
-          unless params[:movies_shuffled_ids].nil?
-      @movies_shuffled = [] if @movies_shuffled.nil?
-      params[:movies_shuffled_ids].each do |movie_shuffled_id|
-        current_movie = Movie.find(movie_shuffled_id)
-        @movies_shuffled << current_movie
+      end
+
+      format.html do
+        session[:shuffled_movies] = [] if params[:newshuffle] || session[:shuffled_movies].nil?
+        session[:shuffled_movies] << params[:shuffled_id].to_i if params[:shuffled_id]
+
+        @movie = current_user.sample_movie(session[:shuffled_movies])
+
+        if @movie.try(:tastes)
+          @like_taste = @movie.tastes.where(rating: true).count
+          @pourcentage_of_likes = (@like_taste.fdiv(@movie.tastes.count) * 100).round(0)
+        end
+
+        @wished = current_user.tastes.where(movie: @movie, wish: true).first
       end
     end
-
-    @movies = policy_scope(Movie).all
-    @current_user_follows = current_user.followings
-    @follows_movies = []
-
-    if current_user.shuffle_friend.nil?
-      @movies.each do |movie|
-        @current_user_follows.each do |user|
-          unless movie.tastes.exists?(user: current_user, watched: true)
-            @follows_movies << movie if movie.users.exists?(user.id)
-          end
-        end
-      end
-    else
-      @friend = User.find(current_user.shuffle_friend)
-      @friend_follows = @friend.followings
-      @combined_follows = @current_user_follows | @friend_follows
-      @movies.each do |movie|
-        @combined_follows.each do |user|
-          unless movie.tastes.exists?(user: current_user, watched: true)
-            @follows_movies << movie if movie.users.exists?(user.id)
-          end
-        end
-      end
-    end
-
-    @follows_movies -= @movies_shuffled if @movies_shuffled.present?
-    @movies_shuffled = [] if @movies_shuffled&.count == @follows_movies.count
-
-    @movie = @follows_movies.sample
-
-    unless @movie.nil?
-      if @movie.tastes
-        @like_taste = @movie.tastes.where(rating: true).count
-        @pourcentage_of_likes = (@like_taste.fdiv(@movie.tastes.count) * 100).round(0)
-      end
-    end
-
-    @wished = Taste.where(user: current_user, movie: @movie, wish: true)
-        end
-      end
-
-    @user = current_user
-    @shuffle_friend = User.find(@user.shuffle_friend) if @user.shuffle_friend.present?
-
   end
 
   def show

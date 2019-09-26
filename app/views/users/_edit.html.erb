@@ -9,7 +9,7 @@
 <ul id="friend-results" class="nobullet" style="list-style-type: none">
 </ul>
 
-<%= simple_form_for [@user] do |f| %>
+<%= simple_form_for current_user do |f| %>
 <%= f.hidden_field :shuffle_friend, value:"" %>
 
 <div class="flex-column mt-2">
