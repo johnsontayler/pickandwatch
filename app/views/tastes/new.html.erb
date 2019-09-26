@@ -21,7 +21,8 @@
       <input type="hidden" name="taste[rating]" value="">
       <div style="text-align: center">
     <! --------- Movie Poster ------------- >
-    <div class="movie-poster-review"></div>
+    <div class="movie-poster-review">
+    </div>
         <span>
           <label for="taste_rating_true">
             <i class="fas fa-thumbs-up oranged" id="like_button_taste"></i>
@@ -35,14 +36,13 @@
           </label>
         </span>
       </div>
-      <br>
 
       <! --------------- Avatar + names --------------------- >
       <%= image_tag current_user.photo, class: "avatar-sm" %>
       <%= current_user.first_name %> <%= current_user.last_name %>
       <br>
       <%= f.input :review, placeholder: 'Express yourself', label: false %>
-      <%= f.submit "comment", class: "btn-submit-taste" %>
+      <%= f.submit "Submit", class: "btn-submit-taste" %>
     <% end %>
   </div>
 
