@@ -41,7 +41,7 @@
         <% end %>
       <% else %>
         <%= link_to bookmark_taste_path(@movie), remote: true, method: :patch, class: "bookmark nostyle" do %>
-          <i class="fas fa-bookmark mr-1"></i> <p>Wishlist</p>
+          <i class="fas fa-bookmark mr-1"></i> Wishlist
         <% end %>
       <% end %>
     </div>
@@ -99,7 +99,7 @@
                 <% end %>
               </div>
             </div>
-            <div class="review_card_review">
+            <div class="review_card_review ml-1">
                 <p style="margin-left: 3.5em; margin-right:2.3em;"><%= taste.review %></p>
             </div>
           <% end %>
