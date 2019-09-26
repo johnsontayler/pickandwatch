@@ -17,10 +17,12 @@ const changeDeviseBackground = () => {
 
   let i = 0;
   setInterval(function() {
-        deviseBackground.style.backgroundImage = "linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8)), url(" + posters[i] + ")";
-        i = i + 1;
-        if (i == posters.length) {
-          i =  0;
+        if (deviseBackground) {
+          deviseBackground.style.backgroundImage = "linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8)), url(" + posters[i] + ")";
+          i = i + 1;
+          if (i == posters.length) {
+            i =  0;
+          }
         }
   }, 1500);
 };
