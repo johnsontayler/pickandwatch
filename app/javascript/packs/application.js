@@ -48,6 +48,7 @@ import { fetchMovies } from './movies';
 import { filterCategories } from '../components/filter_categories';
 import { searchBar } from '../components/search_bar';
 import { initBookmarks } from '../components/bookmark';
+import { animations } from '../components/animations';
 import { requireRating } from './movies';
 import { searchBarShuffle } from './shuffle_with_friend';
 import { shuffleFormButtons } from './shuffle_with_friend';
@@ -66,6 +67,7 @@ filterCategories();
 searchBar();
 initBookmarks();
 searchBarShuffle();
+animations();
 
 
 
