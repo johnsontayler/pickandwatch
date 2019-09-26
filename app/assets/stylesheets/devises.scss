@@ -1,6 +1,8 @@
 .devise-background {
   background-position: center;
   height: 100vh;
+  position: relative;
+  top: -68px;
 }
 
 .log-sign-container {
@@ -10,7 +12,7 @@
   margin: 0 auto;
   background: white;
   position: relative;
-  top: -570px;
+  top: -645px;
 
   a {
     color: rgba(0, 0, 0, 0.82);

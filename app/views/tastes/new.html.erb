@@ -37,7 +37,7 @@
       </div>
 
       <! --------------- Avatar + names --------------------- >
-      <%= image_tag current_user.photo, class: "avatar-sm" %>
+      <%= image_tag current_user.photo, class: "avatar-sm", style: "text-center" %>
       <%= current_user.first_name %> <%= current_user.last_name %>
       <br>
       <%= f.input :review, placeholder: 'Express yourself', label: false %>
