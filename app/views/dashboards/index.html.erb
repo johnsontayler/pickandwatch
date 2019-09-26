@@ -70,7 +70,7 @@
                 <% end %>
               <% end %>
               <div class="details">
-                <% if taste.review.nil? %>
+                <% if taste.review.nil? || taste.review == "" %>
                   <div class="movie-footer d-flex justify-content-end align-items-center">
                     <div class="flex-item ml-5 mr-1">
                       <%= link_to bookmark_taste_path(taste.movie), style: "color: inherit; font-size: 36px;", remote: true, method: :patch, class: "bookmark" do %>
