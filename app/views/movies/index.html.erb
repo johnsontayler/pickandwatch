@@ -42,7 +42,11 @@
             <%= image_tag current_user.photo, class: "avatar-shuffle" %>
             <%= image_tag current_user.friend.photo, class: "avatar-shuffle-friend" %>
           <% end %>
-          <div class="stamp-container"></div>
+          <div class="stamp-container">
+            <div class="liked-disliked-stamp">
+              <h2 class="stamp-text">LIKED</h2>
+            </div>
+          </div>
         </div>
       <% end %>
       <div class="title-movie-picker">
