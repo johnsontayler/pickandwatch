@@ -114,14 +114,58 @@ sarra = User.create!(first_name: 'Sarra', last_name: 'Ghaib', email: 'sarra@gmai
 tabata = User.create!(first_name: 'Tabata', last_name: 'Lisboa', email: 'tabata@gmail.com', photo: 'https://i1.wp.com/digital-photography-school.com/wp-content/uploads/2011/07/outdoor-portraits-1.jpg?resize=2000%2C1160&ssl=1', password: 123456)
 pedro = User.create!(first_name: 'Pedro', last_name: 'Meyer', email: 'pedro@gmail.com', photo: 'https://pmctvline2.files.wordpress.com/2018/10/steve-carell-the-office.jpg?w=620', password: 123456)
 
-User.all.each do |user|
-  rand(0..50).times do
-    user.tastes.create(watched: true, rating: true, imdb_id: IMDB_IDS.sample, review: good_comments.sample)
+users = User.all
+
+IMDB_IDS.each do |imdb_id|
+  user_ids = []
+  good_reviews = []
+  bad_reviews = []
+
+  rand(5..10).times do
+    user = users.sample
+
+    while user_ids.include?(user.id)
+      user = users.sample
+    end
+
+    user_ids << user.id
+    review = good_comments.sample
+
+    while good_reviews.include?(review)
+      review = good_comments.sample
+    end
+
+    good_reviews << review
+    user.tastes.create(watched: true, rating: true, imdb_id: imdb_id, review: review)
+  end
+
+  rand(1..3).times do
+    user = users.sample
+
+    while user_ids.include?(user.id)
+      user = users.sample
+    end
+
+    user_ids << user.id
+    review = bad_comments.sample
+
+    while bad_reviews.include?(review)
+      review = bad_comments.sample
+    end
+
+    bad_reviews << review
+    user.tastes.create(watched: true, rating: false, imdb_id: imdb_id, review: review)
   end
 end
 
-User.all.each do |user|
-  rand(0..50).times do
-    user.tastes.create(watched: true, rating: false, imdb_id: IMDB_IDS.sample, review: bad_comments.sample)
-  end
-end
+# User.all.each do |user|
+#   rand(40..50).times do
+#     user.tastes.create(watched: true, rating: true, imdb_id: IMDB_IDS.sample, review: good_comments.sample)
+#   end
+# end
+
+# User.all.each do |user|
+#   rand(5..10).times do
+#     user.tastes.create(watched: true, rating: false, imdb_id: IMDB_IDS.sample, review: bad_comments.sample)
+#   end
+# end
