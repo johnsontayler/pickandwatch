@@ -1,97 +1,102 @@
-<div class="profile-container">
-  <! ---- Name ---- >
-  <div class="name-card">
-    <% if @user == current_user  %>
-      <h2 class="d-flex justify-content-center" style="
-    padding-top: 0.5em;">
-        <%= @user.first_name %> <%= @user.last_name %>
-        <%= link_to destroy_user_session_path, method: :delete do %>
-          <i class="fas fa-sign-out-alt ml-3" style="color: black;"></i>
-        <% end %>
-      </h2>
-    <% else %>
-      <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-    <% end %>
-  </div>
-
-  <! ---- Profile Content ---- >
-  <div class="profile">
-    <! ---- Summary ---- >
-    <div class="section-card">
-      <div class="profile-summary d-flex mb-2">
-        <%= image_tag @user.photo, class: "avatar-large" %>
-
-        <! ---- Watched, Followers, Following ---- >
-        <div class="watched-follows-cards d-flex">
-          <div class="watch-follow-card flex-column">
-            <h4><strong><%= @watched.count %></strong></h4>
-            <h4>Reviews</h4>
-          </div>
-          <!-- followers count / modal -->
-          <%= render 'followers', followers: @followers %>
-          <!-- following count / modal -->
-          <%= render 'following', following: @following %>
-        </div>
-      </div>
-
-      <! ---- Log Out/Following/Follow Button ---- >
-      <% if @user == current_user %>
-      <% else %>
-        <% if @user.followed_by?(current_user) %>
-          <div class="d-flex justify-content-center">
-            <%= link_to "Following", follow_path(id: @user), method: :delete, class: "btn-following nostyle mt-3", style: "color: #f0b146;" %>
-          </div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="profile-container col-12 col-md-8 col-lg-6">
+      <! ---- Name ---- >
+      <div class="name-card">
+        <% if @user == current_user  %>
+          <h2 class="d-flex justify-content-center" style="
+        padding-top: 0.5em;">
+            <%= @user.first_name %> <%= @user.last_name %>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fas fa-sign-out-alt ml-3" style="color: black;"></i>
+            <% end %>
+          </h2>
         <% else %>
-          <div class="d-flex justify-content-center">
-            <%= link_to "Follow", follows_path(id: @user), method: :post, class: "btn-follow nostyle mt-3", style: "color: white;" %>
-          </div>
+          <h2><%= @user.first_name %> <%= @user.last_name %></h2>
         <% end %>
-      <% end %>
-    </div>
-
-    <! ---- Reviewed & Wishlist Tabs ---- >
-    <ul class="nav nav-tabs lavalamp mb-2" id="myTab" role="tablist">
-      <div class="lavalamp-object ease" style="transition-duration: 0.2s; width: 128.141px; height: 40px; transform: translate(0px, 0px);">
       </div>
-      <li class="nav-item lavalamp-item" style="z-index: 5; position: relative;">
-        <a href="" class="nav-link show active" id="watched-tab" data-toggle="tab" role="tab" aria-controls="watched" aria-selected="true" onclick="return false"><div class="d-flex justify-content-center align-items-center"><i class="fas fa-thumbs-up mr-2"></i>Reviewed</div></a>
-      </li>
-      <li class="nav-item lavalamp-item" style="z-index: 5; position: relative;">
-       <a href="" class="nav-link show" id="wishlist-tab" data-toggle="tab" role="tab" aria-controls="wishlist" aria-selected="false" onclick="return false"><div class="d-flex justify-content-center align-items-center"><i class="fas fa-bookmark mr-2"> </i>Wishlist</div></a>
-      </li>
-    </ul>
 
-    <! ---- Watched & Wishlist Content ---- >
-    <div class="tab-content" id="myTabContent">
-      <! ---- Watched ---- >
-      <div class="tab-pane fade active show" id="watched" role="tabpanel" aria-labelledby="watched-tab">
-        <div class="posters d-flex flex-wrap">
-          <% @liked.reverse.each do |taste| %>
-            <%= link_to movie_path(taste.movie) do %>
-              <% if taste.movie.photo == "N/A" %>
-                <%= image_tag 'https://cdn.moviemovie.com.hk/teaser/og-image.jpg', class: "movie-poster" %>
-              <% else %>
-                <%= image_tag taste.movie.photo, class: "movie-poster" %>
-              <% end %>
+      <! ---- Profile Content ---- >
+      <div class="profile">
+        <! ---- Summary ---- >
+        <div class="section-card">
+          <div class="profile-summary d-flex mb-2">
+            <%= image_tag @user.photo, class: "avatar-large" %>
+
+            <! ---- Watched, Followers, Following ---- >
+            <div class="watched-follows-cards d-flex">
+              <div class="watch-follow-card flex-column">
+                <h4><strong><%= @watched.count %></strong></h4>
+                <h4>Reviews</h4>
+              </div>
+              <!-- followers count / modal -->
+              <%= render 'followers', followers: @followers %>
+              <!-- following count / modal -->
+              <%= render 'following', following: @following %>
+            </div>
+          </div>
+
+          <! ---- Log Out/Following/Follow Button ---- >
+          <% if @user == current_user %>
+          <% else %>
+            <% if @user.followed_by?(current_user) %>
+              <div class="d-flex justify-content-center">
+                <%= link_to "Following", follow_path(id: @user), method: :delete, class: "btn-following nostyle mt-3", style: "color: #f0b146;" %>
+              </div>
+            <% else %>
+              <div class="d-flex justify-content-center">
+                <%= link_to "Follow", follows_path(id: @user), method: :post, class: "btn-follow nostyle mt-3", style: "color: white;" %>
+              </div>
             <% end %>
           <% end %>
         </div>
-      </div>
-      <! ---- Wishlist ---- >
-      <div class="tab-pane fade" id="wishlist" role="tabpanel" aria-labelledby="wishlist-tab">
-        <div class="posters d-flex flex-wrap">
-          <% @wishlist.reverse.each do |taste| %>
-            <%= link_to movie_path(taste.movie) do %>
-              <% if taste.movie.photo == "N/A" %>
-                <%= image_tag 'https://cdn.moviemovie.com.hk/teaser/og-image.jpg', class: "movie-poster" %>
-              <% else %>
-                <%= image_tag taste.movie.photo, class: "movie-poster" %>
+
+        <! ---- Reviewed & Wishlist Tabs ---- >
+        <ul class="nav nav-tabs lavalamp mb-2" id="myTab" role="tablist">
+          <div class="lavalamp-object ease" style="transition-duration: 0.2s; width: 128.141px; height: 40px; transform: translate(0px, 0px);">
+          </div>
+          <li class="nav-item lavalamp-item" style="z-index: 5; position: relative;">
+            <a href="" class="nav-link show active" id="watched-tab" data-toggle="tab" role="tab" aria-controls="watched" aria-selected="true" onclick="return false"><div class="d-flex justify-content-center align-items-center"><i class="fas fa-thumbs-up mr-2"></i>Reviewed</div></a>
+          </li>
+          <li class="nav-item lavalamp-item" style="z-index: 5; position: relative;">
+           <a href="" class="nav-link show" id="wishlist-tab" data-toggle="tab" role="tab" aria-controls="wishlist" aria-selected="false" onclick="return false"><div class="d-flex justify-content-center align-items-center"><i class="fas fa-bookmark mr-2"> </i>Wishlist</div></a>
+          </li>
+        </ul>
+
+        <! ---- Watched & Wishlist Content ---- >
+        <div class="tab-content" id="myTabContent">
+          <! ---- Watched ---- >
+          <div class="tab-pane fade active show" id="watched" role="tabpanel" aria-labelledby="watched-tab">
+            <div class="posters d-flex flex-wrap">
+              <% @liked.reverse.each do |taste| %>
+                <%= link_to movie_path(taste.movie) do %>
+                  <% if taste.movie.photo == "N/A" %>
+                    <%= image_tag 'https://cdn.moviemovie.com.hk/teaser/og-image.jpg', class: "movie-poster" %>
+                  <% else %>
+                    <%= image_tag taste.movie.photo, class: "movie-poster" %>
+                  <% end %>
+                <% end %>
               <% end %>
-            <% end %>
-          <% end %>
+            </div>
+          </div>
+          <! ---- Wishlist ---- >
+          <div class="tab-pane fade" id="wishlist" role="tabpanel" aria-labelledby="wishlist-tab">
+            <div class="posters d-flex flex-wrap">
+              <% @wishlist.reverse.each do |taste| %>
+                <%= link_to movie_path(taste.movie) do %>
+                  <% if taste.movie.photo == "N/A" %>
+                    <%= image_tag 'https://cdn.moviemovie.com.hk/teaser/og-image.jpg', class: "movie-poster" %>
+                  <% else %>
+                    <%= image_tag taste.movie.photo, class: "movie-poster" %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
   </div>
 </div>
 

@@ -55,13 +55,20 @@ a.nostyle:visited {
 .watching-section-card {
   border-left: 6px solid #f0b146;
   padding-left: 10px;
+  border-top: 1px solid #E7E7E7;
+  border-bottom: 1px solid #E7E7E7;
 }
 
 .movie-watching-poster {
   width: 3rem;
-  height: 4rem;
+  height: 4.5rem;
 }
 
+.section-card-dash {
+  padding: 10px 12px 10px 16px;
+  border: 1px solid #E7E7E7;
+  background-color: white;
+}
 
 .movie-image-feed {
   position: relative;
@@ -80,7 +87,7 @@ a.nostyle:visited {
   size: 20px;
   font-size: 20px;
   overflow: hidden;
-  box-shadow: 0px -15px 20px 4px black;
+  box-shadow: 0px -15px 20px -8px black;
 }
 
 .movie-review {
@@ -91,4 +98,10 @@ a.nostyle:visited {
   color: white;
   width: 80vw;
   font-style: italic;
+}
+
+
+.col-12, .col-8, .col-6 {
+  padding-right: 0;
+  padding-left: 0;
 }
