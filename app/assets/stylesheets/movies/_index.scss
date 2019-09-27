@@ -103,10 +103,10 @@
   position: relative;
   border: 10px double $orange;
   border-radius: 8px;
-  width: 14.5rem;
+  max-width: 14.5rem;
   transform: rotate(20deg);
-  left: 100px;
-  top: 145px;
+  left: 6rem;
+  top: 13rem;
 }
 
 .stamp-text {
