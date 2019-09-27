@@ -1,63 +1,67 @@
 <!-- Movie Shuffle Modal -->
-  <div class="modal fade" id="shuffleModal" tabindex="-1" role="dialog" aria-labelledby="shuffleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title" id="shuffleModalLabel">Movie Shuffle</h2>
-        </div>
-        <div class="modal-body" id="modalBodyShuffle">
-          <! --------- User+Friend Image ------------- >
-          <div class="friend-selected d-flex justify-content-between mb-2">
-            <div class="user-shuffle">
-                <img src="<%= current_user.photo %>" alt="" class="avatar"> <%= current_user.first_name %>
-            </div>
+<div class="modal fade" id="shuffleModal" tabindex="-1" role="dialog" aria-labelledby="shuffleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="shuffleModalLabel">Movie Shuffle</h2>
+      </div>
+      <div class="modal-body" id="modalBodyShuffle">
+        <! --------- User+Friend Image ------------- >
+        <div class="friend-selected d-flex justify-content-between mb-2">
+          <div class="user-shuffle">
+              <img src="<%= current_user.photo %>" alt="" class="avatar"> <%= current_user.first_name %>
           </div>
-          <h6 style="font-weight: 400;">Would you like to:</h6>
-          <%= render 'users/edit' %>
         </div>
+        <h6 style="font-weight: 400;">Would you like to:</h6>
+        <%= render 'users/edit' %>
       </div>
     </div>
   </div>
+</div>
 
   <!-- Movie Shuffle -->
-<div class="movie-wrapper flex-column" id="movie">
-  <div class="header ml-2">
-  </div>
-  <% if @movie.nil? %>
-    <div class="flex-column text-center align-items-center" style="border: 16px solid #f0b146; height: 93.5vh;">
-      <br><br><br><br>
-      <h2>No more movies 🙀 </h2>
-      <br>
-      <h2>Try following more people & shuffle again!</h2>
-      <br>
-      <img src="https://thumbs.gfycat.com/AntiqueLightheartedIbizanhound-max-1mb.gif" alt="">
-      <br><br><br><br>
-    </div>
-  <% else %>
-  <%= link_to movie_path(@movie), style: "color: inherit;" do %>
-    <div class="movie-image" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0)),  url(<%= @movie.photo %>);"  >
-      <% if current_user.friend %>
-        <%= image_tag current_user.photo, class: "avatar-shuffle" %>
-        <%= image_tag current_user.friend.photo, class: "avatar-shuffle-friend" %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="movie-wrapper flex-column col-12 col-md-8 col-lg-3" id="movie">
+      <div class="header ml-2">
+      </div>
+      <% if @movie.nil? %>
+        <div class="flex-column text-center align-items-center" style="border: 16px solid #f0b146; height: 93.5vh;">
+          <br><br><br><br>
+          <h2>No more movies 🙀 </h2>
+          <br>
+          <h2>Try following more people & shuffle again!</h2>
+          <br>
+          <img src="https://thumbs.gfycat.com/AntiqueLightheartedIbizanhound-max-1mb.gif" alt="">
+          <br><br><br><br>
+        </div>
+      <% else %>
+      <%= link_to movie_path(@movie), style: "color: inherit;" do %>
+        <div class="movie-image" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0)),  url(<%= @movie.photo %>);"  >
+          <% if current_user.friend %>
+            <%= image_tag current_user.photo, class: "avatar-shuffle" %>
+            <%= image_tag current_user.friend.photo, class: "avatar-shuffle-friend" %>
+          <% end %>
+          <div class="stamp-container"></div>
+        </div>
       <% end %>
-      <div class="stamp-container"></div>
-    </div>
-  <% end %>
-  <div class="title-movie-picker">
-    <h2 style="color: white;"><%= @movie.title %></h2>
-  </div>
-  <div class="details">
-  <p class="summary-movie-picker"><%= @movie.duration %>min | <%= @movie.genre %> | <%= @movie.year %> </p>
+      <div class="title-movie-picker">
+        <h2 style="color: white;"><%= @movie.title %></h2>
+      </div>
+      <div class="details">
+      <p class="summary-movie-picker"><%= @movie.duration %>min | <%= @movie.genre %> | <%= @movie.year %> </p>
 
-    <div class="shuffle-ratings d-flex justify-content-space-between align-items-center">
-      <div class="flex-item ml-2 mr-5">
-        <i class="fas fa-thumbs-up"></i> <strong> <%= @pourcentage_of_likes %> % </strong>
+        <div class="shuffle-ratings d-flex justify-content-space-between align-items-center">
+          <div class="flex-item ml-2 mr-5">
+            <i class="fas fa-thumbs-up"></i> <strong> <%= @pourcentage_of_likes %> % </strong>
+          </div>
+          <div class="flex-item ml-5">
+            <i class="fab fa-imdb"></i> <strong> <%= @movie.imdb_rating %> </strong>
+          </div>
+        </div>
       </div>
-      <div class="flex-item ml-5">
-        <i class="fab fa-imdb"></i> <strong> <%= @movie.imdb_rating %> </strong>
-      </div>
+      <%= render 'footer_shuffle', movie: @movie, movies_shuffled: @movies_shuffled, wished: @wished %>
+      <% end %>
     </div>
   </div>
-  <%= render 'footer_shuffle', movie: @movie, movies_shuffled: @movies_shuffled, wished: @wished %>
-  <% end %>
 </div>
