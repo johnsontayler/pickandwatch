@@ -4,7 +4,7 @@
     <button type="button" class="btn btn-login" id="landpageLogin">Log In</button>
     <div class="landing-container">
       <p>Want to find a good movie but feeling lost? PickandWatch a movie quickly based on your friend's recommendations</p>
-      <a class="btn btn-signup" href="#">Sign Up</a>
+      <%= link_to "Sign Up", new_user_registration_path(), class: "btn btn-signup" %>
     </div>
   </div>
 
@@ -30,7 +30,7 @@
     <p>You profile contains all the movies you've reviewed, along with your wishlist. Now your friends can go to your page to see what you recommend!</p>
     <br><%= image_tag  "https://images.squarespace-cdn.com/content/v1/583f47ca9f7456f249b6f49f/1571281690814-DLLPO7K3UUGCBOAIGT1S/ke17ZwdGBToddI8pDm48kJV1xzub3Mv7ryjqIYnrM6MUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8GRo6ASst2s6pLvNAu_PZdJ2sioZVOoaMvpFPoJKK8SGP4WCvaCD5AEuyk7TfKOKqk8sB3h3Ja5h2jZpFYoqad0/ezgif.com-video-to-gif+%281%29.gif?format=750w", class: "landing-gif" %>
   </div>
-  <a class="btn btn-signup" href="#" style="border-radius: 0; padding: 1rem;">Sign Up Today!</a>
+  <%= link_to "Sign Up Today!", new_user_registration_path(), class: "btn btn-signup", style: "border-radius: 0; padding: 1rem;" %>
 </div> 
 
 <div id="loginPage" style="display: none;">
