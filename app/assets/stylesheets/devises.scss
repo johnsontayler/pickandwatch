@@ -1,52 +1,79 @@
-.devise-background {
+.banner {
+  background-size: cover;
   background-position: center;
-  height: 100vh;
-  position: relative;
-  top: -68px;
+  padding: 150px 0;
 }
 
-.log-sign-container {
-  width: 100%;
-  max-width: 330px;
-  padding: 15px;
-  margin: 0 auto;
-  background: white;
-  position: relative;
-  top: -645px;
-
-  a {
-    color: rgba(0, 0, 0, 0.82);
-    text-decoration: none;
-  }
-
-  a:active {
-    color: $orange;
-    text-decoration: none;
-  }
-}
-
-.devise-header {
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.btn-devise {
+.banner h1 {
+  margin: 0;
   color: white;
-  background-color: $orange;
-  border: 1px solid #df7514;
-  padding: 4px 126px;
-  border-radius: 6px;
-  transition: opacity 0.3s ease;
-  text-decoration: inherit;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 20px;
   color: white;
-  margin-bottom: 24px;
-
-  &:hover {
-    text-decoration: inherit;
-    color: white;
-  }
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
-.form-check {
-  text-align: center;
-}
+
+
+
+
+
+
+// .devise-background {
+//   background-position: center;
+//   height: 100vh;
+//   position: relative;
+//   top: -68px;
+// }
+
+// .log-sign-container {
+//   width: 100%;
+//   max-width: 330px;
+//   padding: 15px;
+//   margin: 0 auto;
+//   background: white;
+//   position: relative;
+//   top: -645px;
+
+//   a {
+//     color: rgba(0, 0, 0, 0.82);
+//     text-decoration: none;
+//   }
+
+//   a:active {
+//     color: $orange;
+//     text-decoration: none;
+//   }
+// }
+
+// .devise-header {
+//   margin-bottom: 1rem;
+//   text-align: center;
+// }
+
+// .btn-devise {
+//   color: white;
+//   background-color: $orange;
+//   border: 1px solid #df7514;
+//   padding: 4px 126px;
+//   border-radius: 6px;
+//   transition: opacity 0.3s ease;
+//   text-decoration: inherit;
+//   color: white;
+//   margin-bottom: 24px;
+
+//   &:hover {
+//     text-decoration: inherit;
+//     color: white;
+//   }
+// }
+
+// .form-check {
+//   text-align: center;
+// }
