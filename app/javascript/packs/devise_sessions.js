@@ -27,5 +27,19 @@ const changeDeviseBackground = () => {
   }, 1500);
 };
 
+const landingPageRemove = () => {
+  const landingPage = document.getElementById('landpageOverlay');
+  const landLoginBtn = document.getElementById('landpageLogin');
+  const loginPage = document.getElementById('loginPage');
 
-export { changeDeviseBackground };
+  if (landingPage) {
+    landLoginBtn.addEventListener('click', () => {
+      landingPage.remove();
+      console.log(loginPage.style.display);
+      loginPage.style.display = "block";
+      console.log(loginPage.style.display);
+    });
+  }
+};
+
+export { changeDeviseBackground, landingPageRemove };

@@ -54,6 +54,7 @@ import { likedDislikedStamp } from '../components/liked_disliked_stamp';
 import { animations } from '../components/animations';
 import { requireRating } from './movies';
 import { changeDeviseBackground } from './devise_sessions';
+import { landingPageRemove } from './devise_sessions';
 import { searchBarShuffle } from './shuffle_with_friend';
 // import { shuffleFormButtons } from './shuffle_with_friend';
 // import { followButton } from '../components/follow_button_profile';
@@ -75,6 +76,6 @@ searchBarShuffle();
 animations();
 changeDeviseBackground();
 likedDislikedStamp();
-
+landingPageRemove();
 
 
