@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   resources :dashboards, only: [:index]
 
-  get '/', to: 'pages#home'
+  # get '/', to: 'pages#home'
 
   resources :wishlist, only: [:index]
 
