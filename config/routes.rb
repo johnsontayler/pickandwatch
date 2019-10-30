@@ -21,7 +21,9 @@ Rails.application.routes.draw do
 
   resources :dashboards, only: [:index]
 
+  get '/', to: 'pages#home'
+
   resources :wishlist, only: [:index]
 
-  root to: 'dashboards#index'
+  # root to: 'dashboards#index'
 end
