@@ -18,7 +18,7 @@ const changeDeviseBackground = () => {
   let i = 0;
   setInterval(function() {
         if (deviseBackground) {
-          deviseBackground.style.backgroundImage = "linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(" + posters[i] + ")";
+          deviseBackground.style.backgroundImage = "linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(" + posters[i] + ")";
           i = i + 1;
           if (i == posters.length) {
             i =  0;
