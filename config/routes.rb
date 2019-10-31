@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'pages/home'
   devise_for :users
 
   resources :users, only: [:index, :show, :edit, :update]
@@ -21,7 +22,9 @@ Rails.application.routes.draw do
 
   resources :dashboards, only: [:index]
 
+  get '/', to: 'dashboards#index'
+
   resources :wishlist, only: [:index]
 
-  root to: 'dashboards#index'
+  # root to: 'dashboards#index'
 end
